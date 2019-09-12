@@ -2,7 +2,4 @@
 este proyecto ya esta en git
 :D
 Mau xd
-
-
-
 Nicolas Reyes
