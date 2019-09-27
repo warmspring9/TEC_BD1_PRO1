@@ -1,8 +1,8 @@
 create table password_changes(
     id_password_changes NUMBER(6),
-	id_person NUMBER(6),
-	previous_password VARCHAR2(100),
-	current_password VARCHAR2(100),
+    id_log_in NUMBER(6),
+    previous_password VARCHAR2(100),
+    current_password VARCHAR2(100),
     change_date date,
     creation_date date,
     user_creation varchar2(20),
@@ -10,7 +10,12 @@ create table password_changes(
     last_modified_user varchar2(20)
     );
     
-    
+ALTER TABLE Password_changes 
+    ADD CONSTRAINT password_changes_PK PRIMARY KEY (id_password_changes)
+    USING index
+    TABLESPACE PRO_IND PCTFREE 20
+    STORAGE (initial 10K NEXT 10K PCTINCREASE 0);
+
 CREATE SEQUENCE password_changes_seq
   MINVALUE 1
   START WITH 1
@@ -42,7 +47,7 @@ before insert or update of password on log_in
 for each row 
   begin 
     
-    insert into password_changes(id_password_changes, id_person, previous_password, current_password, change_date)
+    insert into password_changes(id_password_changes, id_log_in, previous_password, current_password, change_date)
                                   
     values(PASSWORD_CHANGES_SEQ.nextval, :old.id_log_in,:old.password,:new.password, sysdate);
                                       
