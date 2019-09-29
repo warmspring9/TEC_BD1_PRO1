@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="rootPane" prefHeight="590.0" prefWidth="1075.0" style="-fx-background-color:#ffffff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.DashController">
+  <children>
+    <VBox opacity="1.0" prefHeight="400.0" prefWidth="75.0" style="-fx-background-color:#3C809C;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Pane prefHeight="400.0" prefWidth="50.0">
+          <children>
+            <Button layoutX="0.0" layoutY="0.0" minWidth="74.99999237060547" mnemonicParsing="false" prefHeight="59.9609375" prefWidth="74.99999237060547" style="-fx-border-color: transparent;&#10;    -fx-border-width: 0;&#10;    -fx-background-radius: 0;&#10;    -fx-background-color: transparent;" text="Dashboard">
+              <graphic>
+                <ImageView disable="false" fitHeight="43.49999257601227" fitWidth="57.99999237060547" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/icons8-courage-symbol-100.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button layoutX="0.0" layoutY="60.0" minWidth="74.99999237060547" mnemonicParsing="false" prefHeight="59.9609375" prefWidth="74.99999237060547" style="-fx-border-color: transparent;&#10;    -fx-border-width: 0;&#10;    -fx-background-radius: 0;&#10;    -fx-background-color: transparent;" text="Reports">
+              <graphic>
+                <ImageView fitHeight="43.49999257601227" fitWidth="57.99999237060547" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/icons8-graph-100.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button layoutX="0.0" layoutY="120.0" minWidth="74.99999237060547" mnemonicParsing="false" prefHeight="59.9609375" prefWidth="74.99999237060547" style="-fx-border-color: transparent;&#10;    -fx-border-width: 0;&#10;    -fx-background-radius: 0;&#10;    -fx-background-color: transparent;" text="Posts">
+              <graphic>
+                <ImageView fitHeight="43.49999257601227" fitWidth="57.99999237060547" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/icons8-penrose-square-100.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button layoutX="0.0" layoutY="180.0" minWidth="74.99999237060547" mnemonicParsing="false" prefHeight="59.9609375" prefWidth="74.99999237060547" style="-fx-border-color: transparent;&#10;    -fx-border-width: 0;&#10;    -fx-background-radius: 0;&#10;    -fx-background-color: transparent;" text="Profile">
+              <graphic>
+                <ImageView fitHeight="43.49999257601227" fitWidth="57.99999237060547" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/icons8-unity-symbol-100.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+            <Button fx:id="exitBtn" layoutX="0.0" layoutY="240.0" minWidth="74.99999237060547" mnemonicParsing="false" onAction="#exit" prefHeight="59.9609375" prefWidth="74.99999237060547" style="-fx-border-color: transparent;&#10;    -fx-border-width: 0;&#10;    -fx-background-radius: 0;&#10;    -fx-background-color: transparent;" text="Exit">
+              <graphic>
+                <ImageView fx:id="exitImg" fitHeight="43.49999257601227" fitWidth="57.99999237060547" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../icons/icons8-hand-side-view-100.png" />
+                  </image>
+                </ImageView>
+              </graphic>
+            </Button>
+          </children>
+        </Pane>
+      </children>
+    </VBox>
+    <VBox prefHeight="590.0" prefWidth="349.0" style="-fx-background-color:#323639;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <Pane prefHeight="400.0" prefWidth="200.0">
+          <VBox.margin>
+            <Insets left="75.0" />
+          </VBox.margin>
+        </Pane>
+      </children>
+    </VBox>
+    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="590.0" prefWidth="651.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+  </children>
+</AnchorPane>
