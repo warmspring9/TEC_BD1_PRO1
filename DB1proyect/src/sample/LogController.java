@@ -4,13 +4,17 @@ import java.io.Console;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Core.CoreController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 
-public class Controller {
+public class LogController {
+    CoreController core = new CoreController();
+
     public Main main = new Main();
     @FXML
     private ResourceBundle resources;
@@ -27,7 +31,7 @@ public class Controller {
     @FXML
     private TextField username_txt;
 
-    public Controller() {
+    public LogController() {
     }
 
 
@@ -45,10 +49,12 @@ public class Controller {
         /*op = tiene que pedirle al controller que valide el username y password
         y que le devuelva si es admin o usuario normal
         tambien agrega en el main el usuario
+        controller.LogIn(username_text.getTest(),password_txt.getText());
+
         */
         if(op == 1){ //es usuario normal
 
-
+            core.LogIn(username_txt.getTest(),password_txt.getText());
             System.out.println("OH me estriparon mas mas");
             System.out.println(username_txt.getText());
             System.out.println(password_txt.getText());
