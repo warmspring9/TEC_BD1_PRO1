@@ -54,7 +54,7 @@ public class LogController {
         */
         if(op == 1){ //es usuario normal
 
-            core.LogIn(username_txt.getTest(),password_txt.getText());
+            //core.LogIn(username_txt.getText(),password_txt.getText());
             System.out.println("OH me estriparon mas mas");
             System.out.println(username_txt.getText());
             System.out.println(password_txt.getText());

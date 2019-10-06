@@ -2,13 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Core/CoreController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataAccess/SQLDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/OJDBC_Full.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB1proyect.eml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DB1proyect.userlibraries" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/README.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/ojdbc.policy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/ojdbc6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/ojdbc7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/ons.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/orai18n.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/simplefan.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/ucp.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/libraries/ojdbc-full/OJDBC-Full/xdb6.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB1proyect.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DB1proyect.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB1proyect/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB1proyect/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB1proyect/sample/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB1proyect/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB1proyect/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DB1proyect/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DB1proyect/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataAccess/SQLDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataAccess/SQLDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,11 +96,14 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1RMH8NSEz1jweIF7KT7UCTxJDsq" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -91,10 +111,15 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/WINDOWS.X64_193000_db_home/network/admin/tnsnames.ora" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -117,7 +142,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -148,6 +173,13 @@
       </extension>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OracleCon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OracleCon" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -189,6 +221,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OracleCon" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -212,7 +249,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -220,6 +259,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
 </project>

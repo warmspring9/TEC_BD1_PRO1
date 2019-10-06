@@ -4,24 +4,26 @@ import java.sql.*;
 
 
 public class SQLDAO {
-
-    public SQLDAO() {
-
+    private static final SQLDAO instance = new SQLDAO();
+    private SQLDAO() {}
+    public static SQLDAO getInstance(){
+        return instance;
     }
-
     public void OpenConection() {
+        System.out.println("caca");
         //step1 load the driver class
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
                 //step2 create  the connection object
         Connection con=DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
-
+                "jdbc:oracle:thin:@localhost:1521:orcll","system","system");
+        System.out.println("caca");
         //step3 create the statement object
         Statement stmt=con.createStatement();
 
         //step4 execute query
-        ResultSet rs=stmt.executeQuery("select * from emp");
+        ResultSet rs=stmt.executeQuery("select * from employee");
+
         while(rs.next())
             System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));
 
