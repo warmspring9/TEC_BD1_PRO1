@@ -118,11 +118,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/out/production/DB1proyect/sample/dashboard.fxml" />
 =======
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/WINDOWS.X64_193000_db_home/network/admin/tnsnames.ora" />
 >>>>>>> master
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> Stashed changes
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
