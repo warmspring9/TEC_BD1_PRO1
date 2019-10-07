@@ -12,7 +12,7 @@
 <?import javafx.scene.text.*?>
 <?scenebuilder-background-color 0xdfdfdfff?>
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="590.0" prefWidth="1075.0" style="-fx-background-color:#00000f;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="590.0" prefWidth="1075.0" style="-fx-background-color:#00000f;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.LogController">
   <children>
     <ImageView fitHeight="689.4999985257208" fitWidth="1103.199951171875" layoutX="0.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-38.5" AnchorPane.topAnchor="0.0">
       <image>
