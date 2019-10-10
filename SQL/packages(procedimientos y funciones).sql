@@ -1,4 +1,647 @@
 
+------------------------Canton------------------
+create or replace package packageCanton is
+    procedure createCanton(pvName varchar2, pnId_province number);
+    procedure deleteCanton(pnId_Canton NUMBER);
+    procedure updateCantonName(pnId_canton number, pvName varchar2);
+    function getName(pnId_canton number) return varchar2;
+    function getIdProvince(pnId_canton number) return number;
+
+    end packageCanton;
+    
+create or replace package body packageCanton as
+    procedure createCanton(pvName varchar2, pnId_province number) is
+        begin
+            insert into canton(id_canton, name, id_province)
+            values(canton_seq.nextval, pvName, pnId_province);
+            commit;
+        end createCanton;
+
+    procedure deleteCanton(pnId_Canton number) is
+        begin
+            delete from Canton where id_Canton=pnId_Canton;
+            commit;
+        end deleteCanton;
+
+    procedure updateCantonName(pnId_Canton number, pvName varchar2) is
+        begin
+            update Canton set name=pvName where id_canton=pnId_Canton;
+            commit;
+        end updateCantonName;
+        
+    function getName(pnId_Canton number) return varchar2 is
+        nName varchar2(20);
+
+       begin
+              select Name
+              into nName
+              from Canton
+              where id_Canton=pnId_Canton;
+              return(nName);
+        end getName;
+    
+    function getIdProvince(pnId_Canton number) return number is
+        nIdProvince number;
+
+       begin
+              select id_province
+              into nIdProvince
+              from Canton
+              where id_Canton=pnId_Canton;
+              return(nIdProvince);
+        end getIdProvince;
+
+    end packageCanton;  
+
+
+-----------------Category-----------------------
+create or replace package packageCategory is
+    procedure createCategory(pvName varchar2);
+    procedure deleteCategory(pnId_Category NUMBER);
+    procedure updateCategoryName(pnId_category number, pvName varchar2);
+    function getName(pnId_category number) return varchar2;
+
+    end packageCategory;
+    
+create or replace package body packageCategory as
+    procedure createCategory(pvName varchar2) is
+        begin
+            insert into category(id_category, name)
+            values(category_seq.nextval, pvName);
+            commit;
+        end createCategory;
+
+    procedure deleteCategory(pnId_Category number) is
+        begin
+            delete from Category where id_Category=pnId_Category;
+            commit;
+        end deleteCategory;
+
+    procedure updateCategoryName(pnId_Category number, pvName varchar2) is
+        begin
+            update Category set name=pvName where id_category=pnId_Category;
+            commit;
+        end updateCategoryName;
+        
+    function getName(pnId_Category number) return varchar2 is
+        nName varchar2(20);
+        begin
+              select Name
+              into nName
+              from Category
+              where id_Category=pnId_Category;
+              return(nName);
+        end getName;
+
+    end packageCategory;
+ 
+-----------------Commentary-----------------------
+
+create or replace package packageCommentary is
+    procedure createCommentary(pvContent varchar2, pnId_Proposal number, pnId_Person number);
+    procedure deleteCommentary(pnId_Comment NUMBER);
+    procedure updateCommentaryContent(pnId_Comment number, pvContent varchar2);
+    function getContent(pnId_Comment number) return varchar2;
+    function getPostTime(pnId_Comment number) return Date;
+    function getIdProposal(pnId_Comment number) return number;
+    function getIdPerson(pnId_Comment number) return number;
+    
+    
+    end packageCommentary;
+    
+create or replace package body packageCommentary as
+    procedure createCommentary(pvContent varchar2, pnId_Proposal number, pnId_Person number) is
+        begin
+            insert into commentary(id_comment, content, id_Proposal, id_Person)
+            values(comment_seq.nextval, pvContent, pnId_Proposal, pnId_Person);
+            commit;
+        end createCommentary;
+
+    procedure deleteCommentary(pnId_Comment number) is
+        begin
+            delete from Commentary where id_Comment=pnId_Comment;
+            commit;
+        end deleteCommentary;
+
+    procedure updateCommentaryContent(pnId_Comment number, pvContent varchar2) is
+        begin
+            update Commentary set content=pvContent where Id_Comment=pnId_Comment;
+            commit;
+        end updateCommentaryContent;
+        
+    function getContent(pnId_Comment number) return varchar2 is
+        nContent varchar2(100);
+        begin
+            select Content 
+            into nContent
+            from Commentary
+            where id_Comment=pnId_Comment;
+            
+            return(nContent);
+        end getContent;
+            
+            
+    function getPostTime(pnId_Comment number) return Date is
+        nPostTime date;
+        begin
+            select  post_time
+            into nPostTime
+            from Commentary
+            where id_Comment=pnId_Comment;
+            
+            return(nposttime);
+        end getPostTime;
+        
+    function getIdProposal(pnId_Comment number) return number is
+        nIdProposal number;
+        begin
+            select  id_proposal
+            into nIdProposal
+            from Commentary
+            where id_Comment=pnId_Comment;
+            
+            return(nIdProposal);
+        end getIdProposal;
+        
+    function getIdPerson(pnId_Comment number) return number is
+        nIdPerson number;
+        begin
+            select  id_person
+            into nIdPerson
+            from Commentary
+            where id_Comment=pnId_Comment;
+            
+            return(nIdPerson);
+        end getIdPerson;
+    
+    
+    end packageCommentary;
+ 
+------------------Community-------------------
+
+create or replace package packageCommunity is
+    procedure createCommunity(pvName varchar2, pnId_District number);
+    procedure deleteCommunity(pnId_Community NUMBER);
+    procedure updateCommunityName(pnId_Community number, pvName varchar2);
+    function getName(pnId_Community number) return varchar2;
+    function getIdDistrict(pnId_Community number) return number;
+    end packageCommunity;
+    
+create or replace package body packageCommunity as
+    procedure createCommunity(pvName varchar2, pnId_District number) is
+        begin
+            insert into community(id_community, name, id_District)
+            values(community_seq.nextval, pvName, pnId_District);
+            commit;
+        end createCommunity;
+
+    procedure deleteCommunity(pnId_Community number) is
+        begin
+            delete from Community where id_Community=pnId_Community;
+            commit;
+        end deleteCommunity;
+
+    procedure updateCommunityName(pnId_Community number, pvName varchar2) is
+        begin
+            update Community set name=pvName where Id_Community=pnId_Community;
+            commit;
+        end updateCommunityName;
+        
+    function getName(pnId_Community number) return varchar2 is
+        nName varchar2(30);
+        begin
+            select Name
+            into nName
+            from Community
+            where id_Community=pnId_Community;
+            
+            return(nName);
+        end getName;
+        
+    function getIdDistrict(pnId_Community number) return number is
+        nIdDistrict number;
+        begin
+            select id_district
+            into nIdDistrict
+            from Community
+            where id_Community=pnId_Community;
+            
+            return(nIdDistrict);
+        end getIdDistrict;
+
+    end packageCommunity;
+
+-------------PersonXCountry------------------------
+create or replace package packagePersonXCountry is
+    procedure createPersonxCountry(pnIdPerson number, pnIdCountry number);
+    procedure deletePersonxCountry(pnIdPerson number, pnIdCountry number);
+    
+    end packagePersonXCountry;
+
+create or replace package body packagePersonXCountry as
+    procedure createPersonxCountry(pnIdPerson number, pnIdCountry number) is
+    begin
+        insert into personxcountry (Id_person, Id_country)
+        values(pnIdPerson, pnIdCountry);
+        commit;
+    end createPersonxCountry;
+
+    procedure deletePersonxCountry(pnIdPerson number, pnIdCountry number) is
+        begin
+            delete from personXCountry where id_person=pnIdperson and id_country=pnIdCountry;
+            commit;
+        end deletePersonxCountry;
+
+    end packagePersonXCountry;
+
+----------Proposal---------------------
+create or replace package packageProposal is
+    procedure createProposal(pvTitle varchar2, pnBudget number, pvSummary varchar2, post_time Date, pnId_person number);
+    procedure deleteProposal(pnId_Proposal number);
+    procedure updateTitle(pnId_Proposal number, pvTitle varchar2);
+    procedure updateBudget(pnId_Proposal number, pnBudget varchar2);
+    procedure updateSummary(pnId_Proposal number, pvSummary varchar2);
+    function getTitle(pnId_Proposal number) return varchar2;
+    function getBudget(pnId_Proposal number) return number;
+    function getSummary(pnId_Proposal number) return varchar2;
+    function getPostTime(pnId_Proposal number) return date;
+    function getIdPerson(pnId_Proposal number) return number;
+    end packageProposal;
+
+create or replace package body packageProposal as
+    procedure createProposal(pvTitle varchar2, pnBudget number, pvSummary varchar2, post_time Date, pnId_person number) is
+        begin
+            insert into proposal(id_proposal, title, budget, summary, post_time, id_person)
+            values(proposal_seq.nextval, pvTitle, pnBudget, pvSummary, post_time, pnId_person);
+            commit;
+        end createProposal;
+
+    procedure deleteProposal(pnId_Proposal number) is
+        begin
+            delete from Proposal where id_Proposal=pnId_Proposal;
+            commit;
+        end deleteProposal;
+
+    procedure updateTitle(pnId_Proposal number, pvTitle varchar2) is
+        begin
+            update Proposal set title=pvTitle where Id_Proposal=pnId_Proposal;
+            commit;
+        end updateTitle;
+        
+    procedure updateBudget(pnId_Proposal number, pnBudget varchar2) is
+        begin
+            update Proposal set budget=pnBudget where Id_Proposal=pnId_Proposal;
+            commit;
+        end updateBudget;
+        
+    procedure updateSummary(pnId_Proposal number, pvSummary varchar2) is
+        begin
+            update Proposal set summary=pvSummary where Id_Proposal=pnId_Proposal;
+            commit;
+        end updateSummary;
+        
+    function getTitle(pnId_Proposal number) return varchar2 is
+        nTitle varchar2(30);
+        begin
+            select title
+            into nTitle
+            from Proposal
+            where id_Proposal=pnId_Proposal;
+            
+            return(nTitle);
+        end getTitle;
+        
+    function getBudget(pnId_Proposal number) return number is
+        nBudget NUMBER;
+        begin
+            select budget
+            into nbudget
+            from Proposal
+            where id_Proposal=pnId_Proposal;
+            
+            return(nBudget);
+        end getBudget;
+        
+    function getSummary(pnId_Proposal number) return varchar2 is
+        nSummary varchar2(200);
+        begin
+            select summary
+            into nSummary
+            from Proposal
+            where id_Proposal=pnId_Proposal;
+            
+            return(nSummary);
+        end getSummary;
+        
+    function getPostTime(pnId_Proposal number) return DATE is
+        nPostTime date;
+        begin
+            select post_time
+            into nPostTime
+            from Proposal
+            where id_Proposal=pnId_Proposal;
+            
+            return(nPostTime);
+        end getPostTime;
+        
+        function getIdPerson(pnId_Proposal number) return NUMBER is
+        nIdPerson number;
+        begin
+            select id_person
+            into nIdPerson
+            from Proposal
+            where id_Proposal=pnId_Proposal;
+            
+            return(nIdPerson);
+        end getIdPerson;
+
+    end packageProposal;
+    
+    
+----------Proposal_Photo---------------------
+create or replace package packageProposalPhoto is
+    procedure createProposalPhoto(pvContent varchar2, pnIdProposal number);
+    procedure deleteProposalPhoto(pnId_ProposalPhoto number);
+    procedure updateContent(pnId_ProposalPhoto number, pvContent varchar2);
+    function getContent(pnId_ProposalPhoto number) return varchar2;
+    function getIdProposal(pnId_ProposalPhoto number) return number;
+    end packageProposalPhoto;
+
+create or replace package body packageProposalPhoto as
+    procedure createProposalPhoto(pvContent varchar2, pnIdProposal number) is
+        begin
+            insert into Proposal_Photo(id_proposal_photo, content, id_proposal)
+            values(proposal_Photo_seq.nextval, pvContent, pnIdproposal);
+            commit;
+        end createProposalPhoto;
+
+    procedure deleteProposalPhoto(pnId_ProposalPhoto number) is
+        begin
+            delete from Proposal_Photo where id_Proposal_Photo=pnId_ProposalPhoto;
+            commit;
+        end deleteProposalPhoto;
+
+    procedure updateContent(pnId_ProposalPhoto number, pvContent varchar2) is
+        begin
+            update Proposal_Photo set content=pvContent where Id_Proposal_Photo=pnId_ProposalPhoto;
+            commit;
+        end updateContent;
+        
+    function getContent(pnId_ProposalPhoto number) return varchar2 is
+        nContent varchar2(40);
+        begin
+            select content
+            into nContent
+            from Proposal_Photo
+            where id_Proposal_Photo=pnId_ProposalPhoto;
+            
+            return(nContent);
+        end getContent;
+        
+    function getIdProposal(pnId_ProposalPhoto number) return number is
+        nIdProposal NUMBER;
+        begin
+            select id_proposal
+            into nIdProposal
+            from Proposal_Photo
+            where id_Proposal_Photo=pnId_ProposalPhoto;
+            
+            return(nIdProposal);
+        end getIdProposal;
+
+    end packageProposalPhoto;
+
+-------------PersonXCountry------------------------
+create or replace package packageProposalXCategory is
+    procedure createProposalXCategory(pnIdProposal number, pnIdCategory number);
+    procedure deleteProposalXCategory(pnIdProposal number, pnIdCategory number);
+    
+    end packageProposalXCategory;
+
+create or replace package body packageProposalXCategory as
+    procedure createProposalXCategory(pnIdProposal number, pnIdCategory number) is
+    begin
+        insert into proposalxCategory(Id_proposal, Id_category)
+        values(pnIdProposal, pnIdCategory);
+        commit;
+    end createProposalxCategory;
+
+    procedure deleteProposalXCategory(pnIdProposal number, pnIdCategory number) is
+        begin
+            delete from proposalxcategory where id_proposal=pnIdProposal and id_category=pnidcategory;
+            commit;
+        end deleteProposalXCategory;
+
+    end packageProposalXCategory;
+    
+
+----------------Province-------------------
+create or replace package packageProvince is
+    procedure createProvince(pvName varchar2, pnId_country number);
+    procedure deleteProvince(pnId_Province NUMBER);
+    procedure updateProvinceName(pnId_Province number, pvName varchar2);
+    function getName(pnId_Province number) return varchar2;
+    function getIdCountry(pnId_Province number) return number;
+
+    end packageProvince;
+
+create or replace package body packageProvince as
+    procedure createProvince(pvName varchar2, pnId_country number) is
+        begin
+            insert into province(id_province, name, id_country)
+            values(province_seq.nextval, pvName, pnId_country);
+            commit;
+        end createProvince;
+
+    procedure deleteProvince(pnId_province number) is
+        begin
+            delete from province where id_province=pnId_province;
+            commit;
+        end deleteProvince;
+
+    procedure updateProvinceName(pnId_Province number, pvName varchar2) is
+        begin
+            update Province set name=pvName where id_province=pnId_province;
+            commit;
+        end updateProvinceName;
+        
+    function getName(pnId_province number) return varchar2 is
+        nName varchar2(20);
+
+       begin
+              select Name
+              into nName
+              from Province
+              where id_Province=pnId_Province;
+              return(nName);
+        end getName;
+    
+    function getIdCountry(pnId_province number) return number is
+        nIdCountry number;
+
+       begin
+              select id_country
+              into nIdCountry
+              from Province
+              where id_province=pnId_province;
+              return(nIdCountry);
+        end getIdCountry;
+
+    end packageProvince; 
+
+--------------USER_TYPE-------------------------
+
+create or replace package packageUserType is
+    procedure createUserType(pvName varchar2);
+    procedure deleteUserType(pnId_UserType NUMBER);
+    procedure updateUserTypeName(pnId_UserType number, pvName varchar2);
+    function getName(pnId_UserType number) return varchar2;
+
+    end packageUserType;
+
+create or replace package body packageUserType as
+    
+    procedure createUserType(pvName varchar2) as
+        begin
+            insert into user_type (id_user_type, name)
+            values(USER_TYPE_SEQ.nextval, pvName);
+            commit;
+        end createUserType;
+
+    procedure deleteUserType(pnId_userType number) is
+        begin
+            delete from User_Type where id_user_type=pnId_userType;
+            commit;
+        end deleteUserType;
+
+    procedure updateUserTypeName(pnId_UserType number, pvName varchar2) is
+        begin
+            update User_type set name=pvName where id_user_type=pnId_userType;
+            commit;
+        end updateUserTypeName;
+        
+    function getName(pnId_UserType number) return varchar2 is
+        nName varchar2(20);
+       begin
+              select Name
+              into nName
+              from user_type
+              where id_user_type=pnId_userType;
+              return(nName);
+        end getName;
+
+    end packageUserType; 
+    
+    
+-----------------Voto------------------------
+
+create or replace package packageVote is
+    procedure createVote(pnEmote NUMBER);
+    procedure deleteVote(pnId_Vote NUMBER);
+    procedure updateEmote(pnId_Vote number, pnEmote number);
+    function getEmote(pnId_Vote number) return number;
+    function getIdProposal(pnId_Vote number) return number;
+    function getIdPerson(pnId_Vote number) return number;
+
+    end packageVote;
+
+create or replace package body packageVote as
+    
+    procedure createVote(pnEmote number) as
+        begin
+            insert into Vote(id_vote, emote)
+            values(VOTE_SEQ.nextval, pnEmote);
+            commit;
+        end createVote;
+
+    procedure deleteVote(pnId_Vote number) is
+        begin
+            delete from Vote where id_vote=pnId_Vote;
+            commit;
+        end deleteVote;
+
+    procedure updateEmote(pnId_Vote number, pnEmote number) is
+        begin
+            update Vote set emote=pnEmote where id_vote=pnId_vote;
+            commit;
+        end updateEmote;
+        
+    function getEmote(pnId_vote number) return number is
+        nEmote number;
+       begin
+              select emote
+              into nEmote
+              from vote
+              where id_vote=pnId_vote;
+              return(nEmote);
+        end getEmote;
+        
+    function getIdProposal(pnId_vote number) return number is
+        nIdProposal number;
+       begin
+              select id_proposal
+              into nIdProposal
+              from vote
+              where id_vote=pnId_vote;
+              return(nIdProposal);
+        end getIdProposal;
+        
+    function getIdPerson(pnId_vote number) return number is
+        nIdPerson number;
+       begin
+              select id_person
+              into nIdPerson
+              from vote
+              where id_vote=pnId_vote;
+              return(nIdPerson);
+        end getIdPerson;
+
+    end packageVote;
+    
+----------------------Phone---------------------------
+
+create or replace package packagePhone is
+    procedure createPhone(pvTelephone varchar2, pnIdPerson number);
+    procedure deletePhone(pvTelephone varchar2);
+    procedure updatePhone(pvTelephone varchar2, pvNTelephone varchar2);
+    function getIdPerson(pvTelephone varchar2) return number;
+
+    end packagePhone;
+
+create or replace package body packagePhone as
+    
+    procedure createPhone(pvTelephone varchar2, pnIdPerson number) as
+        begin
+            insert into Phone(Telephone, id_person)
+            values(pvTelephone, pnidperson);
+            commit;
+        end createPhone;
+
+    procedure deletePhone(pvTelephone varchar2) is
+        begin
+            delete from Phone where Telephone=pvTelephone;
+            commit;
+        end deletePhone;
+
+    procedure updatePhone(pvTelephone varchar2, pvNTelephone varchar2) is
+        begin
+            update Phone set Telephone=pvNTelephone where Telephone=pvTelephone;
+            commit;
+        end updatePhone;
+        
+    function getIdPerson(pvTelephone varchar2) return number is
+        nIdPerson number;
+       begin
+              select id_person
+              into nIdPerson
+              from Phone
+              where Telephone=pvTelephone;
+              return(nIdPerson);
+        end getIdPerson;
+
+    end packagePhone;
+
+-----------------------------------------
 create or replace package packageCountry is
 
     procedure createCountry(pvName Varchar2);
