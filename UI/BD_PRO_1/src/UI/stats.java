@@ -40,7 +40,7 @@ public class stats extends javax.swing.JFrame {
         proposalxCategoryPanel.setLayout(proposalxCategoryPanelLayout);
         proposalxCategoryPanelLayout.setHorizontalGroup(
             proposalxCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
         proposalxCategoryPanelLayout.setVerticalGroup(
             proposalxCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -53,7 +53,7 @@ public class stats extends javax.swing.JFrame {
         proposalxZonePanel.setLayout(proposalxZonePanelLayout);
         proposalxZonePanelLayout.setHorizontalGroup(
             proposalxZonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
         proposalxZonePanelLayout.setVerticalGroup(
             proposalxZonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -66,7 +66,7 @@ public class stats extends javax.swing.JFrame {
         ageRangePanel.setLayout(ageRangePanelLayout);
         ageRangePanelLayout.setHorizontalGroup(
             ageRangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
         ageRangePanelLayout.setVerticalGroup(
             ageRangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,7 +79,7 @@ public class stats extends javax.swing.JFrame {
         userxAddress.setLayout(userxAddressLayout);
         userxAddressLayout.setHorizontalGroup(
             userxAddressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 475, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
         );
         userxAddressLayout.setVerticalGroup(
             userxAddressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,7 +94,7 @@ public class stats extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(stats))
+                .addComponent(stats, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
