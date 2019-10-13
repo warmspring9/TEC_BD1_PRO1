@@ -9,12 +9,12 @@ package UI;
  *
  * @author jalej
  */
-public class editProposal extends javax.swing.JFrame {
+public class addProposal_1 extends javax.swing.JFrame {
 
     /**
      * Creates new form addProposal
      */
-    public editProposal() {
+    public addProposal_1() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -38,10 +38,9 @@ public class editProposal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         proposalDescriptionField = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
-        changeProposalPhotoButton = new javax.swing.JButton();
+        addProposalPhotoButton = new javax.swing.JButton();
         submitButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -72,6 +71,7 @@ public class editProposal extends javax.swing.JFrame {
         proposalDescriptionField.setColumns(20);
         proposalDescriptionField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         proposalDescriptionField.setRows(5);
+        proposalDescriptionField.setText("add a description to your proposal!!");
         jScrollPane1.setViewportView(proposalDescriptionField);
 
         javax.swing.GroupLayout proposalPanelLayout = new javax.swing.GroupLayout(proposalPanel);
@@ -115,13 +115,18 @@ public class editProposal extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_image_png.png"))); // NOI18N
 
-        changeProposalPhotoButton.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
-        changeProposalPhotoButton.setForeground(new java.awt.Color(239, 131, 84));
-        changeProposalPhotoButton.setText("change the photo!!");
-        changeProposalPhotoButton.setBorder(null);
-        changeProposalPhotoButton.setBorderPainted(false);
-        changeProposalPhotoButton.setContentAreaFilled(false);
-        changeProposalPhotoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addProposalPhotoButton.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
+        addProposalPhotoButton.setForeground(new java.awt.Color(239, 131, 84));
+        addProposalPhotoButton.setText("add a photo for the proposal!!");
+        addProposalPhotoButton.setBorder(null);
+        addProposalPhotoButton.setBorderPainted(false);
+        addProposalPhotoButton.setContentAreaFilled(false);
+        addProposalPhotoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addProposalPhotoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProposalPhotoButtonActionPerformed(evt);
+            }
+        });
 
         submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitButton.setBorder(null);
@@ -135,12 +140,6 @@ public class editProposal extends javax.swing.JFrame {
         cancelButton.setContentAreaFilled(false);
         cancelButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        deleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trashNaranja{.png"))); // NOI18N
-        deleteButton.setBorder(null);
-        deleteButton.setBorderPainted(false);
-        deleteButton.setContentAreaFilled(false);
-        deleteButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -149,12 +148,10 @@ public class editProposal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(changeProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                    .addComponent(addProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(deleteButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(cancelButton)
                         .addGap(18, 18, 18)
                         .addComponent(submitButton))
@@ -169,14 +166,12 @@ public class editProposal extends javax.swing.JFrame {
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(changeProposalPhotoButton))
+                        .addComponent(addProposalPhotoButton))
                     .addComponent(proposalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(submitButton)
-                        .addComponent(cancelButton))
-                    .addComponent(deleteButton))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(submitButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -193,6 +188,10 @@ public class editProposal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addProposalPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProposalPhotoButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addProposalPhotoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,30 +210,43 @@ public class editProposal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(editProposal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addProposal_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(editProposal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addProposal_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(editProposal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addProposal_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(editProposal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addProposal_1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new editProposal().setVisible(true);
+                new addProposal_1().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addProposalPhotoButton;
     private javax.swing.JTextField budgetField;
     private javax.swing.JButton cancelButton;
-    private javax.swing.JButton changeProposalPhotoButton;
-    private javax.swing.JButton deleteButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -178,11 +178,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="2" attributes="0">
-                                  <Component id="number_votes_filter" alignment="2" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <Component id="date_range_2" alignment="2" min="-2" pref="98" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Component id="number_votes_filter" min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -220,7 +217,6 @@
                                       <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="submit_filters" alignment="2" min="-2" max="-2" attributes="0"/>
-                                          <Component id="date_range_1" alignment="2" min="-2" pref="98" max="-2" attributes="0"/>
                                           <Component id="category_list_filter" alignment="2" min="-2" pref="98" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -241,16 +237,12 @@
                               <Component id="category_list_filter" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="date_range_1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="date_range_2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="number_votes_filter" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="24" max="32767" attributes="0"/>
+                              <EmptySpace pref="19" max="32767" attributes="0"/>
                               <Component id="submit_filters" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
@@ -284,7 +276,6 @@
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/UI/leaderboard_50px.png"/>
                         </Property>
-                        <Property name="actionCommand" type="java.lang.String" value=""/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="null"/>
                         </Property>
@@ -325,10 +316,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Date Range:"/>
                       </Properties>
-                    </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="date_range_1">
-                    </Component>
-                    <Component class="com.toedter.calendar.JDateChooser" name="date_range_2">
                     </Component>
                     <Component class="javax.swing.JTextField" name="number_votes_filter">
                       <Events>

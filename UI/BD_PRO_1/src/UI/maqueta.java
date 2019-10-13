@@ -42,11 +42,9 @@ public class maqueta extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         top_n = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
-        category_list_filter = new javax.swing.JComboBox<>();
+        category_list_filter = new javax.swing.JComboBox<String>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        date_range_1 = new com.toedter.calendar.JDateChooser();
-        date_range_2 = new com.toedter.calendar.JDateChooser();
         number_votes_filter = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         submit_filters = new javax.swing.JButton();
@@ -110,7 +108,6 @@ public class maqueta extends javax.swing.JFrame {
         });
 
         top_n.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/leaderboard_50px.png"))); // NOI18N
-        top_n.setActionCommand("");
         top_n.setBorder(null);
         top_n.setBorderPainted(false);
         top_n.setContentAreaFilled(false);
@@ -144,10 +141,8 @@ public class maqueta extends javax.swing.JFrame {
             LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LeftPanelFeedLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(number_votes_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(date_range_2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(57, 57, 57))
+                .addComponent(number_votes_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
             .addGroup(LeftPanelFeedLayout.createSequentialGroup()
                 .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator4)
@@ -176,7 +171,6 @@ public class maqueta extends javax.swing.JFrame {
                         .addGap(94, 94, 94)
                         .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(submit_filters, javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(date_range_1, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(category_list_filter, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -192,15 +186,11 @@ public class maqueta extends javax.swing.JFrame {
                 .addComponent(category_list_filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(date_range_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(date_range_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(86, 86, 86)
                 .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(number_votes_filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(submit_filters)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -532,8 +522,6 @@ public class maqueta extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> category_list_filter;
     private javax.swing.JLabel communityNameLabel;
     private javax.swing.JPanel communityNamePanel;
-    private com.toedter.calendar.JDateChooser date_range_1;
-    private com.toedter.calendar.JDateChooser date_range_2;
     private javax.swing.JButton exit_button;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
