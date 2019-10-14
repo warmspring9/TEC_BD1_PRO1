@@ -8,9 +8,12 @@ package DA;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import oracle.jdbc.OracleTypes;
 
 /**
  *
@@ -610,7 +613,7 @@ public class DataHandler {
     //*****procedimientos y funciones Person*****
     //---------------------------------------------
     
-    public static void createPerson(String pName, String pLastName, String pLastName2, String pDate, int pIdCommunity, int pIdLogIn) throws SQLException{
+    public static void createPerson(int pIdPerson, String pName, String pLastName, String pLastName2, String pDate, int pIdDistrict) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -619,12 +622,13 @@ public class DataHandler {
         java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
                 
         CallableStatement stmt=conn.prepareCall("{ call packagePerson.createPerson(?,?,?,?,?,?)}");
-        stmt.setString(1, pName);
-        stmt.setString(2, pLastName);
-        stmt.setString(3, pLastName2);
-        stmt.setDate(4, sqlDate);
-        stmt.setInt(5, pIdCommunity);
-        stmt.setInt(6, pIdLogIn);
+        stmt.setInt(1, pIdPerson);
+        stmt.setString(2, pName);
+        stmt.setString(3, pLastName);
+        stmt.setString(4, pLastName2);
+        stmt.setDate(5, sqlDate);
+        stmt.setInt(6, pIdDistrict);
+        
         
         stmt.execute();
         
@@ -922,6 +926,19 @@ public class DataHandler {
         return result;
         
         }
+    public static int getProposalIdDistrict(int pIdProposal) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageProposal.getIdPerson(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setInt(2, pIdProposal);
+        stmt.execute();
+        int result = stmt.getInt(1);
+        return result;
+        
+        }
     
     public static String getProposalSummary(int pIdProposal) throws SQLException{
        
@@ -951,20 +968,19 @@ public class DataHandler {
         
         }
     
-    public static void createProposal(String pTitle, int pBudget, String pSummary, String pDate, int pIdPerson) throws SQLException{
+    
+    
+    public static void createProposal(String pTitle, int pBudget, String pSummary,int pIdPerson, int pIdDistrict) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
-        
-        java.util.Date myDate = new java.util.Date(pDate);
-        java.sql.Date sqlDate = new java.sql.Date(myDate.getTime());
                 
         CallableStatement stmt=conn.prepareCall("{ call packageProposal.createProposal(?,?,?,?,?)}");
         stmt.setString(1, pTitle);
         stmt.setInt(2, pBudget);
         stmt.setString(3, pSummary);
-        stmt.setDate(4, sqlDate);
-        stmt.setInt(5, pIdPerson);
+        stmt.setInt(4, pIdPerson);
+        stmt.setInt(5, pIdDistrict);
         
         stmt.execute();
         
@@ -1228,7 +1244,62 @@ public class DataHandler {
         
         }
     
-}
+    public static void getPersons() throws SQLException{
+        
+        
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call cursorPerson}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            System.out.println(r.getString("NAME")+" "+r.getInt("ID_PERSON"));
+        }
+    }
+    
+    public static ArrayList<Integer> getProposalFeed(int pIdDistrict)throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getProposalFeed(?)}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmt.setInt(2, pIdDistrict);
+        ArrayList<Integer> res=new ArrayList<Integer>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getInt("ID_PROPOSAL"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+    
+    public static ArrayList<Integer> getProposalProfile(int pIdPerson)throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getProposalProfile(?)}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmt.setInt(2, pIdPerson);
+        ArrayList<Integer> res=new ArrayList<Integer>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getInt("ID_PROPOSAL"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+    
+    }
+    
+
 
 
         
