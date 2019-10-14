@@ -30,7 +30,7 @@ public class Catalogue extends javax.swing.JFrame {
         TabPaneCountry = new javax.swing.JTabbedPane();
         tabCountry = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        listCountry = new javax.swing.JList<>();
+        listCountry = new javax.swing.JList<String>();
         submitCountryButton = new javax.swing.JButton();
         addCountry = new javax.swing.JButton();
         editCountry = new javax.swing.JButton();
@@ -38,7 +38,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButton = new javax.swing.JButton();
         tabProvince = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        listProvince = new javax.swing.JList<>();
+        listProvince = new javax.swing.JList<String>();
         submitProvinceButton = new javax.swing.JButton();
         addProvince = new javax.swing.JButton();
         editProvince = new javax.swing.JButton();
@@ -46,7 +46,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButton1 = new javax.swing.JButton();
         tabCountry2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        listCanton = new javax.swing.JList<>();
+        listCanton = new javax.swing.JList<String>();
         submitCantonButton = new javax.swing.JButton();
         addCanton = new javax.swing.JButton();
         editCanton = new javax.swing.JButton();
@@ -54,7 +54,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButton2 = new javax.swing.JButton();
         tabCountry3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        listDistrict = new javax.swing.JList<>();
+        listDistrict = new javax.swing.JList<String>();
         submitDistrictButton = new javax.swing.JButton();
         addDistrict = new javax.swing.JButton();
         editDistrict = new javax.swing.JButton();
@@ -62,7 +62,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButton3 = new javax.swing.JButton();
         tabCountry4 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        listCategory = new javax.swing.JList<>();
+        listCategory = new javax.swing.JList<String>();
         submitCategoryButton = new javax.swing.JButton();
         addCategory = new javax.swing.JButton();
         editCategory = new javax.swing.JButton();
@@ -82,10 +82,10 @@ public class Catalogue extends javax.swing.JFrame {
         listCountry.setBackground(new java.awt.Color(79, 93, 117));
         listCountry.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         listCountry.setForeground(new java.awt.Color(255, 255, 255));
-        listCountry.setModel(new javax.swing.AbstractListModel<String>() {
+        listCountry.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(listCountry);
 
@@ -148,7 +148,7 @@ public class Catalogue extends javax.swing.JFrame {
                         .addComponent(deleteCountry)
                         .addGap(63, 63, 63))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitCountryButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -162,10 +162,10 @@ public class Catalogue extends javax.swing.JFrame {
         listProvince.setBackground(new java.awt.Color(79, 93, 117));
         listProvince.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         listProvince.setForeground(new java.awt.Color(255, 255, 255));
-        listProvince.setModel(new javax.swing.AbstractListModel<String>() {
+        listProvince.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(listProvince);
 
@@ -233,7 +233,7 @@ public class Catalogue extends javax.swing.JFrame {
                         .addComponent(deleteProvince)
                         .addGap(63, 63, 63))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitProvinceButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -247,10 +247,10 @@ public class Catalogue extends javax.swing.JFrame {
         listCanton.setBackground(new java.awt.Color(79, 93, 117));
         listCanton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         listCanton.setForeground(new java.awt.Color(255, 255, 255));
-        listCanton.setModel(new javax.swing.AbstractListModel<String>() {
+        listCanton.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane3.setViewportView(listCanton);
 
@@ -313,7 +313,7 @@ public class Catalogue extends javax.swing.JFrame {
                         .addComponent(deleteCanton)
                         .addGap(63, 63, 63))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitCantonButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -327,10 +327,10 @@ public class Catalogue extends javax.swing.JFrame {
         listDistrict.setBackground(new java.awt.Color(79, 93, 117));
         listDistrict.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         listDistrict.setForeground(new java.awt.Color(255, 255, 255));
-        listDistrict.setModel(new javax.swing.AbstractListModel<String>() {
+        listDistrict.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane4.setViewportView(listDistrict);
 
@@ -393,7 +393,7 @@ public class Catalogue extends javax.swing.JFrame {
                         .addComponent(deleteDistrict)
                         .addGap(63, 63, 63))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitDistrictButton, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitButton3, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -407,10 +407,10 @@ public class Catalogue extends javax.swing.JFrame {
         listCategory.setBackground(new java.awt.Color(79, 93, 117));
         listCategory.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         listCategory.setForeground(new java.awt.Color(255, 255, 255));
-        listCategory.setModel(new javax.swing.AbstractListModel<String>() {
+        listCategory.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane5.setViewportView(listCategory);
 
@@ -452,13 +452,12 @@ public class Catalogue extends javax.swing.JFrame {
                         .addGroup(tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(editCategory)
                             .addComponent(addCategory)
-                            .addComponent(deleteCategory))
-                        .addGap(42, 42, 42))
+                            .addComponent(deleteCategory)))
                     .addGroup(tabCountry4Layout.createSequentialGroup()
                         .addComponent(exitButton4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitCategoryButton)
-                        .addContainerGap())))
+                        .addComponent(submitCategoryButton)))
+                .addGap(42, 42, 42))
         );
         tabCountry4Layout.setVerticalGroup(
             tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -473,10 +472,11 @@ public class Catalogue extends javax.swing.JFrame {
                         .addComponent(deleteCategory)
                         .addGap(63, 63, 63))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(submitCategoryButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exitButton4, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(exitButton4)
+                    .addComponent(submitCategoryButton))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         TabPaneCountry.addTab("Category", tabCountry4);
@@ -485,11 +485,13 @@ public class Catalogue extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabPaneCountry, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+            .addComponent(TabPaneCountry)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabPaneCountry, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(TabPaneCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
