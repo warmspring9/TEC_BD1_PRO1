@@ -16,7 +16,9 @@ public class comments extends javax.swing.JFrame {
      */
     public comments() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -142,8 +144,11 @@ public class comments extends javax.swing.JFrame {
         
         CommentPanel comment= new CommentPanel();
         commentsPanel.add(comment);// TODO add your handling code here:
+        ProposalPanel prop=new ProposalPanel();
+        proposalPanel.add(prop);
         System.out.println("hola");
         commentsPanel.updateUI();
+        proposalPanel.updateUI();
     }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
