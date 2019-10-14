@@ -33,447 +33,602 @@ public class maqueta extends javax.swing.JFrame {
 
         mainPanel = new javax.swing.JPanel();
         leftPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        LeftPanelContain = new javax.swing.JPanel();
-        LeftPanelUser = new javax.swing.JPanel();
-        LeftPanelFeed = new javax.swing.JPanel();
-        add_proposal_button = new javax.swing.JButton();
-        jSeparator7 = new javax.swing.JSeparator();
-        top_n = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JSeparator();
-        category_list_filter = new javax.swing.JComboBox<String>();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        number_votes_filter = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        submit_filters = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        rightLowerPanel = new javax.swing.JPanel();
-        exit_button = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        show_dash_button = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
-        show_user_button = new javax.swing.JButton();
-        jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
-        DashPanel = new javax.swing.JPanel();
-        CardLayoutPanel = new javax.swing.JPanel();
-        CardLayoutUser = new javax.swing.JPanel();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        CardLayoutFeed = new javax.swing.JPanel();
-        jScrollBar2 = new javax.swing.JScrollBar();
-        communityNamePanel = new javax.swing.JPanel();
-        communityNameLabel = new javax.swing.JLabel();
+        logoLable = new javax.swing.JLabel();
+        logAsAdminLabel = new javax.swing.JLabel();
+        leftPanelContain = new javax.swing.JPanel();
+        feedCardPanel = new javax.swing.JPanel();
+        addProposalButton = new javax.swing.JButton();
+        addPropsalSeparator = new javax.swing.JSeparator();
+        filterLabel = new javax.swing.JLabel();
+        filterSeparator = new javax.swing.JSeparator();
+        filterLable = new javax.swing.JLabel();
+        filterCategoryLable = new javax.swing.JLabel();
+        categoryFilterBox = new javax.swing.JComboBox();
+        voteLable = new javax.swing.JLabel();
+        cantVotesField = new javax.swing.JTextField();
+        submitFilterButton = new javax.swing.JButton();
+        jobButton = new javax.swing.JButton();
+        topNButton = new javax.swing.JButton();
+        profileCardPanel = new javax.swing.JPanel();
+        editProfileButton = new javax.swing.JButton();
+        nameField = new javax.swing.JTextField();
+        lastNameField = new javax.swing.JTextField();
+        emailField = new javax.swing.JTextField();
+        idField = new javax.swing.JTextField();
+        phoneField = new javax.swing.JTextField();
+        InfoSeparator = new javax.swing.JSeparator();
+        advanceSettingsButton = new javax.swing.JButton();
+        oldPassField = new javax.swing.JPasswordField();
+        oldPassLable = new javax.swing.JLabel();
+        newPassLable = new javax.swing.JLabel();
+        newPassField = new javax.swing.JPasswordField();
+        editFavsButton = new javax.swing.JButton();
+        enterInfoButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        leftPanelSeparator = new javax.swing.JSeparator();
+        rightPanel = new javax.swing.JPanel();
+        rightPanelUpperSeparator = new javax.swing.JSeparator();
+        newAdmiButton = new javax.swing.JButton();
+        profileSeparator = new javax.swing.JSeparator();
+        feedButton = new javax.swing.JButton();
+        feedSeparator = new javax.swing.JSeparator();
+        profileButton = new javax.swing.JButton();
+        statsSeparator = new javax.swing.JSeparator();
+        statsButton = new javax.swing.JButton();
+        cataSeparator = new javax.swing.JSeparator();
+        cataButton = new javax.swing.JButton();
+        consultSeparator = new javax.swing.JSeparator();
+        consultButton = new javax.swing.JButton();
+        newAdmiSeparator = new javax.swing.JSeparator();
+        exitButton = new javax.swing.JButton();
+        lowerRightPanelSeparator = new javax.swing.JSeparator();
+        communityNameLable = new javax.swing.JLabel();
+        proposalContainer = new javax.swing.JPanel();
+        feedScrollPanel = new javax.swing.JScrollPane();
+        feedGridPanel = new javax.swing.JPanel();
+        profileScrollPanel = new javax.swing.JScrollPane();
+        profileGridPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1181, 654));
+        setMaximumSize(new java.awt.Dimension(1181, 654));
+        setMinimumSize(new java.awt.Dimension(1181, 654));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1181, 654));
         setResizable(false);
+        getContentPane().setLayout(null);
 
-        mainPanel.setBackground(new java.awt.Color(45, 49, 66));
+        mainPanel.setBackground(new java.awt.Color(43, 49, 66));
+        mainPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(239, 131, 84), 2, true));
+        mainPanel.setMinimumSize(new java.awt.Dimension(1180, 654));
 
         leftPanel.setBackground(new java.awt.Color(79, 93, 117));
+        leftPanel.setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logo.png"))); // NOI18N
+        logoLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoLable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logo.png"))); // NOI18N
+        leftPanel.add(logoLable);
+        logoLable.setBounds(10, 0, 230, 100);
 
-        jSeparator2.setBackground(new java.awt.Color(191, 192, 192));
+        logAsAdminLabel.setBackground(new java.awt.Color(239, 131, 84));
+        logAsAdminLabel.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
+        logAsAdminLabel.setForeground(new java.awt.Color(239, 131, 84));
+        logAsAdminLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logAsAdminLabel.setText("Log as Admin");
+        leftPanel.add(logAsAdminLabel);
+        logAsAdminLabel.setBounds(10, 90, 230, 20);
 
-        LeftPanelContain.setLayout(new java.awt.CardLayout());
+        leftPanelContain.setBackground(new java.awt.Color(79, 93, 117));
+        leftPanelContain.setLayout(new java.awt.CardLayout());
 
-        LeftPanelUser.setBackground(new java.awt.Color(79, 93, 117));
+        feedCardPanel.setBackground(new java.awt.Color(79, 93, 117));
 
-        javax.swing.GroupLayout LeftPanelUserLayout = new javax.swing.GroupLayout(LeftPanelUser);
-        LeftPanelUser.setLayout(LeftPanelUserLayout);
-        LeftPanelUserLayout.setHorizontalGroup(
-            LeftPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 249, Short.MAX_VALUE)
-        );
-        LeftPanelUserLayout.setVerticalGroup(
-            LeftPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
+        addProposalButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
+        addProposalButton.setBorder(null);
+        addProposalButton.setBorderPainted(false);
+        addProposalButton.setContentAreaFilled(false);
+        addProposalButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        LeftPanelContain.add(LeftPanelUser, "card3");
+        filterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        LeftPanelFeed.setBackground(new java.awt.Color(79, 93, 117));
+        filterLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        filterLable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/filter30.png"))); // NOI18N
+        filterLable.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        add_proposal_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
-        add_proposal_button.setBorder(null);
-        add_proposal_button.setBorderPainted(false);
-        add_proposal_button.setContentAreaFilled(false);
-        add_proposal_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add_proposal_buttonActionPerformed(evt);
-            }
-        });
+        filterCategoryLable.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        filterCategoryLable.setForeground(new java.awt.Color(255, 255, 255));
+        filterCategoryLable.setText("Category :");
 
-        top_n.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/leaderboard_50px.png"))); // NOI18N
-        top_n.setBorder(null);
-        top_n.setBorderPainted(false);
-        top_n.setContentAreaFilled(false);
+        categoryFilterBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category" }));
 
-        jLabel3.setFont(new java.awt.Font("Cordia New", 1, 25)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Category:");
+        voteLable.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        voteLable.setForeground(new java.awt.Color(255, 255, 255));
+        voteLable.setText("Votes :");
 
-        jLabel4.setFont(new java.awt.Font("Cordia New", 1, 25)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Date Range:");
+        cantVotesField.setBackground(new java.awt.Color(79, 93, 117));
+        cantVotesField.setForeground(new java.awt.Color(255, 255, 255));
+        cantVotesField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cantVotesField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cantVotesField.setCaretColor(new java.awt.Color(255, 255, 255));
+        cantVotesField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
-        number_votes_filter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number_votes_filterActionPerformed(evt);
-            }
-        });
+        submitFilterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
+        submitFilterButton.setBorder(null);
+        submitFilterButton.setBorderPainted(false);
+        submitFilterButton.setContentAreaFilled(false);
+        submitFilterButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jLabel5.setFont(new java.awt.Font("Cordia New", 1, 25)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Votes:");
+        jobButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/medal2_50px.png"))); // NOI18N
+        jobButton.setBorder(null);
+        jobButton.setBorderPainted(false);
+        jobButton.setContentAreaFilled(false);
+        jobButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        submit_filters.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
-        submit_filters.setBorder(null);
-        submit_filters.setBorderPainted(false);
-        submit_filters.setContentAreaFilled(false);
+        topNButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/podium.png"))); // NOI18N
+        topNButton.setBorder(null);
+        topNButton.setBorderPainted(false);
+        topNButton.setContentAreaFilled(false);
+        topNButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        javax.swing.GroupLayout LeftPanelFeedLayout = new javax.swing.GroupLayout(LeftPanelFeed);
-        LeftPanelFeed.setLayout(LeftPanelFeedLayout);
-        LeftPanelFeedLayout.setHorizontalGroup(
-            LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(number_votes_filter, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
-            .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator4)
-                    .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(add_proposal_button)
+        javax.swing.GroupLayout feedCardPanelLayout = new javax.swing.GroupLayout(feedCardPanel);
+        feedCardPanel.setLayout(feedCardPanelLayout);
+        feedCardPanelLayout.setHorizontalGroup(
+            feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(feedCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(feedCardPanelLayout.createSequentialGroup()
+                        .addComponent(filterLabel)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator7)
-                            .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addGroup(feedCardPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(filterLable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(feedCardPanelLayout.createSequentialGroup()
+                                .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(filterCategoryLable)
+                                    .addGroup(feedCardPanelLayout.createSequentialGroup()
+                                        .addComponent(voteLable, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cantVotesField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 46, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, feedCardPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(submitFilterButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(categoryFilterBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(addPropsalSeparator)
+                    .addComponent(filterSeparator))
                 .addContainerGap())
-            .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(LeftPanelFeedLayout.createSequentialGroup()
+            .addGroup(feedCardPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jobButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(topNButton)
+                .addGap(40, 40, 40))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, feedCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(addProposalButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        feedCardPanelLayout.setVerticalGroup(
+            feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(feedCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(addProposalButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(addPropsalSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(feedCardPanelLayout.createSequentialGroup()
+                        .addComponent(filterLabel)
+                        .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(feedCardPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(filterLable, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(feedCardPanelLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(filterCategoryLable)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(categoryFilterBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(44, 44, 44)
+                                .addGroup(feedCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(voteLable)
+                                    .addComponent(cantVotesField, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(submitFilterButton)
+                                .addGap(34, 34, 34)))
+                        .addComponent(filterSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(top_n))
-                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, LeftPanelFeedLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(submit_filters, javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(category_list_filter, javax.swing.GroupLayout.Alignment.CENTER, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        LeftPanelFeedLayout.setVerticalGroup(
-            LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(LeftPanelFeedLayout.createSequentialGroup()
-                .addComponent(add_proposal_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(category_list_filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel4)
-                .addGap(86, 86, 86)
-                .addGroup(LeftPanelFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(number_votes_filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(submit_filters)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(top_n)
-                .addContainerGap())
-        );
-
-        LeftPanelContain.add(LeftPanelFeed, "card2");
-
-        jLabel2.setFont(new java.awt.Font("Cordia New", 2, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(239, 131, 84));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Log as Admin");
-
-        javax.swing.GroupLayout leftPanelLayout = new javax.swing.GroupLayout(leftPanel);
-        leftPanel.setLayout(leftPanelLayout);
-        leftPanelLayout.setHorizontalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator2)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LeftPanelContain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(leftPanelLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        leftPanelLayout.setVerticalGroup(
-            leftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(leftPanelLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(LeftPanelContain, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        rightLowerPanel.setBackground(new java.awt.Color(79, 93, 117));
-
-        exit_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancel_50px.png"))); // NOI18N
-        exit_button.setBorder(null);
-        exit_button.setBorderPainted(false);
-        exit_button.setContentAreaFilled(false);
-        exit_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exit_buttonActionPerformed(evt);
-            }
-        });
-
-        jSeparator1.setForeground(new java.awt.Color(191, 192, 192));
-
-        show_dash_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/dash_png.png"))); // NOI18N
-        show_dash_button.setBorderPainted(false);
-        show_dash_button.setContentAreaFilled(false);
-        show_dash_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        show_dash_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                show_dash_buttonActionPerformed(evt);
-            }
-        });
-
-        show_user_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/user_png.png"))); // NOI18N
-        show_user_button.setBorder(null);
-        show_user_button.setBorderPainted(false);
-        show_user_button.setContentAreaFilled(false);
-        show_user_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        show_user_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                show_user_buttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout rightLowerPanelLayout = new javax.swing.GroupLayout(rightLowerPanel);
-        rightLowerPanel.setLayout(rightLowerPanelLayout);
-        rightLowerPanelLayout.setHorizontalGroup(
-            rightLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addComponent(jSeparator3)
-            .addComponent(jSeparator5)
-            .addComponent(jSeparator6)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLowerPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(show_user_button)
-                .addGap(29, 29, 29))
-            .addGroup(rightLowerPanelLayout.createSequentialGroup()
-                .addGroup(rightLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rightLowerPanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(show_dash_button, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(rightLowerPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(exit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        rightLowerPanelLayout.setVerticalGroup(
-            rightLowerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rightLowerPanelLayout.createSequentialGroup()
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(show_user_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(show_dash_button)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(exit_button, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-        );
-
-        DashPanel.setBackground(new java.awt.Color(45, 49, 66));
-
-        CardLayoutPanel.setBackground(new java.awt.Color(45, 49, 66));
-        CardLayoutPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        CardLayoutPanel.setLayout(new java.awt.CardLayout());
-
-        CardLayoutUser.setBackground(new java.awt.Color(45, 49, 66));
-
-        javax.swing.GroupLayout CardLayoutUserLayout = new javax.swing.GroupLayout(CardLayoutUser);
-        CardLayoutUser.setLayout(CardLayoutUserLayout);
-        CardLayoutUserLayout.setHorizontalGroup(
-            CardLayoutUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CardLayoutUserLayout.createSequentialGroup()
-                .addContainerGap(869, Short.MAX_VALUE)
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        CardLayoutUserLayout.setVerticalGroup(
-            CardLayoutUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CardLayoutUserLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE))
-        );
-
-        CardLayoutPanel.add(CardLayoutUser, "card3");
-
-        CardLayoutFeed.setBackground(new java.awt.Color(45, 49, 66));
-
-        javax.swing.GroupLayout CardLayoutFeedLayout = new javax.swing.GroupLayout(CardLayoutFeed);
-        CardLayoutFeed.setLayout(CardLayoutFeedLayout);
-        CardLayoutFeedLayout.setHorizontalGroup(
-            CardLayoutFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CardLayoutFeedLayout.createSequentialGroup()
-                .addContainerGap(869, Short.MAX_VALUE)
-                .addComponent(jScrollBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        CardLayoutFeedLayout.setVerticalGroup(
-            CardLayoutFeedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CardLayoutFeedLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE))
-        );
-
-        CardLayoutPanel.add(CardLayoutFeed, "card2");
-
-        communityNamePanel.setBackground(new java.awt.Color(45, 49, 66));
-
-        communityNameLabel.setFont(new java.awt.Font("Cordia New", 0, 48)); // NOI18N
-        communityNameLabel.setForeground(new java.awt.Color(255, 255, 255));
-        communityNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        communityNameLabel.setText("COMMUNITY");
-
-        javax.swing.GroupLayout communityNamePanelLayout = new javax.swing.GroupLayout(communityNamePanel);
-        communityNamePanel.setLayout(communityNamePanelLayout);
-        communityNamePanelLayout.setHorizontalGroup(
-            communityNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(communityNameLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 901, Short.MAX_VALUE)
-        );
-        communityNamePanelLayout.setVerticalGroup(
-            communityNamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, communityNamePanelLayout.createSequentialGroup()
-                .addComponent(communityNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout DashPanelLayout = new javax.swing.GroupLayout(DashPanel);
-        DashPanel.setLayout(DashPanelLayout);
-        DashPanelLayout.setHorizontalGroup(
-            DashPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DashPanelLayout.createSequentialGroup()
-                .addGroup(DashPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashPanelLayout.createSequentialGroup()
+                        .addComponent(jobButton))
+                    .addGroup(feedCardPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(communityNamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DashPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(CardLayoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(topNButton)))
+                .addGap(66, 66, 66))
         );
-        DashPanelLayout.setVerticalGroup(
-            DashPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DashPanelLayout.createSequentialGroup()
+
+        leftPanelContain.add(feedCardPanel, "card2");
+
+        profileCardPanel.setBackground(new java.awt.Color(79, 93, 117));
+
+        editProfileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/hand_with_pen_23px.png"))); // NOI18N
+        editProfileButton.setBorder(null);
+        editProfileButton.setBorderPainted(false);
+        editProfileButton.setContentAreaFilled(false);
+        editProfileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        editProfileButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
+        nameField.setEditable(false);
+        nameField.setBackground(new java.awt.Color(79, 93, 117));
+        nameField.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        nameField.setForeground(new java.awt.Color(255, 255, 255));
+        nameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameField.setText("Name");
+        nameField.setToolTipText("");
+        nameField.setBorder(null);
+        nameField.setCaretColor(new java.awt.Color(255, 255, 255));
+        nameField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        nameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+
+        lastNameField.setEditable(false);
+        lastNameField.setBackground(new java.awt.Color(79, 93, 117));
+        lastNameField.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        lastNameField.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastNameField.setText("Last Name");
+        lastNameField.setToolTipText("");
+        lastNameField.setBorder(null);
+        lastNameField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        lastNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+
+        emailField.setEditable(false);
+        emailField.setBackground(new java.awt.Color(79, 93, 117));
+        emailField.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        emailField.setForeground(new java.awt.Color(255, 255, 255));
+        emailField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        emailField.setText("email");
+        emailField.setToolTipText("");
+        emailField.setBorder(null);
+        emailField.setCaretColor(new java.awt.Color(255, 255, 255));
+        emailField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        emailField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        emailField.setSelectionColor(new java.awt.Color(239, 131, 84));
+
+        idField.setEditable(false);
+        idField.setBackground(new java.awt.Color(79, 93, 117));
+        idField.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        idField.setForeground(new java.awt.Color(255, 255, 255));
+        idField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        idField.setText("ID");
+        idField.setToolTipText("");
+        idField.setBorder(null);
+        idField.setCaretColor(new java.awt.Color(255, 255, 255));
+        idField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        idField.setSelectionColor(new java.awt.Color(239, 131, 84));
+
+        phoneField.setEditable(false);
+        phoneField.setBackground(new java.awt.Color(79, 93, 117));
+        phoneField.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        phoneField.setForeground(new java.awt.Color(255, 255, 255));
+        phoneField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        phoneField.setText("phone");
+        phoneField.setToolTipText("");
+        phoneField.setBorder(null);
+        phoneField.setCaretColor(new java.awt.Color(255, 255, 255));
+        phoneField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        phoneField.setSelectionColor(new java.awt.Color(239, 131, 84));
+
+        advanceSettingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/settings.png"))); // NOI18N
+        advanceSettingsButton.setBorder(null);
+        advanceSettingsButton.setBorderPainted(false);
+        advanceSettingsButton.setContentAreaFilled(false);
+        advanceSettingsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        oldPassField.setText("jPasswordField1");
+
+        oldPassLable.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        oldPassLable.setForeground(new java.awt.Color(239, 131, 84));
+        oldPassLable.setText("Old Password");
+
+        newPassLable.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        newPassLable.setForeground(new java.awt.Color(239, 131, 84));
+        newPassLable.setText("New Password");
+
+        newPassField.setText("jPasswordField2");
+
+        editFavsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/heart_health_23px.png"))); // NOI18N
+        editFavsButton.setBorder(null);
+        editFavsButton.setBorderPainted(false);
+        editFavsButton.setContentAreaFilled(false);
+        editFavsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        enterInfoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_23px.png"))); // NOI18N
+        enterInfoButton.setBorder(null);
+        enterInfoButton.setBorderPainted(false);
+        enterInfoButton.setContentAreaFilled(false);
+        enterInfoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_23px.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout profileCardPanelLayout = new javax.swing.GroupLayout(profileCardPanel);
+        profileCardPanel.setLayout(profileCardPanelLayout);
+        profileCardPanelLayout.setHorizontalGroup(
+            profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(profileCardPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(communityNamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CardLayoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, profileCardPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(enterInfoButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editProfileButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(profileCardPanelLayout.createSequentialGroup()
+                        .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(phoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                            .addComponent(lastNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                            .addComponent(emailField, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                            .addComponent(nameField)
+                            .addComponent(idField, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                            .addComponent(InfoSeparator)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(profileCardPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(oldPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(oldPassLable, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(profileCardPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newPassLable)
+                                    .addComponent(newPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(advanceSettingsButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editFavsButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
+        profileCardPanelLayout.setVerticalGroup(
+            profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(profileCardPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(editProfileButton)
+                .addGap(81, 81, 81)
+                .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(enterInfoButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(InfoSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(profileCardPanelLayout.createSequentialGroup()
+                        .addComponent(advanceSettingsButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editFavsButton))
+                    .addGroup(profileCardPanelLayout.createSequentialGroup()
+                        .addComponent(oldPassLable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(oldPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(newPassLable)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(newPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        leftPanelContain.add(profileCardPanel, "card3");
+
+        leftPanel.add(leftPanelContain);
+        leftPanelContain.setBounds(0, 160, 250, 490);
+        leftPanel.add(leftPanelSeparator);
+        leftPanelSeparator.setBounds(0, 150, 250, 10);
+
+        rightPanel.setBackground(new java.awt.Color(79, 93, 117));
+        rightPanel.setLayout(null);
+        rightPanel.add(rightPanelUpperSeparator);
+        rightPanelUpperSeparator.setBounds(0, 0, 120, 10);
+
+        newAdmiButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_user.png"))); // NOI18N
+        newAdmiButton.setBorder(null);
+        newAdmiButton.setBorderPainted(false);
+        newAdmiButton.setContentAreaFilled(false);
+        newAdmiButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        newAdmiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newAdmiButtonActionPerformed(evt);
+            }
+        });
+        rightPanel.add(newAdmiButton);
+        newAdmiButton.setBounds(0, 460, 120, 80);
+        rightPanel.add(profileSeparator);
+        profileSeparator.setBounds(0, 90, 120, 10);
+
+        feedButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/feed.png"))); // NOI18N
+        feedButton.setBorder(null);
+        feedButton.setBorderPainted(false);
+        feedButton.setContentAreaFilled(false);
+        feedButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        feedButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                feedButtonActionPerformed(evt);
+            }
+        });
+        rightPanel.add(feedButton);
+        feedButton.setBounds(0, 100, 120, 80);
+        rightPanel.add(feedSeparator);
+        feedSeparator.setBounds(0, 180, 120, 10);
+
+        profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/user_png.png"))); // NOI18N
+        profileButton.setBorder(null);
+        profileButton.setBorderPainted(false);
+        profileButton.setContentAreaFilled(false);
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profileButtonActionPerformed(evt);
+            }
+        });
+        rightPanel.add(profileButton);
+        profileButton.setBounds(0, 10, 120, 80);
+        rightPanel.add(statsSeparator);
+        statsSeparator.setBounds(0, 270, 120, 10);
+
+        statsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/statistics_png.png"))); // NOI18N
+        statsButton.setBorder(null);
+        statsButton.setBorderPainted(false);
+        statsButton.setContentAreaFilled(false);
+        statsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rightPanel.add(statsButton);
+        statsButton.setBounds(0, 190, 120, 80);
+        rightPanel.add(cataSeparator);
+        cataSeparator.setBounds(0, 360, 120, 10);
+
+        cataButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/catalogue.png"))); // NOI18N
+        cataButton.setBorder(null);
+        cataButton.setBorderPainted(false);
+        cataButton.setContentAreaFilled(false);
+        cataButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rightPanel.add(cataButton);
+        cataButton.setBounds(0, 280, 120, 80);
+        rightPanel.add(consultSeparator);
+        consultSeparator.setBounds(0, 450, 120, 10);
+
+        consultButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/consults.png"))); // NOI18N
+        consultButton.setBorder(null);
+        consultButton.setBorderPainted(false);
+        consultButton.setContentAreaFilled(false);
+        consultButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rightPanel.add(consultButton);
+        consultButton.setBounds(0, 370, 120, 80);
+        rightPanel.add(newAdmiSeparator);
+        newAdmiSeparator.setBounds(0, 540, 120, 10);
+
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja.png"))); // NOI18N
+        exitButton.setBorder(null);
+        exitButton.setBorderPainted(false);
+        exitButton.setContentAreaFilled(false);
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+        rightPanel.add(exitButton);
+        exitButton.setBounds(0, 550, 120, 90);
+        rightPanel.add(lowerRightPanelSeparator);
+        lowerRightPanelSeparator.setBounds(0, 640, 120, 10);
+
+        communityNameLable.setFont(new java.awt.Font("Courier New", 0, 48)); // NOI18N
+        communityNameLable.setForeground(new java.awt.Color(255, 255, 255));
+        communityNameLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        communityNameLable.setText("COMMUNITY");
+
+        proposalContainer.setBackground(new java.awt.Color(79, 93, 117));
+        proposalContainer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        proposalContainer.setLayout(new java.awt.CardLayout());
+
+        feedScrollPanel.setBackground(new java.awt.Color(79, 93, 117));
+        feedScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        feedGridPanel.setBackground(new java.awt.Color(79, 93, 117));
+        feedGridPanel.setLayout(new java.awt.GridLayout(0, 1, 3, 0));
+        feedScrollPanel.setViewportView(feedGridPanel);
+
+        proposalContainer.add(feedScrollPanel, "card2");
+
+        profileScrollPanel.setBackground(new java.awt.Color(79, 93, 117));
+        profileScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        profileGridPanel.setBackground(new java.awt.Color(79, 93, 117));
+        profileGridPanel.setLayout(new java.awt.GridLayout(0, 1, 3, 0));
+        profileScrollPanel.setViewportView(profileGridPanel);
+
+        proposalContainer.add(profileScrollPanel, "card3");
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(communityNameLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(proposalContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DashPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rightLowerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(rightPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(rightLowerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(DashPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(leftPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(leftPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(rightPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(communityNameLable, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(proposalContainer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(mainPanel);
+        mainPanel.setBounds(0, 0, 1181, 654);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void show_user_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_user_buttonActionPerformed
-        CardLayoutPanel.removeAll();
-        CardLayoutPanel.add(CardLayoutUser);
-        CardLayoutPanel.repaint();
-        CardLayoutPanel.revalidate();
-        LeftPanelContain.removeAll();
-        LeftPanelContain.add(LeftPanelUser);
-        LeftPanelContain.repaint();
-        LeftPanelContain.revalidate();
-    }//GEN-LAST:event_show_user_buttonActionPerformed
+    private void newAdmiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newAdmiButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newAdmiButtonActionPerformed
 
-    private void show_dash_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_dash_buttonActionPerformed
-        CardLayoutPanel.removeAll();
-        CardLayoutPanel.add(CardLayoutFeed);
-        CardLayoutPanel.repaint();
-        CardLayoutPanel.revalidate();
-        LeftPanelContain.removeAll();
-        LeftPanelContain.add(LeftPanelFeed);
-        LeftPanelContain.repaint();
-        LeftPanelContain.revalidate();
-    }//GEN-LAST:event_show_dash_buttonActionPerformed
-
-    private void exit_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_buttonActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_exit_buttonActionPerformed
+    }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void add_proposal_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_proposal_buttonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_add_proposal_buttonActionPerformed
+    private void profileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profileButtonActionPerformed
 
-    private void number_votes_filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number_votes_filterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_number_votes_filterActionPerformed
+        proposalContainer.removeAll();
+        proposalContainer.add(profileScrollPanel);
+        proposalContainer.repaint();
+        proposalContainer.revalidate();
+        
+        leftPanelContain.removeAll();
+        leftPanelContain.add(profileCardPanel);
+        leftPanelContain.repaint();
+        leftPanelContain.revalidate();
+        
+    }//GEN-LAST:event_profileButtonActionPerformed
+
+    private void feedButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_feedButtonActionPerformed
+        
+        proposalContainer.removeAll();
+        proposalContainer.add(feedScrollPanel);
+        proposalContainer.repaint();
+        proposalContainer.revalidate();
+        
+        leftPanelContain.removeAll();
+        leftPanelContain.add(feedCardPanel);
+        leftPanelContain.repaint();
+        leftPanelContain.revalidate();
+    }//GEN-LAST:event_feedButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -511,39 +666,62 @@ public class maqueta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CardLayoutFeed;
-    private javax.swing.JPanel CardLayoutPanel;
-    private javax.swing.JPanel CardLayoutUser;
-    private javax.swing.JPanel DashPanel;
-    private javax.swing.JPanel LeftPanelContain;
-    private javax.swing.JPanel LeftPanelFeed;
-    private javax.swing.JPanel LeftPanelUser;
-    private javax.swing.JButton add_proposal_button;
-    private javax.swing.JComboBox<String> category_list_filter;
-    private javax.swing.JLabel communityNameLabel;
-    private javax.swing.JPanel communityNamePanel;
-    private javax.swing.JButton exit_button;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollBar jScrollBar2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator InfoSeparator;
+    private javax.swing.JButton addProposalButton;
+    private javax.swing.JSeparator addPropsalSeparator;
+    private javax.swing.JButton advanceSettingsButton;
+    private javax.swing.JTextField cantVotesField;
+    private javax.swing.JButton cataButton;
+    private javax.swing.JSeparator cataSeparator;
+    private javax.swing.JComboBox categoryFilterBox;
+    private javax.swing.JLabel communityNameLable;
+    private javax.swing.JButton consultButton;
+    private javax.swing.JSeparator consultSeparator;
+    private javax.swing.JButton editFavsButton;
+    private javax.swing.JButton editProfileButton;
+    private javax.swing.JTextField emailField;
+    private javax.swing.JButton enterInfoButton;
+    private javax.swing.JButton exitButton;
+    private javax.swing.JButton feedButton;
+    private javax.swing.JPanel feedCardPanel;
+    private javax.swing.JPanel feedGridPanel;
+    private javax.swing.JScrollPane feedScrollPanel;
+    private javax.swing.JSeparator feedSeparator;
+    private javax.swing.JLabel filterCategoryLable;
+    private javax.swing.JLabel filterLabel;
+    private javax.swing.JLabel filterLable;
+    private javax.swing.JSeparator filterSeparator;
+    private javax.swing.JTextField idField;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jobButton;
+    private javax.swing.JTextField lastNameField;
     private javax.swing.JPanel leftPanel;
+    private javax.swing.JPanel leftPanelContain;
+    private javax.swing.JSeparator leftPanelSeparator;
+    private javax.swing.JLabel logAsAdminLabel;
+    private javax.swing.JLabel logoLable;
+    private javax.swing.JSeparator lowerRightPanelSeparator;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JTextField number_votes_filter;
-    private javax.swing.JPanel rightLowerPanel;
-    private javax.swing.JButton show_dash_button;
-    private javax.swing.JButton show_user_button;
-    private javax.swing.JButton submit_filters;
-    private javax.swing.JButton top_n;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JButton newAdmiButton;
+    private javax.swing.JSeparator newAdmiSeparator;
+    private javax.swing.JPasswordField newPassField;
+    private javax.swing.JLabel newPassLable;
+    private javax.swing.JPasswordField oldPassField;
+    private javax.swing.JLabel oldPassLable;
+    private javax.swing.JTextField phoneField;
+    private javax.swing.JButton profileButton;
+    private javax.swing.JPanel profileCardPanel;
+    private javax.swing.JPanel profileGridPanel;
+    private javax.swing.JScrollPane profileScrollPanel;
+    private javax.swing.JSeparator profileSeparator;
+    private javax.swing.JPanel proposalContainer;
+    private javax.swing.JPanel rightPanel;
+    private javax.swing.JSeparator rightPanelUpperSeparator;
+    private javax.swing.JButton statsButton;
+    private javax.swing.JSeparator statsSeparator;
+    private javax.swing.JButton submitFilterButton;
+    private javax.swing.JButton topNButton;
+    private javax.swing.JLabel voteLable;
     // End of variables declaration//GEN-END:variables
 }
