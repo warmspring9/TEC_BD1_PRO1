@@ -57,9 +57,15 @@ public class addProposal_1 extends javax.swing.JFrame {
         jLabel2.setText("TITLE :");
 
         proposalTitleField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        proposalTitleField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         selectCategoryBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
         selectCategoryBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category" }));
+        selectCategoryBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectCategoryBoxActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -67,11 +73,13 @@ public class addProposal_1 extends javax.swing.JFrame {
 
         budgetField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         budgetField.setForeground(new java.awt.Color(255, 255, 255));
+        budgetField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         proposalDescriptionField.setColumns(20);
         proposalDescriptionField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         proposalDescriptionField.setRows(5);
         proposalDescriptionField.setText("add a description to your proposal!!");
+        proposalDescriptionField.setSelectionColor(new java.awt.Color(239, 131, 84));
         jScrollPane1.setViewportView(proposalDescriptionField);
 
         javax.swing.GroupLayout proposalPanelLayout = new javax.swing.GroupLayout(proposalPanel);
@@ -147,9 +155,9 @@ public class addProposal_1 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(addProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addComponent(cancelButton)
@@ -192,6 +200,10 @@ public class addProposal_1 extends javax.swing.JFrame {
     private void addProposalPhotoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProposalPhotoButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addProposalPhotoButtonActionPerformed
+
+    private void selectCategoryBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCategoryBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_selectCategoryBoxActionPerformed
 
     /**
      * @param args the command line arguments

@@ -58,6 +58,7 @@ public class editProposal extends javax.swing.JFrame {
         jLabel2.setText("TITLE :");
 
         proposalTitleField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        proposalTitleField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         selectCategoryBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
         selectCategoryBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category" }));
@@ -68,10 +69,12 @@ public class editProposal extends javax.swing.JFrame {
 
         budgetField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         budgetField.setForeground(new java.awt.Color(255, 255, 255));
+        budgetField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         proposalDescriptionField.setColumns(20);
         proposalDescriptionField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         proposalDescriptionField.setRows(5);
+        proposalDescriptionField.setSelectionColor(new java.awt.Color(239, 131, 84));
         jScrollPane1.setViewportView(proposalDescriptionField);
 
         javax.swing.GroupLayout proposalPanelLayout = new javax.swing.GroupLayout(proposalPanel);
@@ -148,9 +151,9 @@ public class editProposal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(changeProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(changeProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(mainPanelLayout.createSequentialGroup()
                         .addComponent(deleteButton)

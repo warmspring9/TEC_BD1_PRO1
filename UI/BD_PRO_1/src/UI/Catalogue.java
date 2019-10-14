@@ -28,458 +28,459 @@ public class Catalogue extends javax.swing.JFrame {
     private void initComponents() {
 
         TabPaneCountry = new javax.swing.JTabbedPane();
-        tabCountry = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tabCountryPanel = new javax.swing.JPanel();
+        countryScrollPane = new javax.swing.JScrollPane();
         listCountry = new javax.swing.JList<String>();
         submitCountryButton = new javax.swing.JButton();
-        addCountry = new javax.swing.JButton();
-        editCountry = new javax.swing.JButton();
-        deleteCountry = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
-        tabProvince = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        listProvince = new javax.swing.JList<String>();
+        addCountryButton = new javax.swing.JButton();
+        editCountryButton = new javax.swing.JButton();
+        deleteCountryButton = new javax.swing.JButton();
+        exitButtonCountry = new javax.swing.JButton();
+        tabProvincePanel = new javax.swing.JPanel();
+        provinceScrollPane = new javax.swing.JScrollPane();
+        listCountry1 = new javax.swing.JList<String>();
         submitProvinceButton = new javax.swing.JButton();
-        addProvince = new javax.swing.JButton();
-        editProvince = new javax.swing.JButton();
-        deleteProvince = new javax.swing.JButton();
-        exitButton1 = new javax.swing.JButton();
-        tabCountry2 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        listCanton = new javax.swing.JList<String>();
-        submitCantonButton = new javax.swing.JButton();
-        addCanton = new javax.swing.JButton();
-        editCanton = new javax.swing.JButton();
-        deleteCanton = new javax.swing.JButton();
-        exitButton2 = new javax.swing.JButton();
-        tabCountry3 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        listDistrict = new javax.swing.JList<String>();
-        submitDistrictButton = new javax.swing.JButton();
-        addDistrict = new javax.swing.JButton();
-        editDistrict = new javax.swing.JButton();
-        deleteDistrict = new javax.swing.JButton();
-        exitButton3 = new javax.swing.JButton();
-        tabCountry4 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        listCategory = new javax.swing.JList<String>();
+        addProvinceButton = new javax.swing.JButton();
+        editProvinceButton = new javax.swing.JButton();
+        deleteProvinceButton = new javax.swing.JButton();
+        exitButtonProvince = new javax.swing.JButton();
+        tabCategoryPanel = new javax.swing.JPanel();
+        categoryScrollPane = new javax.swing.JScrollPane();
+        listCountry2 = new javax.swing.JList<String>();
         submitCategoryButton = new javax.swing.JButton();
-        addCategory = new javax.swing.JButton();
-        editCategory = new javax.swing.JButton();
-        deleteCategory = new javax.swing.JButton();
-        exitButton4 = new javax.swing.JButton();
+        addCategoryButton = new javax.swing.JButton();
+        editCategoryButton = new javax.swing.JButton();
+        deleteCategoryButton = new javax.swing.JButton();
+        exitButtonCategory = new javax.swing.JButton();
+        tabDistrictPanel = new javax.swing.JPanel();
+        districtScrollPane = new javax.swing.JScrollPane();
+        listCountry3 = new javax.swing.JList<String>();
+        submitDistrictButton = new javax.swing.JButton();
+        addDistrictButton = new javax.swing.JButton();
+        editDistrictButton = new javax.swing.JButton();
+        deleteDistrictButton = new javax.swing.JButton();
+        exitButtonDistrict = new javax.swing.JButton();
+        tabCantonPanel = new javax.swing.JPanel();
+        cantonScrollPane = new javax.swing.JScrollPane();
+        listCountry4 = new javax.swing.JList<String>();
+        submitCantonButton = new javax.swing.JButton();
+        addCantonButton = new javax.swing.JButton();
+        editCantonButton = new javax.swing.JButton();
+        deleteCantonButton = new javax.swing.JButton();
+        exitButtonCanton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setResizable(false);
 
         TabPaneCountry.setBackground(new java.awt.Color(45, 49, 66));
         TabPaneCountry.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(191, 192, 192), 2));
         TabPaneCountry.setForeground(new java.awt.Color(255, 255, 255));
 
-        tabCountry.setBackground(new java.awt.Color(45, 49, 66));
-        tabCountry.setForeground(new java.awt.Color(255, 255, 255));
+        tabCountryPanel.setBackground(new java.awt.Color(45, 49, 66));
+        tabCountryPanel.setForeground(new java.awt.Color(255, 255, 255));
 
         listCountry.setBackground(new java.awt.Color(79, 93, 117));
-        listCountry.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        listCountry.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         listCountry.setForeground(new java.awt.Color(255, 255, 255));
-        listCountry.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(listCountry);
+        countryScrollPane.setViewportView(listCountry);
 
         submitCountryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitCountryButton.setBorder(null);
         submitCountryButton.setBorderPainted(false);
         submitCountryButton.setContentAreaFilled(false);
+        submitCountryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        addCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
-        addCountry.setBorder(null);
-        addCountry.setBorderPainted(false);
-        addCountry.setContentAreaFilled(false);
+        addCountryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
+        addCountryButton.setBorder(null);
+        addCountryButton.setBorderPainted(false);
+        addCountryButton.setContentAreaFilled(false);
+        addCountryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        editCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
-        editCountry.setBorder(null);
-        editCountry.setBorderPainted(false);
-        editCountry.setContentAreaFilled(false);
+        editCountryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
+        editCountryButton.setBorder(null);
+        editCountryButton.setBorderPainted(false);
+        editCountryButton.setContentAreaFilled(false);
+        editCountryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        deleteCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
-        deleteCountry.setBorder(null);
-        deleteCountry.setBorderPainted(false);
-        deleteCountry.setContentAreaFilled(false);
+        deleteCountryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
+        deleteCountryButton.setBorder(null);
+        deleteCountryButton.setBorderPainted(false);
+        deleteCountryButton.setContentAreaFilled(false);
+        deleteCountryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
-        exitButton.setBorder(null);
-        exitButton.setBorderPainted(false);
-        exitButton.setContentAreaFilled(false);
+        exitButtonCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
+        exitButtonCountry.setBorder(null);
+        exitButtonCountry.setBorderPainted(false);
+        exitButtonCountry.setContentAreaFilled(false);
+        exitButtonCountry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        javax.swing.GroupLayout tabCountryLayout = new javax.swing.GroupLayout(tabCountry);
-        tabCountry.setLayout(tabCountryLayout);
-        tabCountryLayout.setHorizontalGroup(
-            tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountryLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabCountryPanelLayout = new javax.swing.GroupLayout(tabCountryPanel);
+        tabCountryPanel.setLayout(tabCountryPanelLayout);
+        tabCountryPanelLayout.setHorizontalGroup(
+            tabCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCountryPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCountryLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addGroup(tabCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabCountryPanelLayout.createSequentialGroup()
+                        .addComponent(countryScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                         .addGap(50, 50, 50)
-                        .addGroup(tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editCountry)
-                            .addComponent(addCountry)
-                            .addComponent(deleteCountry))
-                        .addGap(42, 42, 42))
-                    .addGroup(tabCountryLayout.createSequentialGroup()
-                        .addComponent(exitButton)
+                        .addGroup(tabCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editCountryButton)
+                            .addComponent(addCountryButton)
+                            .addComponent(deleteCountryButton)))
+                    .addGroup(tabCountryPanelLayout.createSequentialGroup()
+                        .addComponent(exitButtonCountry)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitCountryButton)
-                        .addContainerGap())))
+                        .addComponent(submitCountryButton)))
+                .addGap(42, 42, 42))
         );
-        tabCountryLayout.setVerticalGroup(
-            tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountryLayout.createSequentialGroup()
+        tabCountryPanelLayout.setVerticalGroup(
+            tabCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCountryPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabCountryLayout.createSequentialGroup()
-                        .addComponent(addCountry)
-                        .addGap(13, 13, 13)
-                        .addComponent(editCountry)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteCountry)
-                        .addGap(63, 63, 63))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(tabCountryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabCountryPanelLayout.createSequentialGroup()
+                        .addComponent(addCountryButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(editCountryButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteCountryButton)
+                        .addGap(30, 30, 30))
+                    .addComponent(countryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(tabCountryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitCountryButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(exitButtonCountry, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(25, 25, 25))
         );
 
-        TabPaneCountry.addTab("Country", tabCountry);
+        TabPaneCountry.addTab("Country", tabCountryPanel);
 
-        tabProvince.setBackground(new java.awt.Color(45, 49, 66));
-        tabProvince.setForeground(new java.awt.Color(255, 255, 255));
+        tabProvincePanel.setBackground(new java.awt.Color(45, 49, 66));
+        tabProvincePanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        listProvince.setBackground(new java.awt.Color(79, 93, 117));
-        listProvince.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        listProvince.setForeground(new java.awt.Color(255, 255, 255));
-        listProvince.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(listProvince);
+        listCountry1.setBackground(new java.awt.Color(79, 93, 117));
+        listCountry1.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCountry1.setForeground(new java.awt.Color(255, 255, 255));
+        provinceScrollPane.setViewportView(listCountry1);
 
         submitProvinceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitProvinceButton.setBorder(null);
         submitProvinceButton.setBorderPainted(false);
         submitProvinceButton.setContentAreaFilled(false);
+        submitProvinceButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        addProvince.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
-        addProvince.setBorder(null);
-        addProvince.setBorderPainted(false);
-        addProvince.setContentAreaFilled(false);
+        addProvinceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
+        addProvinceButton.setBorder(null);
+        addProvinceButton.setBorderPainted(false);
+        addProvinceButton.setContentAreaFilled(false);
+        addProvinceButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        editProvince.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
-        editProvince.setBorder(null);
-        editProvince.setBorderPainted(false);
-        editProvince.setContentAreaFilled(false);
+        editProvinceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
+        editProvinceButton.setBorder(null);
+        editProvinceButton.setBorderPainted(false);
+        editProvinceButton.setContentAreaFilled(false);
+        editProvinceButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        deleteProvince.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
-        deleteProvince.setBorder(null);
-        deleteProvince.setBorderPainted(false);
-        deleteProvince.setContentAreaFilled(false);
-        deleteProvince.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteProvinceActionPerformed(evt);
-            }
-        });
+        deleteProvinceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
+        deleteProvinceButton.setBorder(null);
+        deleteProvinceButton.setBorderPainted(false);
+        deleteProvinceButton.setContentAreaFilled(false);
+        deleteProvinceButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        exitButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
-        exitButton1.setBorder(null);
-        exitButton1.setBorderPainted(false);
-        exitButton1.setContentAreaFilled(false);
+        exitButtonProvince.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
+        exitButtonProvince.setBorder(null);
+        exitButtonProvince.setBorderPainted(false);
+        exitButtonProvince.setContentAreaFilled(false);
+        exitButtonProvince.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        javax.swing.GroupLayout tabProvinceLayout = new javax.swing.GroupLayout(tabProvince);
-        tabProvince.setLayout(tabProvinceLayout);
-        tabProvinceLayout.setHorizontalGroup(
-            tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabProvinceLayout.createSequentialGroup()
+        javax.swing.GroupLayout tabProvincePanelLayout = new javax.swing.GroupLayout(tabProvincePanel);
+        tabProvincePanel.setLayout(tabProvincePanelLayout);
+        tabProvincePanelLayout.setHorizontalGroup(
+            tabProvincePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProvincePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabProvinceLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addGroup(tabProvincePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabProvincePanelLayout.createSequentialGroup()
+                        .addComponent(provinceScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                         .addGap(50, 50, 50)
-                        .addGroup(tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editProvince)
-                            .addComponent(addProvince)
-                            .addComponent(deleteProvince))
-                        .addGap(42, 42, 42))
-                    .addGroup(tabProvinceLayout.createSequentialGroup()
-                        .addComponent(exitButton1)
+                        .addGroup(tabProvincePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editProvinceButton)
+                            .addComponent(addProvinceButton)
+                            .addComponent(deleteProvinceButton)))
+                    .addGroup(tabProvincePanelLayout.createSequentialGroup()
+                        .addComponent(exitButtonProvince)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitProvinceButton)
-                        .addContainerGap())))
+                        .addComponent(submitProvinceButton)))
+                .addGap(42, 42, 42))
         );
-        tabProvinceLayout.setVerticalGroup(
-            tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabProvinceLayout.createSequentialGroup()
+        tabProvincePanelLayout.setVerticalGroup(
+            tabProvincePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProvincePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabProvinceLayout.createSequentialGroup()
-                        .addComponent(addProvince)
-                        .addGap(13, 13, 13)
-                        .addComponent(editProvince)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteProvince)
-                        .addGap(63, 63, 63))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(tabProvinceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(tabProvincePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabProvincePanelLayout.createSequentialGroup()
+                        .addComponent(addProvinceButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(editProvinceButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteProvinceButton)
+                        .addGap(30, 30, 30))
+                    .addComponent(provinceScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(tabProvincePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitProvinceButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exitButton1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(exitButtonProvince, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(25, 25, 25))
         );
 
-        TabPaneCountry.addTab("Province", tabProvince);
+        TabPaneCountry.addTab("Province", tabProvincePanel);
 
-        tabCountry2.setBackground(new java.awt.Color(45, 49, 66));
-        tabCountry2.setForeground(new java.awt.Color(255, 255, 255));
+        tabCategoryPanel.setBackground(new java.awt.Color(45, 49, 66));
+        tabCategoryPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        listCanton.setBackground(new java.awt.Color(79, 93, 117));
-        listCanton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        listCanton.setForeground(new java.awt.Color(255, 255, 255));
-        listCanton.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(listCanton);
-
-        submitCantonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
-        submitCantonButton.setBorder(null);
-        submitCantonButton.setBorderPainted(false);
-        submitCantonButton.setContentAreaFilled(false);
-
-        addCanton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
-        addCanton.setBorder(null);
-        addCanton.setBorderPainted(false);
-        addCanton.setContentAreaFilled(false);
-
-        editCanton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
-        editCanton.setBorder(null);
-        editCanton.setBorderPainted(false);
-        editCanton.setContentAreaFilled(false);
-
-        deleteCanton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
-        deleteCanton.setBorder(null);
-        deleteCanton.setBorderPainted(false);
-        deleteCanton.setContentAreaFilled(false);
-
-        exitButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
-        exitButton2.setBorder(null);
-        exitButton2.setBorderPainted(false);
-        exitButton2.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout tabCountry2Layout = new javax.swing.GroupLayout(tabCountry2);
-        tabCountry2.setLayout(tabCountry2Layout);
-        tabCountry2Layout.setHorizontalGroup(
-            tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountry2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCountry2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addGap(50, 50, 50)
-                        .addGroup(tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editCanton)
-                            .addComponent(addCanton)
-                            .addComponent(deleteCanton))
-                        .addGap(42, 42, 42))
-                    .addGroup(tabCountry2Layout.createSequentialGroup()
-                        .addComponent(exitButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitCantonButton)
-                        .addContainerGap())))
-        );
-        tabCountry2Layout.setVerticalGroup(
-            tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountry2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabCountry2Layout.createSequentialGroup()
-                        .addComponent(addCanton)
-                        .addGap(13, 13, 13)
-                        .addComponent(editCanton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteCanton)
-                        .addGap(63, 63, 63))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(tabCountry2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(submitCantonButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exitButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
-        );
-
-        TabPaneCountry.addTab("Canton", tabCountry2);
-
-        tabCountry3.setBackground(new java.awt.Color(45, 49, 66));
-        tabCountry3.setForeground(new java.awt.Color(255, 255, 255));
-
-        listDistrict.setBackground(new java.awt.Color(79, 93, 117));
-        listDistrict.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        listDistrict.setForeground(new java.awt.Color(255, 255, 255));
-        listDistrict.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane4.setViewportView(listDistrict);
-
-        submitDistrictButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
-        submitDistrictButton.setBorder(null);
-        submitDistrictButton.setBorderPainted(false);
-        submitDistrictButton.setContentAreaFilled(false);
-
-        addDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
-        addDistrict.setBorder(null);
-        addDistrict.setBorderPainted(false);
-        addDistrict.setContentAreaFilled(false);
-
-        editDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
-        editDistrict.setBorder(null);
-        editDistrict.setBorderPainted(false);
-        editDistrict.setContentAreaFilled(false);
-
-        deleteDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
-        deleteDistrict.setBorder(null);
-        deleteDistrict.setBorderPainted(false);
-        deleteDistrict.setContentAreaFilled(false);
-
-        exitButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
-        exitButton3.setBorder(null);
-        exitButton3.setBorderPainted(false);
-        exitButton3.setContentAreaFilled(false);
-
-        javax.swing.GroupLayout tabCountry3Layout = new javax.swing.GroupLayout(tabCountry3);
-        tabCountry3.setLayout(tabCountry3Layout);
-        tabCountry3Layout.setHorizontalGroup(
-            tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountry3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCountry3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addGap(50, 50, 50)
-                        .addGroup(tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editDistrict)
-                            .addComponent(addDistrict)
-                            .addComponent(deleteDistrict))
-                        .addGap(42, 42, 42))
-                    .addGroup(tabCountry3Layout.createSequentialGroup()
-                        .addComponent(exitButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(submitDistrictButton)
-                        .addContainerGap())))
-        );
-        tabCountry3Layout.setVerticalGroup(
-            tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountry3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabCountry3Layout.createSequentialGroup()
-                        .addComponent(addDistrict)
-                        .addGap(13, 13, 13)
-                        .addComponent(editDistrict)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteDistrict)
-                        .addGap(63, 63, 63))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addGroup(tabCountry3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(submitDistrictButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(exitButton3, javax.swing.GroupLayout.Alignment.TRAILING)))
-        );
-
-        TabPaneCountry.addTab("District", tabCountry3);
-
-        tabCountry4.setBackground(new java.awt.Color(45, 49, 66));
-        tabCountry4.setForeground(new java.awt.Color(255, 255, 255));
-
-        listCategory.setBackground(new java.awt.Color(79, 93, 117));
-        listCategory.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        listCategory.setForeground(new java.awt.Color(255, 255, 255));
-        listCategory.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane5.setViewportView(listCategory);
+        listCountry2.setBackground(new java.awt.Color(79, 93, 117));
+        listCountry2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCountry2.setForeground(new java.awt.Color(255, 255, 255));
+        categoryScrollPane.setViewportView(listCountry2);
 
         submitCategoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitCategoryButton.setBorder(null);
         submitCategoryButton.setBorderPainted(false);
         submitCategoryButton.setContentAreaFilled(false);
+        submitCategoryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        addCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
-        addCategory.setBorder(null);
-        addCategory.setBorderPainted(false);
-        addCategory.setContentAreaFilled(false);
+        addCategoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
+        addCategoryButton.setBorder(null);
+        addCategoryButton.setBorderPainted(false);
+        addCategoryButton.setContentAreaFilled(false);
+        addCategoryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        editCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
-        editCategory.setBorder(null);
-        editCategory.setBorderPainted(false);
-        editCategory.setContentAreaFilled(false);
+        editCategoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
+        editCategoryButton.setBorder(null);
+        editCategoryButton.setBorderPainted(false);
+        editCategoryButton.setContentAreaFilled(false);
+        editCategoryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        deleteCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
-        deleteCategory.setBorder(null);
-        deleteCategory.setBorderPainted(false);
-        deleteCategory.setContentAreaFilled(false);
+        deleteCategoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
+        deleteCategoryButton.setBorder(null);
+        deleteCategoryButton.setBorderPainted(false);
+        deleteCategoryButton.setContentAreaFilled(false);
+        deleteCategoryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        exitButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
-        exitButton4.setBorder(null);
-        exitButton4.setBorderPainted(false);
-        exitButton4.setContentAreaFilled(false);
+        exitButtonCategory.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
+        exitButtonCategory.setBorder(null);
+        exitButtonCategory.setBorderPainted(false);
+        exitButtonCategory.setContentAreaFilled(false);
+        exitButtonCategory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        javax.swing.GroupLayout tabCountry4Layout = new javax.swing.GroupLayout(tabCountry4);
-        tabCountry4.setLayout(tabCountry4Layout);
-        tabCountry4Layout.setHorizontalGroup(
-            tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountry4Layout.createSequentialGroup()
+        javax.swing.GroupLayout tabCategoryPanelLayout = new javax.swing.GroupLayout(tabCategoryPanel);
+        tabCategoryPanel.setLayout(tabCategoryPanelLayout);
+        tabCategoryPanelLayout.setHorizontalGroup(
+            tabCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCategoryPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCountry4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addGroup(tabCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabCategoryPanelLayout.createSequentialGroup()
+                        .addComponent(categoryScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                         .addGap(50, 50, 50)
-                        .addGroup(tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editCategory)
-                            .addComponent(addCategory)
-                            .addComponent(deleteCategory)))
-                    .addGroup(tabCountry4Layout.createSequentialGroup()
-                        .addComponent(exitButton4)
+                        .addGroup(tabCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editCategoryButton)
+                            .addComponent(addCategoryButton)
+                            .addComponent(deleteCategoryButton)))
+                    .addGroup(tabCategoryPanelLayout.createSequentialGroup()
+                        .addComponent(exitButtonCategory)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(submitCategoryButton)))
                 .addGap(42, 42, 42))
         );
-        tabCountry4Layout.setVerticalGroup(
-            tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCountry4Layout.createSequentialGroup()
+        tabCategoryPanelLayout.setVerticalGroup(
+            tabCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCategoryPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(tabCountry4Layout.createSequentialGroup()
-                        .addComponent(addCategory)
-                        .addGap(13, 13, 13)
-                        .addComponent(editCategory)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteCategory)
-                        .addGap(63, 63, 63))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tabCountry4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(exitButton4)
-                    .addComponent(submitCategoryButton))
-                .addGap(0, 15, Short.MAX_VALUE))
+                .addGroup(tabCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabCategoryPanelLayout.createSequentialGroup()
+                        .addComponent(addCategoryButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(editCategoryButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteCategoryButton)
+                        .addGap(30, 30, 30))
+                    .addComponent(categoryScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(tabCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitCategoryButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exitButtonCategory, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(25, 25, 25))
         );
 
-        TabPaneCountry.addTab("Category", tabCountry4);
+        TabPaneCountry.addTab("Category", tabCategoryPanel);
+
+        tabDistrictPanel.setBackground(new java.awt.Color(45, 49, 66));
+        tabDistrictPanel.setForeground(new java.awt.Color(255, 255, 255));
+
+        listCountry3.setBackground(new java.awt.Color(79, 93, 117));
+        listCountry3.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCountry3.setForeground(new java.awt.Color(255, 255, 255));
+        districtScrollPane.setViewportView(listCountry3);
+
+        submitDistrictButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
+        submitDistrictButton.setBorder(null);
+        submitDistrictButton.setBorderPainted(false);
+        submitDistrictButton.setContentAreaFilled(false);
+        submitDistrictButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        addDistrictButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
+        addDistrictButton.setBorder(null);
+        addDistrictButton.setBorderPainted(false);
+        addDistrictButton.setContentAreaFilled(false);
+        addDistrictButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        editDistrictButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
+        editDistrictButton.setBorder(null);
+        editDistrictButton.setBorderPainted(false);
+        editDistrictButton.setContentAreaFilled(false);
+        editDistrictButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        deleteDistrictButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
+        deleteDistrictButton.setBorder(null);
+        deleteDistrictButton.setBorderPainted(false);
+        deleteDistrictButton.setContentAreaFilled(false);
+        deleteDistrictButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        exitButtonDistrict.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
+        exitButtonDistrict.setBorder(null);
+        exitButtonDistrict.setBorderPainted(false);
+        exitButtonDistrict.setContentAreaFilled(false);
+        exitButtonDistrict.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout tabDistrictPanelLayout = new javax.swing.GroupLayout(tabDistrictPanel);
+        tabDistrictPanel.setLayout(tabDistrictPanelLayout);
+        tabDistrictPanelLayout.setHorizontalGroup(
+            tabDistrictPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDistrictPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tabDistrictPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabDistrictPanelLayout.createSequentialGroup()
+                        .addComponent(districtScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addGap(50, 50, 50)
+                        .addGroup(tabDistrictPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editDistrictButton)
+                            .addComponent(addDistrictButton)
+                            .addComponent(deleteDistrictButton)))
+                    .addGroup(tabDistrictPanelLayout.createSequentialGroup()
+                        .addComponent(exitButtonDistrict)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(submitDistrictButton)))
+                .addGap(42, 42, 42))
+        );
+        tabDistrictPanelLayout.setVerticalGroup(
+            tabDistrictPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabDistrictPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tabDistrictPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabDistrictPanelLayout.createSequentialGroup()
+                        .addComponent(addDistrictButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(editDistrictButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteDistrictButton)
+                        .addGap(30, 30, 30))
+                    .addComponent(districtScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(tabDistrictPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitDistrictButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exitButtonDistrict, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(25, 25, 25))
+        );
+
+        TabPaneCountry.addTab("District", tabDistrictPanel);
+
+        tabCantonPanel.setBackground(new java.awt.Color(45, 49, 66));
+        tabCantonPanel.setForeground(new java.awt.Color(255, 255, 255));
+
+        listCountry4.setBackground(new java.awt.Color(79, 93, 117));
+        listCountry4.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCountry4.setForeground(new java.awt.Color(255, 255, 255));
+        cantonScrollPane.setViewportView(listCountry4);
+
+        submitCantonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
+        submitCantonButton.setBorder(null);
+        submitCantonButton.setBorderPainted(false);
+        submitCantonButton.setContentAreaFilled(false);
+        submitCantonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        addCantonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_png.png"))); // NOI18N
+        addCantonButton.setBorder(null);
+        addCantonButton.setBorderPainted(false);
+        addCantonButton.setContentAreaFilled(false);
+        addCantonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        editCantonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/edit.png"))); // NOI18N
+        editCantonButton.setBorder(null);
+        editCantonButton.setBorderPainted(false);
+        editCantonButton.setContentAreaFilled(false);
+        editCantonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        deleteCantonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/trash.png"))); // NOI18N
+        deleteCantonButton.setBorder(null);
+        deleteCantonButton.setBorderPainted(false);
+        deleteCantonButton.setContentAreaFilled(false);
+        deleteCantonButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        exitButtonCanton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
+        exitButtonCanton.setBorder(null);
+        exitButtonCanton.setBorderPainted(false);
+        exitButtonCanton.setContentAreaFilled(false);
+        exitButtonCanton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButtonCanton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonCantonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout tabCantonPanelLayout = new javax.swing.GroupLayout(tabCantonPanel);
+        tabCantonPanel.setLayout(tabCantonPanelLayout);
+        tabCantonPanelLayout.setHorizontalGroup(
+            tabCantonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCantonPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tabCantonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabCantonPanelLayout.createSequentialGroup()
+                        .addComponent(cantonScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addGap(50, 50, 50)
+                        .addGroup(tabCantonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(editCantonButton)
+                            .addComponent(addCantonButton)
+                            .addComponent(deleteCantonButton)))
+                    .addGroup(tabCantonPanelLayout.createSequentialGroup()
+                        .addComponent(exitButtonCanton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(submitCantonButton)))
+                .addGap(42, 42, 42))
+        );
+        tabCantonPanelLayout.setVerticalGroup(
+            tabCantonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabCantonPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(tabCantonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(tabCantonPanelLayout.createSequentialGroup()
+                        .addComponent(addCantonButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(editCantonButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteCantonButton)
+                        .addGap(30, 30, 30))
+                    .addComponent(cantonScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(tabCantonPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitCantonButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(exitButtonCanton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(25, 25, 25))
+        );
+
+        TabPaneCountry.addTab("Canton", tabCantonPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -489,17 +490,15 @@ public class Catalogue extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(TabPaneCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(TabPaneCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deleteProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteProvinceActionPerformed
+    private void exitButtonCantonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonCantonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteProvinceActionPerformed
+    }//GEN-LAST:event_exitButtonCantonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -538,45 +537,45 @@ public class Catalogue extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane TabPaneCountry;
-    private javax.swing.JButton addCanton;
-    private javax.swing.JButton addCategory;
-    private javax.swing.JButton addCountry;
-    private javax.swing.JButton addDistrict;
-    private javax.swing.JButton addProvince;
-    private javax.swing.JButton deleteCanton;
-    private javax.swing.JButton deleteCategory;
-    private javax.swing.JButton deleteCountry;
-    private javax.swing.JButton deleteDistrict;
-    private javax.swing.JButton deleteProvince;
-    private javax.swing.JButton editCanton;
-    private javax.swing.JButton editCategory;
-    private javax.swing.JButton editCountry;
-    private javax.swing.JButton editDistrict;
-    private javax.swing.JButton editProvince;
-    private javax.swing.JButton exitButton;
-    private javax.swing.JButton exitButton1;
-    private javax.swing.JButton exitButton2;
-    private javax.swing.JButton exitButton3;
-    private javax.swing.JButton exitButton4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JList<String> listCanton;
-    private javax.swing.JList<String> listCategory;
+    private javax.swing.JButton addCantonButton;
+    private javax.swing.JButton addCategoryButton;
+    private javax.swing.JButton addCountryButton;
+    private javax.swing.JButton addDistrictButton;
+    private javax.swing.JButton addProvinceButton;
+    private javax.swing.JScrollPane cantonScrollPane;
+    private javax.swing.JScrollPane categoryScrollPane;
+    private javax.swing.JScrollPane countryScrollPane;
+    private javax.swing.JButton deleteCantonButton;
+    private javax.swing.JButton deleteCategoryButton;
+    private javax.swing.JButton deleteCountryButton;
+    private javax.swing.JButton deleteDistrictButton;
+    private javax.swing.JButton deleteProvinceButton;
+    private javax.swing.JScrollPane districtScrollPane;
+    private javax.swing.JButton editCantonButton;
+    private javax.swing.JButton editCategoryButton;
+    private javax.swing.JButton editCountryButton;
+    private javax.swing.JButton editDistrictButton;
+    private javax.swing.JButton editProvinceButton;
+    private javax.swing.JButton exitButtonCanton;
+    private javax.swing.JButton exitButtonCategory;
+    private javax.swing.JButton exitButtonCountry;
+    private javax.swing.JButton exitButtonDistrict;
+    private javax.swing.JButton exitButtonProvince;
     private javax.swing.JList<String> listCountry;
-    private javax.swing.JList<String> listDistrict;
-    private javax.swing.JList<String> listProvince;
+    private javax.swing.JList<String> listCountry1;
+    private javax.swing.JList<String> listCountry2;
+    private javax.swing.JList<String> listCountry3;
+    private javax.swing.JList<String> listCountry4;
+    private javax.swing.JScrollPane provinceScrollPane;
     private javax.swing.JButton submitCantonButton;
     private javax.swing.JButton submitCategoryButton;
     private javax.swing.JButton submitCountryButton;
     private javax.swing.JButton submitDistrictButton;
     private javax.swing.JButton submitProvinceButton;
-    private javax.swing.JPanel tabCountry;
-    private javax.swing.JPanel tabCountry2;
-    private javax.swing.JPanel tabCountry3;
-    private javax.swing.JPanel tabCountry4;
-    private javax.swing.JPanel tabProvince;
+    private javax.swing.JPanel tabCantonPanel;
+    private javax.swing.JPanel tabCategoryPanel;
+    private javax.swing.JPanel tabCountryPanel;
+    private javax.swing.JPanel tabDistrictPanel;
+    private javax.swing.JPanel tabProvincePanel;
     // End of variables declaration//GEN-END:variables
 }

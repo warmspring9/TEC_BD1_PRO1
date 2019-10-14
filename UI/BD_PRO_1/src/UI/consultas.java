@@ -27,71 +27,87 @@ public class consultas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        exitPanel = new javax.swing.JPanel();
-        queryTab = new javax.swing.JTabbedPane();
-        noPassChangePanel = new javax.swing.JPanel();
-        topProposalPanel = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
+        exitButton = new javax.swing.JButton();
+        consultTab = new javax.swing.JTabbedPane();
+        noPassChangeScroll = new javax.swing.JScrollPane();
+        noPassChangeAreaText = new javax.swing.JTextArea();
+        topNScroll = new javax.swing.JScrollPane();
+        topNTextArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
-        javax.swing.GroupLayout exitPanelLayout = new javax.swing.GroupLayout(exitPanel);
-        exitPanel.setLayout(exitPanelLayout);
-        exitPanelLayout.setHorizontalGroup(
-            exitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 25, Short.MAX_VALUE)
+        mainPanel.setBackground(new java.awt.Color(45, 49, 66));
+        mainPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 192, 192), 2, true));
+
+        exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja30.png"))); // NOI18N
+        exitButton.setBorder(null);
+        exitButton.setBorderPainted(false);
+        exitButton.setContentAreaFilled(false);
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        consultTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        consultTab.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+
+        noPassChangeAreaText.setEditable(false);
+        noPassChangeAreaText.setBackground(new java.awt.Color(79, 93, 117));
+        noPassChangeAreaText.setColumns(20);
+        noPassChangeAreaText.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        noPassChangeAreaText.setRows(5);
+        noPassChangeAreaText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        noPassChangeAreaText.setSelectionColor(new java.awt.Color(239, 131, 84));
+        noPassChangeScroll.setViewportView(noPassChangeAreaText);
+
+        consultTab.addTab("No Password change", noPassChangeScroll);
+
+        topNTextArea.setEditable(false);
+        topNTextArea.setBackground(new java.awt.Color(79, 93, 117));
+        topNTextArea.setColumns(20);
+        topNTextArea.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        topNTextArea.setForeground(new java.awt.Color(255, 255, 255));
+        topNTextArea.setRows(5);
+        topNTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        topNTextArea.setSelectionColor(new java.awt.Color(239, 131, 84));
+        topNScroll.setViewportView(topNTextArea);
+
+        consultTab.addTab("Top N", topNScroll);
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(exitButton))
+                    .addComponent(consultTab, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
-        exitPanelLayout.setVerticalGroup(
-            exitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 25, Short.MAX_VALUE)
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(exitButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(consultTab, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout noPassChangePanelLayout = new javax.swing.GroupLayout(noPassChangePanel);
-        noPassChangePanel.setLayout(noPassChangePanelLayout);
-        noPassChangePanelLayout.setHorizontalGroup(
-            noPassChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
-        );
-        noPassChangePanelLayout.setVerticalGroup(
-            noPassChangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 288, Short.MAX_VALUE)
-        );
-
-        queryTab.addTab("No Password Change", noPassChangePanel);
-
-        javax.swing.GroupLayout topProposalPanelLayout = new javax.swing.GroupLayout(topProposalPanel);
-        topProposalPanel.setLayout(topProposalPanelLayout);
-        topProposalPanelLayout.setHorizontalGroup(
-            topProposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 595, Short.MAX_VALUE)
-        );
-        topProposalPanelLayout.setVerticalGroup(
-            topProposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 288, Short.MAX_VALUE)
-        );
-
-        queryTab.addTab("Top Proposal", topProposalPanel);
+        consultTab.getAccessibleContext().setAccessibleName("No Password Change");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(queryTab)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(exitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(exitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(queryTab)
-                .addContainerGap())
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -133,9 +149,12 @@ public class consultas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel exitPanel;
-    private javax.swing.JPanel noPassChangePanel;
-    private javax.swing.JTabbedPane queryTab;
-    private javax.swing.JPanel topProposalPanel;
+    private javax.swing.JTabbedPane consultTab;
+    private javax.swing.JButton exitButton;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JTextArea noPassChangeAreaText;
+    private javax.swing.JScrollPane noPassChangeScroll;
+    private javax.swing.JScrollPane topNScroll;
+    private javax.swing.JTextArea topNTextArea;
     // End of variables declaration//GEN-END:variables
 }

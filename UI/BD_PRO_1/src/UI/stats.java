@@ -28,80 +28,121 @@ public class stats extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        stats = new javax.swing.JTabbedPane();
-        proposalxCategoryPanel = new javax.swing.JPanel();
-        proposalxZonePanel = new javax.swing.JPanel();
-        ageRangePanel = new javax.swing.JPanel();
-        userxAddress = new javax.swing.JPanel();
+        mainPanel = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        StatTab = new javax.swing.JTabbedPane();
+        StatScrollPanel = new javax.swing.JScrollPane();
+        stats1Panel = new javax.swing.JPanel();
+        filterPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
 
-        javax.swing.GroupLayout proposalxCategoryPanelLayout = new javax.swing.GroupLayout(proposalxCategoryPanel);
-        proposalxCategoryPanel.setLayout(proposalxCategoryPanelLayout);
-        proposalxCategoryPanelLayout.setHorizontalGroup(
-            proposalxCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+        mainPanel.setBackground(new java.awt.Color(13, 49, 66));
+        mainPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(79, 93, 117), 2, true));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja30.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        StatScrollPanel.setBackground(new java.awt.Color(79, 93, 117));
+        StatScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        stats1Panel.setBackground(new java.awt.Color(79, 93, 117));
+
+        filterPanel.setBackground(new java.awt.Color(191, 192, 192));
+        filterPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/filter30.png"))); // NOI18N
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_23px.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout filterPanelLayout = new javax.swing.GroupLayout(filterPanel);
+        filterPanel.setLayout(filterPanelLayout);
+        filterPanelLayout.setHorizontalGroup(
+            filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addContainerGap(258, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, filterPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
-        proposalxCategoryPanelLayout.setVerticalGroup(
-            proposalxCategoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+        filterPanelLayout.setVerticalGroup(
+            filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
-        stats.addTab("Proposal by Category", proposalxCategoryPanel);
-
-        javax.swing.GroupLayout proposalxZonePanelLayout = new javax.swing.GroupLayout(proposalxZonePanel);
-        proposalxZonePanel.setLayout(proposalxZonePanelLayout);
-        proposalxZonePanelLayout.setHorizontalGroup(
-            proposalxZonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
+        javax.swing.GroupLayout stats1PanelLayout = new javax.swing.GroupLayout(stats1Panel);
+        stats1Panel.setLayout(stats1PanelLayout);
+        stats1PanelLayout.setHorizontalGroup(
+            stats1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(stats1PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(filterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(530, Short.MAX_VALUE))
         );
-        proposalxZonePanelLayout.setVerticalGroup(
-            proposalxZonePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-
-        stats.addTab("Proposal by Zone", proposalxZonePanel);
-
-        javax.swing.GroupLayout ageRangePanelLayout = new javax.swing.GroupLayout(ageRangePanel);
-        ageRangePanel.setLayout(ageRangePanelLayout);
-        ageRangePanelLayout.setHorizontalGroup(
-            ageRangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
-        );
-        ageRangePanelLayout.setVerticalGroup(
-            ageRangePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+        stats1PanelLayout.setVerticalGroup(
+            stats1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(stats1PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(filterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(214, Short.MAX_VALUE))
         );
 
-        stats.addTab("Age Range Proposal", ageRangePanel);
+        StatScrollPanel.setViewportView(stats1Panel);
 
-        javax.swing.GroupLayout userxAddressLayout = new javax.swing.GroupLayout(userxAddress);
-        userxAddress.setLayout(userxAddressLayout);
-        userxAddressLayout.setHorizontalGroup(
-            userxAddressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 511, Short.MAX_VALUE)
-        );
-        userxAddressLayout.setVerticalGroup(
-            userxAddressLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
+        StatTab.addTab("tab1", StatScrollPanel);
 
-        stats.addTab("Users by Home Address", userxAddress);
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(StatTab, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(18, 18, 18)
+                .addComponent(StatTab, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(stats, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE))
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(stats)
-                .addContainerGap())
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -143,10 +184,13 @@ public class stats extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ageRangePanel;
-    private javax.swing.JPanel proposalxCategoryPanel;
-    private javax.swing.JPanel proposalxZonePanel;
-    private javax.swing.JTabbedPane stats;
-    private javax.swing.JPanel userxAddress;
+    private javax.swing.JScrollPane StatScrollPanel;
+    private javax.swing.JTabbedPane StatTab;
+    private javax.swing.JPanel filterPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel stats1Panel;
     // End of variables declaration//GEN-END:variables
 }

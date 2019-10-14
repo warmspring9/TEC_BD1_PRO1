@@ -36,25 +36,28 @@ public class CommentPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        nameText = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
         commentText = new javax.swing.JTextArea();
+        nameText = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(45, 49, 66));
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(239, 131, 84), 3));
+        setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         setMaximumSize(new java.awt.Dimension(344, 159));
 
-        nameText.setBackground(new java.awt.Color(191, 192, 192));
-        nameText.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        nameText.setEnabled(false);
-        jScrollPane2.setViewportView(nameText);
-
-        commentText.setBackground(new java.awt.Color(191, 192, 192));
+        commentText.setEditable(false);
+        commentText.setBackground(new java.awt.Color(45, 49, 66));
         commentText.setColumns(20);
+        commentText.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        commentText.setForeground(new java.awt.Color(255, 255, 255));
         commentText.setRows(5);
-        commentText.setEnabled(false);
+        commentText.setTabSize(2);
+        commentText.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        commentText.setSelectionColor(new java.awt.Color(239, 131, 84));
         jScrollPane4.setViewportView(commentText);
+
+        nameText.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        nameText.setForeground(new java.awt.Color(255, 255, 255));
+        nameText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,28 +66,25 @@ public class CommentPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                    .addComponent(nameText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea commentText;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextPane nameText;
+    private javax.swing.JLabel nameText;
     // End of variables declaration//GEN-END:variables
 }
