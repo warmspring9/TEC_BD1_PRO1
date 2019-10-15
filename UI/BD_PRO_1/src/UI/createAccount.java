@@ -126,15 +126,19 @@ public class createAccount extends javax.swing.JFrame {
 
         idField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         idField.setText("0-0000-0000");
+        idField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         NameField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         NameField.setText("Your Name");
+        NameField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         firstLasNameField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         firstLasNameField.setText("First Last Name");
+        firstLasNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         secondLastNameField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         secondLastNameField.setText("Second Last Name");
+        secondLastNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         addPhotoButton.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         addPhotoButton.setForeground(new java.awt.Color(51, 51, 255));

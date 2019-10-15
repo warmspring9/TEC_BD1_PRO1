@@ -53,11 +53,13 @@ public class logIn extends javax.swing.JFrame {
         userNameLabel.setText("PASSWORD :");
 
         userNameButton.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        userNameButton.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         jLabel1.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         jLabel1.setText("USERNAME : ");
 
         jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         javax.swing.GroupLayout LogInLayout = new javax.swing.GroupLayout(LogIn);
         LogIn.setLayout(LogInLayout);

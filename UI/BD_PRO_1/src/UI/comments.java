@@ -16,9 +16,12 @@ public class comments extends javax.swing.JFrame {
      */
     public comments() {
         initComponents();
-        
         this.setLocationRelativeTo(null);
         
+        ProposalComment prop=new ProposalComment();
+        proposalPanel.add(prop);
+        proposalPanel.updateUI();
+
     }
 
     /**
@@ -38,30 +41,25 @@ public class comments extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         newComment = new javax.swing.JTextArea();
         commentButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(45, 49, 66));
+        setUndecorated(true);
+        setResizable(false);
 
         mainPanel.setBackground(new java.awt.Color(45, 49, 66));
+        mainPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(191, 192, 192), 2, true));
 
         proposalPanel.setBackground(new java.awt.Color(79, 93, 117));
         proposalPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        javax.swing.GroupLayout proposalPanelLayout = new javax.swing.GroupLayout(proposalPanel);
-        proposalPanel.setLayout(proposalPanelLayout);
-        proposalPanelLayout.setHorizontalGroup(
-            proposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        proposalPanelLayout.setVerticalGroup(
-            proposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 209, Short.MAX_VALUE)
-        );
+        proposalPanel.setLayout(new java.awt.GridLayout(0, 1));
 
         commentsScroll.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         commentsScroll.setHorizontalScrollBar(null);
 
         commentsPanel.setBackground(new java.awt.Color(79, 93, 117));
+        commentsPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         commentsPanel.setMaximumSize(new java.awt.Dimension(344, 32767));
         commentsPanel.setLayout(new java.awt.GridLayout(0, 1, 0, 5));
         commentsScroll.setViewportView(commentsPanel);
@@ -70,6 +68,7 @@ public class comments extends javax.swing.JFrame {
         exitButton.setBorder(null);
         exitButton.setBorderPainted(false);
         exitButton.setContentAreaFilled(false);
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitButtonActionPerformed(evt);
@@ -80,10 +79,11 @@ public class comments extends javax.swing.JFrame {
         newComment.setRows(5);
         jScrollPane1.setViewportView(newComment);
 
-        commentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/comment.png"))); // NOI18N
+        commentButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/upload_50px.png"))); // NOI18N
         commentButton.setBorder(null);
         commentButton.setBorderPainted(false);
         commentButton.setContentAreaFilled(false);
+        commentButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -92,35 +92,34 @@ public class comments extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(proposalPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(proposalPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
                     .addComponent(commentsScroll, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
-                        .addGap(33, 33, 33)
-                        .addComponent(commentButton)
-                        .addGap(13, 13, 13))
+                        .addComponent(jScrollPane1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(commentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(exitButton)))
                 .addContainerGap())
+            .addComponent(jSeparator1)
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(proposalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(proposalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(commentsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(commentsScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(commentButton)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(commentButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,9 +130,7 @@ public class comments extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -144,11 +141,9 @@ public class comments extends javax.swing.JFrame {
         
         CommentPanel comment= new CommentPanel();
         commentsPanel.add(comment);// TODO add your handling code here:
-        ProposalPanel prop=new ProposalPanel();
-        proposalPanel.add(prop);
         System.out.println("hola");
         commentsPanel.updateUI();
-        proposalPanel.updateUI();
+
     }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
@@ -192,6 +187,7 @@ public class comments extends javax.swing.JFrame {
     private javax.swing.JScrollPane commentsScroll;
     private javax.swing.JButton exitButton;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JTextArea newComment;
     private javax.swing.JPanel proposalPanel;

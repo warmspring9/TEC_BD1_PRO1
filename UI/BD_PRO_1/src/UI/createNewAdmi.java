@@ -45,9 +45,11 @@ public class createNewAdmi extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Corbel Light", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USERNAME :");
 
         userNameField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        userNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

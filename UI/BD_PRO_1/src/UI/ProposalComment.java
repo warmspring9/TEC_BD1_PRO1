@@ -7,18 +7,15 @@ package UI;
 
 /**
  *
- * @author Mau
+ * @author jalej
  */
-public class ProposalPanel extends javax.swing.JPanel {
-    
-   
+public class ProposalComment extends javax.swing.JPanel {
 
     /**
-     * Creates new form ProposalPanel
+     * Creates new form ProposalComment
      */
-    public ProposalPanel(){
+    public ProposalComment() {
         initComponents();
-        
     }
 
     /**
@@ -30,7 +27,6 @@ public class ProposalPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         contentText = new javax.swing.JTextArea();
@@ -40,20 +36,6 @@ public class ProposalPanel extends javax.swing.JPanel {
         budgetText = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         categoryText = new javax.swing.JTextField();
-        likeButton = new javax.swing.JButton();
-        dislikeButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        dislikeCount = new javax.swing.JLabel();
-        likeCount = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(45, 49, 66));
-        setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        setMaximumSize(new java.awt.Dimension(720, 340));
-        setMinimumSize(new java.awt.Dimension(0, 0));
-        setPreferredSize(new java.awt.Dimension(720, 340));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_image_png.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(79, 93, 117));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -62,6 +44,7 @@ public class ProposalPanel extends javax.swing.JPanel {
         contentText.setColumns(20);
         contentText.setRows(5);
         contentText.setEnabled(false);
+        contentText.setSelectionColor(new java.awt.Color(239, 131, 84));
         jScrollPane1.setViewportView(contentText);
 
         titleText.setEditable(false);
@@ -70,6 +53,12 @@ public class ProposalPanel extends javax.swing.JPanel {
         titleText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         titleText.setBorder(null);
         titleText.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        titleText.setSelectionColor(new java.awt.Color(239, 131, 84));
+        titleText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                titleTextActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Corbel Light", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(191, 192, 192));
@@ -85,6 +74,7 @@ public class ProposalPanel extends javax.swing.JPanel {
         budgetText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         budgetText.setBorder(null);
         budgetText.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        budgetText.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         jLabel4.setFont(new java.awt.Font("Corbel Light", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(191, 192, 192));
@@ -96,6 +86,7 @@ public class ProposalPanel extends javax.swing.JPanel {
         categoryText.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         categoryText.setBorder(null);
         categoryText.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        categoryText.setSelectionColor(new java.awt.Color(239, 131, 84));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,7 +110,7 @@ public class ProposalPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(categoryText, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,94 +126,36 @@ public class ProposalPanel extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(budgetText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-
-        likeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thumb_up_40px.png"))); // NOI18N
-        likeButton.setBorder(null);
-        likeButton.setBorderPainted(false);
-        likeButton.setContentAreaFilled(false);
-        likeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        dislikeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/thumbs_down_40px.png"))); // NOI18N
-        dislikeButton.setBorder(null);
-        dislikeButton.setBorderPainted(false);
-        dislikeButton.setContentAreaFilled(false);
-        dislikeButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/comment40.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        dislikeCount.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
-        dislikeCount.setForeground(new java.awt.Color(255, 255, 255));
-        dislikeCount.setText("0");
-
-        likeCount.setFont(new java.awt.Font("Microsoft JhengHei", 1, 24)); // NOI18N
-        likeCount.setForeground(new java.awt.Color(255, 255, 255));
-        likeCount.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(likeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(likeCount)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dislikeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dislikeCount)
-                        .addGap(257, 257, 257)
-                        .addComponent(jButton3)
-                        .addGap(16, 16, 16))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 92, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(dislikeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(likeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(likeCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dislikeCount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void titleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_titleTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_titleTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField budgetText;
     private javax.swing.JTextField categoryText;
     private javax.swing.JTextArea contentText;
-    private javax.swing.JButton dislikeButton;
-    private javax.swing.JLabel dislikeCount;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton likeButton;
-    private javax.swing.JLabel likeCount;
     private javax.swing.JTextField titleText;
     // End of variables declaration//GEN-END:variables
 }
