@@ -5,7 +5,6 @@
  */
 package UI;
 
-import java.awt.CardLayout;
 
 /**
  *
@@ -19,7 +18,16 @@ public class maqueta extends javax.swing.JFrame {
     public maqueta() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //cardLayout=(CardLayout)(CardLayoutPanel.getLayout());
+        
+        oldPassLable.setVisible(false);
+        newPassLable.setVisible(false);
+        oldPassField.setVisible(false);
+        newPassField.setVisible(false);
+        submitNewPassButton.setVisible(false);
+        editFavsButton.setVisible(false);
+        
+        
+        
     }
 
     /**
@@ -64,7 +72,7 @@ public class maqueta extends javax.swing.JFrame {
         newPassField = new javax.swing.JPasswordField();
         editFavsButton = new javax.swing.JButton();
         enterInfoButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        submitNewPassButton = new javax.swing.JButton();
         leftPanelSeparator = new javax.swing.JSeparator();
         rightPanel = new javax.swing.JPanel();
         rightPanelUpperSeparator = new javax.swing.JSeparator();
@@ -92,10 +100,8 @@ public class maqueta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1181, 654));
-        setMaximumSize(new java.awt.Dimension(1181, 654));
         setMinimumSize(new java.awt.Dimension(1181, 654));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1181, 654));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -129,6 +135,11 @@ public class maqueta extends javax.swing.JFrame {
         addProposalButton.setBorderPainted(false);
         addProposalButton.setContentAreaFilled(false);
         addProposalButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addProposalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProposalButtonActionPerformed(evt);
+            }
+        });
 
         filterLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
@@ -152,6 +163,11 @@ public class maqueta extends javax.swing.JFrame {
         cantVotesField.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         cantVotesField.setCaretColor(new java.awt.Color(255, 255, 255));
         cantVotesField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        cantVotesField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cantVotesFieldKeyTyped(evt);
+            }
+        });
 
         submitFilterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitFilterButton.setBorder(null);
@@ -164,6 +180,11 @@ public class maqueta extends javax.swing.JFrame {
         jobButton.setBorderPainted(false);
         jobButton.setContentAreaFilled(false);
         jobButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jobButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jobButtonActionPerformed(evt);
+            }
+        });
 
         topNButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/podium.png"))); // NOI18N
         topNButton.setBorder(null);
@@ -260,6 +281,11 @@ public class maqueta extends javax.swing.JFrame {
         editProfileButton.setContentAreaFilled(false);
         editProfileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         editProfileButton.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        editProfileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editProfileButtonActionPerformed(evt);
+            }
+        });
 
         nameField.setEditable(false);
         nameField.setBackground(new java.awt.Color(79, 93, 117));
@@ -272,6 +298,11 @@ public class maqueta extends javax.swing.JFrame {
         nameField.setCaretColor(new java.awt.Color(255, 255, 255));
         nameField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         nameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        nameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameFieldKeyTyped(evt);
+            }
+        });
 
         lastNameField.setEditable(false);
         lastNameField.setBackground(new java.awt.Color(79, 93, 117));
@@ -283,6 +314,11 @@ public class maqueta extends javax.swing.JFrame {
         lastNameField.setBorder(null);
         lastNameField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         lastNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        lastNameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastNameFieldKeyTyped(evt);
+            }
+        });
 
         emailField.setEditable(false);
         emailField.setBackground(new java.awt.Color(79, 93, 117));
@@ -296,6 +332,11 @@ public class maqueta extends javax.swing.JFrame {
         emailField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         emailField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         emailField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        emailField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                emailFieldKeyTyped(evt);
+            }
+        });
 
         idField.setEditable(false);
         idField.setBackground(new java.awt.Color(79, 93, 117));
@@ -308,6 +349,11 @@ public class maqueta extends javax.swing.JFrame {
         idField.setCaretColor(new java.awt.Color(255, 255, 255));
         idField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         idField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        idField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idFieldKeyTyped(evt);
+            }
+        });
 
         phoneField.setEditable(false);
         phoneField.setBackground(new java.awt.Color(79, 93, 117));
@@ -320,12 +366,22 @@ public class maqueta extends javax.swing.JFrame {
         phoneField.setCaretColor(new java.awt.Color(255, 255, 255));
         phoneField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         phoneField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneFieldKeyTyped(evt);
+            }
+        });
 
         advanceSettingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/settings.png"))); // NOI18N
         advanceSettingsButton.setBorder(null);
         advanceSettingsButton.setBorderPainted(false);
         advanceSettingsButton.setContentAreaFilled(false);
         advanceSettingsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        advanceSettingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                advanceSettingsButtonActionPerformed(evt);
+            }
+        });
 
         oldPassField.setText("jPasswordField1");
 
@@ -350,12 +406,22 @@ public class maqueta extends javax.swing.JFrame {
         enterInfoButton.setBorderPainted(false);
         enterInfoButton.setContentAreaFilled(false);
         enterInfoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        enterInfoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterInfoButtonActionPerformed(evt);
+            }
+        });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_23px.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        submitNewPassButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_23px.png"))); // NOI18N
+        submitNewPassButton.setBorder(null);
+        submitNewPassButton.setBorderPainted(false);
+        submitNewPassButton.setContentAreaFilled(false);
+        submitNewPassButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        submitNewPassButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitNewPassButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout profileCardPanelLayout = new javax.swing.GroupLayout(profileCardPanel);
         profileCardPanel.setLayout(profileCardPanelLayout);
@@ -377,7 +443,7 @@ public class maqueta extends javax.swing.JFrame {
                             .addComponent(nameField)
                             .addComponent(idField, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
                             .addComponent(InfoSeparator)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(submitNewPassButton, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(profileCardPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
@@ -429,7 +495,7 @@ public class maqueta extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(newPassField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(submitNewPassButton))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -495,6 +561,11 @@ public class maqueta extends javax.swing.JFrame {
         statsButton.setBorderPainted(false);
         statsButton.setContentAreaFilled(false);
         statsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        statsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statsButtonActionPerformed(evt);
+            }
+        });
         rightPanel.add(statsButton);
         statsButton.setBounds(0, 190, 120, 80);
         rightPanel.add(cataSeparator);
@@ -505,6 +576,11 @@ public class maqueta extends javax.swing.JFrame {
         cataButton.setBorderPainted(false);
         cataButton.setContentAreaFilled(false);
         cataButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cataButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cataButtonActionPerformed(evt);
+            }
+        });
         rightPanel.add(cataButton);
         cataButton.setBounds(0, 280, 120, 80);
         rightPanel.add(consultSeparator);
@@ -515,6 +591,11 @@ public class maqueta extends javax.swing.JFrame {
         consultButton.setBorderPainted(false);
         consultButton.setContentAreaFilled(false);
         consultButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        consultButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultButtonActionPerformed(evt);
+            }
+        });
         rightPanel.add(consultButton);
         consultButton.setBounds(0, 370, 120, 80);
         rightPanel.add(newAdmiSeparator);
@@ -596,7 +677,10 @@ public class maqueta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newAdmiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newAdmiButtonActionPerformed
-        // TODO add your handling code here:
+        createNewAdmi newWindow = new createNewAdmi();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
     }//GEN-LAST:event_newAdmiButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
@@ -629,6 +713,165 @@ public class maqueta extends javax.swing.JFrame {
         leftPanelContain.repaint();
         leftPanelContain.revalidate();
     }//GEN-LAST:event_feedButtonActionPerformed
+
+    private void cantVotesFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantVotesFieldKeyTyped
+        char caracter = evt.getKeyChar(); 
+        
+        if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }  
+        
+    }//GEN-LAST:event_cantVotesFieldKeyTyped
+
+    private void advanceSettingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advanceSettingsButtonActionPerformed
+
+        
+        oldPassLable.setVisible(true);
+        newPassLable.setVisible(true);
+        oldPassField.setVisible(true);
+        newPassField.setVisible(true);
+        submitNewPassButton.setVisible(true);
+        editFavsButton.setVisible(true);
+        
+    }//GEN-LAST:event_advanceSettingsButtonActionPerformed
+
+    private void submitNewPassButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitNewPassButtonActionPerformed
+ 
+        oldPassLable.setVisible(false);
+        newPassLable.setVisible(false);
+        oldPassField.setVisible(false);
+        newPassField.setVisible(false);
+        submitNewPassButton.setVisible(false);
+        editFavsButton.setVisible(false);
+                
+        
+        
+    }//GEN-LAST:event_submitNewPassButtonActionPerformed
+
+    private void editProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editProfileButtonActionPerformed
+    
+        idField.setEditable(true);
+        nameField.setEditable(true);
+        lastNameField.setEditable(true);
+        emailField.setEditable(true);
+        phoneField.setEditable(true);
+        
+    }//GEN-LAST:event_editProfileButtonActionPerformed
+
+    private void enterInfoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterInfoButtonActionPerformed
+        
+        idField.setEditable(false);
+        nameField.setEditable(false);
+        lastNameField.setEditable(false);
+        emailField.setEditable(false);
+        phoneField.setEditable(false);
+    }//GEN-LAST:event_enterInfoButtonActionPerformed
+
+    private void idFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldKeyTyped
+        char caracter = evt.getKeyChar();
+    
+        if (idField.getText().length()== 9) 
+         evt.consume(); 
+
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }
+    }//GEN-LAST:event_idFieldKeyTyped
+
+    private void nameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameFieldKeyTyped
+        if (nameField.getText().length()== 20) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+    }//GEN-LAST:event_nameFieldKeyTyped
+
+    private void lastNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameFieldKeyTyped
+        if (lastNameField.getText().length()== 41) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+    }//GEN-LAST:event_lastNameFieldKeyTyped
+
+    private void emailFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailFieldKeyTyped
+        if (emailField.getText().length()== 20) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+    }//GEN-LAST:event_emailFieldKeyTyped
+
+    private void phoneFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneFieldKeyTyped
+    
+        char caracter = evt.getKeyChar();
+    
+        if (idField.getText().length()== 8) 
+         evt.consume(); 
+
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }  
+    }//GEN-LAST:event_phoneFieldKeyTyped
+
+    private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
+        stats newWindow = new stats();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_statsButtonActionPerformed
+
+    private void cataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cataButtonActionPerformed
+        Catalogue newWindow = new Catalogue();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_cataButtonActionPerformed
+
+    private void consultButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultButtonActionPerformed
+        consultas newWindow = new consultas();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_consultButtonActionPerformed
+
+    private void addProposalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProposalButtonActionPerformed
+        addProposal_1 newWindow = new addProposal_1();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);    
+    }//GEN-LAST:event_addProposalButtonActionPerformed
+
+    private void jobButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobButtonActionPerformed
+        job newWindow = new job();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_jobButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -692,7 +935,6 @@ public class maqueta extends javax.swing.JFrame {
     private javax.swing.JLabel filterLable;
     private javax.swing.JSeparator filterSeparator;
     private javax.swing.JTextField idField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jobButton;
     private javax.swing.JTextField lastNameField;
     private javax.swing.JPanel leftPanel;
@@ -721,6 +963,7 @@ public class maqueta extends javax.swing.JFrame {
     private javax.swing.JButton statsButton;
     private javax.swing.JSeparator statsSeparator;
     private javax.swing.JButton submitFilterButton;
+    private javax.swing.JButton submitNewPassButton;
     private javax.swing.JButton topNButton;
     private javax.swing.JLabel voteLable;
     // End of variables declaration//GEN-END:variables

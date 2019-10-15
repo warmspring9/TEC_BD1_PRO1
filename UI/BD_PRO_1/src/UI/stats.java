@@ -17,6 +17,7 @@ public class stats extends javax.swing.JFrame {
      */
     public stats() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -49,6 +50,11 @@ public class stats extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         StatScrollPanel.setBackground(new java.awt.Color(79, 93, 117));
         StatScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -147,6 +153,13 @@ public class stats extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        maqueta newWindow = new maqueta();
+        
+        newWindow.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

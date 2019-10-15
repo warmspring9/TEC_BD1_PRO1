@@ -54,7 +54,7 @@
                   </Group>
                   <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="0" pref="92" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="95" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,49 +105,66 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="titleText" max="32767" attributes="0"/>
-                              <Component id="budgetText" pref="176" max="32767" attributes="0"/>
+                              <Component id="jLabel3" max="32767" attributes="0"/>
+                              <Component id="jLabel2" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="categoryText" min="-2" pref="111" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="titleText" min="-2" pref="133" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="categoryComboBox" min="-2" pref="107" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="budgetText" min="-2" pref="176" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="trashButton" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="enterButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <Component id="jScrollPane1" min="-2" pref="426" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="426" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="editProposal" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="titleText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
-                      <Component id="categoryText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="editProposal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
-                      <Component id="budgetText" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel4" alignment="3" max="32767" attributes="0"/>
+                      <Component id="jLabel3" alignment="3" max="32767" attributes="0"/>
+                      <Component id="categoryComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="titleText" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="trashButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="enterButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="budgetText" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="144" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -164,6 +181,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="contentText">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="c0" green="c0" red="bf" type="rgb"/>
                 </Property>
@@ -191,6 +209,10 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="titleTextActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="titleTextKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -231,6 +253,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="budgetTextKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -243,23 +268,66 @@
             <Property name="text" type="java.lang.String" value="Category :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="categoryText">
+        <Component class="javax.swing.JButton" name="editProposal">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="75" green="5d" red="4f" type="rgb"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/editProfile.png"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
-            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editProposalActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="trashButton">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/paper_waste_25px.png"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="trashButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="categoryComboBox">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="enterButton">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Icons/enter_2_23px.png"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+            <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -307,6 +375,9 @@
           <Color id="Cursor de Mano"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="dislikeCount">
       <Properties>

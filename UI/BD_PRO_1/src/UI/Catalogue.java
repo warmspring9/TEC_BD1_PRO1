@@ -16,6 +16,7 @@ public class Catalogue extends javax.swing.JFrame {
      */
     public Catalogue() {
         initComponents();
+        this.setLocationRelativeTo(null);    
     }
 
     /**
@@ -114,6 +115,11 @@ public class Catalogue extends javax.swing.JFrame {
         exitButtonCountry.setBorderPainted(false);
         exitButtonCountry.setContentAreaFilled(false);
         exitButtonCountry.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButtonCountry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonCountryActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabCountryPanelLayout = new javax.swing.GroupLayout(tabCountryPanel);
         tabCountryPanel.setLayout(tabCountryPanelLayout);
@@ -499,6 +505,13 @@ public class Catalogue extends javax.swing.JFrame {
     private void exitButtonCantonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonCantonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exitButtonCantonActionPerformed
+
+    private void exitButtonCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonCountryActionPerformed
+        maqueta newWindow = new maqueta();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_exitButtonCountryActionPerformed
 
     /**
      * @param args the command line arguments

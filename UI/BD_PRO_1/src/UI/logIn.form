@@ -121,7 +121,7 @@
                       </Group>
                       <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="userNameButton" max="32767" attributes="0"/>
+                          <Component id="userNameField" max="32767" attributes="0"/>
                           <Component id="jPasswordField1" pref="166" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
@@ -133,7 +133,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="userNameButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="userNameField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
@@ -155,7 +155,7 @@
                 <Property name="text" type="java.lang.String" value="PASSWORD :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="userNameButton">
+            <Component class="javax.swing.JTextField" name="userNameField">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Corbel Light" size="18" style="0"/>
@@ -164,6 +164,10 @@
                   <Color blue="54" green="83" red="ef" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="userNameFieldActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="userNameFieldKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -201,6 +205,9 @@
               <Color id="Cursor de Mano"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createAccountActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="logo">
           <Properties>

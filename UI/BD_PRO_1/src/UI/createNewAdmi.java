@@ -16,6 +16,7 @@ public class createNewAdmi extends javax.swing.JFrame {
      */
     public createNewAdmi() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -50,6 +51,11 @@ public class createNewAdmi extends javax.swing.JFrame {
 
         userNameField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         userNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        userNameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userNameFieldKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,6 +89,11 @@ public class createNewAdmi extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -123,6 +134,27 @@ public class createNewAdmi extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        maqueta newWindow = new maqueta();
+        
+        newWindow.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void userNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameFieldKeyTyped
+     char caracter = evt.getKeyChar();
+    
+        if (userNameField.getText().length()== 9) 
+         evt.consume(); 
+
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }    
+    }//GEN-LAST:event_userNameFieldKeyTyped
 
     /**
      * @param args the command line arguments
