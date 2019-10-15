@@ -1,12 +1,11 @@
 --reporte 1 admin
 CREATE OR REPLACE PROCEDURE REP_PassChange_PR
 (
-    Pusername in VARCHAR2 DEFAULT '',
+    Pusername in NUMBER DEFAULT 0,
     PfirstLast in VARCHAR2 DEFAULT '',
     PsecondLast in VARCHAR2 DEFAULT '',
-    Pid in NUMBER DEFAULT 0,
+    PNAME in VARCHAR2 DEFAULT '',
     PassChange_CURSOR out sys_refcursor,
-    total out NUMBER
 )
 AS
 BEGIN
@@ -21,10 +20,10 @@ BEGIN
     where (sysdate-pl.change_date) > 10 ) a
     join Log_In lg on a.id_log_in = LG.Username
     join PERSON p on lg.Username = p.id_log_in
-    where (a.id_log_in = Pusername OR Pusername = '') AND
+    where (a.id_log_in = Pusername OR Pusername = 0) AND
     (p.first_lastname = PfirstLast OR PfirstLast = '') AND
     (p.second_lastname = PsecondLast OR PsecondLast = '') AND
-    (p.id_person = Pid OR Pid = 0);
+    (p.NAME = Pid OR Pid = '');
 
 
 END;
@@ -32,10 +31,10 @@ END;
 
 CREATE OR REPLACE PROCEDURE REP_TotPassChange_PR
 (
-    Pusername in VARCHAR2 DEFAULT '',
+    Pusername in NUMBER DEFAULT 0,
     PfirstLast in VARCHAR2 DEFAULT '',
     PsecondLast in VARCHAR2 DEFAULT '',
-    Pid in NUMBER DEFAULT 0,
+    PNAME in VARCHAR2 DEFAULT '',
     total out NUMBER
 )
 AS
@@ -50,10 +49,10 @@ BEGIN
     where (sysdate-pl.change_date) > 10 ) a
     join Log_In lg on a.id_log_in = LG.Username
     join PERSON p on lg.Username = p.id_log_in
-    where (a.id_log_in = Pusername OR Pusername = '') AND
+    where (a.id_log_in = Pusername OR Pusername = 0) AND
     (p.first_lastname = PfirstLast OR PfirstLast = '') AND
     (p.second_lastname = PsecondLast OR PsecondLast = '') AND
-    (p.id_person = Pid OR Pid = 0);
+    (p.NAME = Pid OR Pid = '');
 END;
 /
 

@@ -1,6 +1,6 @@
 create table password_changes(
     id_password_changes NUMBER(6),
-    id_log_in VARCHAR2(20),
+    id_log_in NUMBER(9,0),
     previous_password VARCHAR2(100),
     current_password VARCHAR2(100),
     change_date date,
