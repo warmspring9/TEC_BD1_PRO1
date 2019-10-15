@@ -287,12 +287,12 @@ public class DataHandler {
         
         }
     
-    public static int getCommunityIdDistrict(int pValue) throws SQLException{
+    public static int getCommunityIdCanton(int pValue) throws SQLException{
         
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
                 
-        CallableStatement stmt=conn.prepareCall("{?= call packageCommunity.getIdDistrict(?)}");
+        CallableStatement stmt=conn.prepareCall("{?= call packageCommunity.getIdCanton(?)}");
         stmt.registerOutParameter(1, java.sql.Types.INTEGER);
         stmt.setInt(2, pValue);
         stmt.execute();
@@ -356,53 +356,7 @@ public class DataHandler {
     //---------------------------------------------
     //*****procedimientos y funciones District*****
     //--------------------------------------------
-    public static String getDistrictName(int pValue) throws SQLException{
-        
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{?= call packageDistrict.getDistrictName(?)}");
-        stmt.registerOutParameter(1, java.sql.Types.VARCHAR);
-        stmt.setInt(2, pValue);
-        stmt.execute();
-        String result = stmt.getString(1);
-        return result;
-        
-        }
-    
-    public static void createDistrict(String pName) throws SQLException{
-       
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{ call packageDistrict.createDistrict(?)}");
-        
-        stmt.setString(1, pName);
-        stmt.execute();
-        }
-    
-    public static void updateDistrictName(int pValue, String pName) throws SQLException{
-       
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{ call packageDistrict.updateDistrictName(?, ?)}");
-        stmt.setInt(1, pValue);
-        stmt.setString(2, pName);
-        
-        stmt.execute();
-        
-        }
-    
-    public static void deleteDistrict(int pValue) throws SQLException{
-       
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{ call packageDistrict.deleteDistrict(?)}");
-        stmt.setInt(1, pValue); 
-        stmt.execute();
-    }
+   
     
     //---------------------------------------------
     //*****procedimientos y funciones Email*****
@@ -613,7 +567,7 @@ public class DataHandler {
     //*****procedimientos y funciones Person*****
     //---------------------------------------------
     
-    public static void createPerson(int pIdPerson, String pName, String pLastName, String pLastName2, String pDate, int pIdDistrict) throws SQLException{
+    public static void createPerson(int pIdPerson, String pName, String pLastName, String pLastName2, String pDate, int pIdCommunity) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -627,7 +581,7 @@ public class DataHandler {
         stmt.setString(3, pLastName);
         stmt.setString(4, pLastName2);
         stmt.setDate(5, sqlDate);
-        stmt.setInt(6, pIdDistrict);
+        stmt.setInt(6, pIdCommunity);
         
         
         stmt.execute();
@@ -681,6 +635,8 @@ public class DataHandler {
         stmt.execute();
         }
     
+    
+    
     public static void updatePersonSecondLastName(int pIdPerson, String pLastName) throws SQLException{
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -733,6 +689,22 @@ public class DataHandler {
     
     }
     
+    public static String getPersonFirstLastName(int pValue) throws SQLException{
+        
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packagePerson.getPersonFirstLastName(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.VARCHAR);
+        stmt.setInt(2, pValue);
+        stmt.execute();
+        String result = stmt.getString(1);
+        return result;
+    
+    }
+    
+    
+    
     public static int getPersonIdLogIn(int pValue) throws SQLException{
         
         ConnectDB dataConnection= ConnectDB.getInstance();
@@ -752,7 +724,7 @@ public class DataHandler {
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
                 
-        CallableStatement stmt=conn.prepareCall("{?= call packagePerson.getPersonIdComunity(?)}");
+        CallableStatement stmt=conn.prepareCall("{?= call packagePerson.getPersonIdCommunity(?)}");
         stmt.registerOutParameter(1, java.sql.Types.INTEGER);
         stmt.setInt(2, pValue);
         stmt.execute();
@@ -926,7 +898,7 @@ public class DataHandler {
         return result;
         
         }
-    public static int getProposalIdDistrict(int pIdProposal) throws SQLException{
+    public static int getProposalIdCommunity(int pIdProposal) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -970,7 +942,7 @@ public class DataHandler {
     
     
     
-    public static void createProposal(String pTitle, int pBudget, String pSummary,int pIdPerson, int pIdDistrict) throws SQLException{
+    public static void createProposal(String pTitle, int pBudget, String pSummary,int pIdPerson, int pCategory) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -980,8 +952,7 @@ public class DataHandler {
         stmt.setInt(2, pBudget);
         stmt.setString(3, pSummary);
         stmt.setInt(4, pIdPerson);
-        stmt.setInt(5, pIdDistrict);
-        
+        stmt.setInt(5, pCategory);
         stmt.execute();
         
         }
@@ -1261,13 +1232,13 @@ public class DataHandler {
         }
     }
     
-    public static ArrayList<Integer> getProposalFeed(int pIdDistrict)throws SQLException{
+    public static ArrayList<Integer> getProposalFeed(int pIdCommunity)throws SQLException{
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
         
         CallableStatement stmt=conn.prepareCall("{?= call getProposalFeed(?)}");
         stmt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmt.setInt(2, pIdDistrict);
+        stmt.setInt(2, pIdCommunity);
         ArrayList<Integer> res=new ArrayList<Integer>();
         stmt.executeQuery();
         ResultSet r = (ResultSet) stmt.getObject(1);
@@ -1295,6 +1266,196 @@ public class DataHandler {
             //System.out.println(r.getString("id_proposal"));
         }
         return res;
+        }
+    
+        public static ArrayList<Integer> getProvincesId()throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getAllProvince}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        ArrayList<Integer> res=new ArrayList<Integer>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getInt("ID_PROVINCE"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+        
+        public static ArrayList<String> getProvincesName()throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getAllProvince}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        ArrayList<String> res=new ArrayList<String>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getString("NAME"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+        
+        public static ArrayList<String> getCantonsName()throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getAllCanton}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        ArrayList<String> res=new ArrayList<String>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getString("NAME"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+        
+        public static ArrayList<String> getCommunitysName()throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getAllCommunity}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        ArrayList<String> res=new ArrayList<String>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getString("NAME"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+        
+        public static ArrayList<String> getCountrysName()throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getAllCountry}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        ArrayList<String> res=new ArrayList<String>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getString("NAME"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+        
+        public static ArrayList<String> getCategorysName()throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getAllCategory}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        ArrayList<String> res=new ArrayList<String>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getString("NAME"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+        return res;
+        }
+
+    public static ArrayList<Integer> getProposalFeed() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static String getIdCanton(String name) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageCanton.getIdCanton(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setString(2, name);
+        stmt.execute();
+        String result = stmt.getString(1);
+        return result;
+        
+        }
+    
+    public static int getIdCategory(String name) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageCAtegory.getIdCategory(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setString(2, name);
+        stmt.execute();
+        int result = stmt.getInt(1);
+        return result;
+        
+        }
+    
+    public static int getIdCommunity(String name) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageCommunity.getIdCommunity(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setString(2, name);
+        stmt.execute();
+        int result = stmt.getInt(1);
+        return result;
+        
+        }
+    
+    public static String getIdCountry(String name) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageCountry.getIdCountry(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setString(2, name);
+        stmt.execute();
+        String result = stmt.getString(1);
+        return result;
+        
+        }
+    
+    public static String getIdProvince(String name) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageProvince.getIdProvince(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setString(2, name);
+        stmt.execute();
+        String result = stmt.getString(1);
+        return result;
+        
+        }
+    
+        public static int getProposalIdCategory(int pValue) throws SQLException{
+        
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageProposalXCategory.getProposalIdCategory(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setInt(2, pValue);
+        stmt.execute();
+        int result = stmt.getInt(1);
+        return result;
+        
         }
     
     }

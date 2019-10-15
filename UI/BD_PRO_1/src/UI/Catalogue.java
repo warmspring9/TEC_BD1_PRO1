@@ -5,18 +5,63 @@
  */
 package UI;
 
+import Controller.Controller;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author jalej
  */
 public class Catalogue extends javax.swing.JFrame {
-
+    DefaultListModel country;
+    DefaultListModel province;
+    DefaultListModel canton;
+    DefaultListModel community;
+    DefaultListModel category;
+    
+    Controller control=Controller.getInstance();
     /**
      * Creates new form Catalogue
      */
-    public Catalogue() {
+    public Catalogue() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);    
+        
+        
+        country= new DefaultListModel();
+        province= new DefaultListModel();
+        canton= new DefaultListModel();
+        community= new DefaultListModel();
+        category= new DefaultListModel();
+        
+        listCountry.setModel(country);
+        listProvince.setModel(province);
+        listCanton.setModel(canton);
+        listCommunity.setModel(community);
+        listCategory.setModel(category);
+        
+        for(int i=0; i<control.getContrysNames().size(); i++ ){
+            country.addElement(control.getContrysNames().get(i));
+        }
+        for(int i=0; i<control.getProvincesNames().size(); i++ ){
+            province.addElement(control.getProvincesNames().get(i));
+        }
+        for(int i=0; i<control.getCantonsNames().size(); i++ ){
+            canton.addElement(control.getCantonsNames().get(i));
+        }
+        for(int i=0; i<control.getCommunitysNames().size(); i++ ){
+            community.addElement(control.getCommunitysNames().get(i));
+        }
+        for(int i=0; i<control.getCategorysNames().size(); i++ ){
+            category.addElement(control.getCategorysNames().get(i));
+        }
+        
+        
+        
+        
     }
 
     /**
@@ -31,7 +76,7 @@ public class Catalogue extends javax.swing.JFrame {
         TabPaneCountry = new javax.swing.JTabbedPane();
         tabCountryPanel = new javax.swing.JPanel();
         countryScrollPane = new javax.swing.JScrollPane();
-        listCountry = new javax.swing.JList<String>();
+        listCountry = new javax.swing.JList<>();
         submitCountryButton = new javax.swing.JButton();
         addCountryButton = new javax.swing.JButton();
         editCountryButton = new javax.swing.JButton();
@@ -39,7 +84,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButtonCountry = new javax.swing.JButton();
         tabProvincePanel = new javax.swing.JPanel();
         provinceScrollPane = new javax.swing.JScrollPane();
-        listCountry1 = new javax.swing.JList<String>();
+        listProvince = new javax.swing.JList<>();
         submitProvinceButton = new javax.swing.JButton();
         addProvinceButton = new javax.swing.JButton();
         editProvinceButton = new javax.swing.JButton();
@@ -47,7 +92,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButtonProvince = new javax.swing.JButton();
         tabCategoryPanel = new javax.swing.JPanel();
         categoryScrollPane = new javax.swing.JScrollPane();
-        listCountry2 = new javax.swing.JList<String>();
+        listCategory = new javax.swing.JList<>();
         submitCategoryButton = new javax.swing.JButton();
         addCategoryButton = new javax.swing.JButton();
         editCategoryButton = new javax.swing.JButton();
@@ -55,7 +100,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButtonCategory = new javax.swing.JButton();
         tabDistrictPanel = new javax.swing.JPanel();
         districtScrollPane = new javax.swing.JScrollPane();
-        listCountry3 = new javax.swing.JList<String>();
+        listCommunity = new javax.swing.JList<>();
         submitDistrictButton = new javax.swing.JButton();
         addDistrictButton = new javax.swing.JButton();
         editDistrictButton = new javax.swing.JButton();
@@ -63,7 +108,7 @@ public class Catalogue extends javax.swing.JFrame {
         exitButtonDistrict = new javax.swing.JButton();
         tabCantonPanel = new javax.swing.JPanel();
         cantonScrollPane = new javax.swing.JScrollPane();
-        listCountry4 = new javax.swing.JList<String>();
+        listCanton = new javax.swing.JList<>();
         submitCantonButton = new javax.swing.JButton();
         addCantonButton = new javax.swing.JButton();
         editCantonButton = new javax.swing.JButton();
@@ -109,6 +154,11 @@ public class Catalogue extends javax.swing.JFrame {
         deleteCountryButton.setBorderPainted(false);
         deleteCountryButton.setContentAreaFilled(false);
         deleteCountryButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteCountryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCountryButtonActionPerformed(evt);
+            }
+        });
 
         exitButtonCountry.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
         exitButtonCountry.setBorder(null);
@@ -166,10 +216,10 @@ public class Catalogue extends javax.swing.JFrame {
         tabProvincePanel.setBackground(new java.awt.Color(45, 49, 66));
         tabProvincePanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        listCountry1.setBackground(new java.awt.Color(79, 93, 117));
-        listCountry1.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        listCountry1.setForeground(new java.awt.Color(255, 255, 255));
-        provinceScrollPane.setViewportView(listCountry1);
+        listProvince.setBackground(new java.awt.Color(79, 93, 117));
+        listProvince.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listProvince.setForeground(new java.awt.Color(255, 255, 255));
+        provinceScrollPane.setViewportView(listProvince);
 
         submitProvinceButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitProvinceButton.setBorder(null);
@@ -246,10 +296,10 @@ public class Catalogue extends javax.swing.JFrame {
         tabCategoryPanel.setBackground(new java.awt.Color(45, 49, 66));
         tabCategoryPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        listCountry2.setBackground(new java.awt.Color(79, 93, 117));
-        listCountry2.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        listCountry2.setForeground(new java.awt.Color(255, 255, 255));
-        categoryScrollPane.setViewportView(listCountry2);
+        listCategory.setBackground(new java.awt.Color(79, 93, 117));
+        listCategory.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCategory.setForeground(new java.awt.Color(255, 255, 255));
+        categoryScrollPane.setViewportView(listCategory);
 
         submitCategoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitCategoryButton.setBorder(null);
@@ -326,10 +376,10 @@ public class Catalogue extends javax.swing.JFrame {
         tabDistrictPanel.setBackground(new java.awt.Color(45, 49, 66));
         tabDistrictPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        listCountry3.setBackground(new java.awt.Color(79, 93, 117));
-        listCountry3.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        listCountry3.setForeground(new java.awt.Color(255, 255, 255));
-        districtScrollPane.setViewportView(listCountry3);
+        listCommunity.setBackground(new java.awt.Color(79, 93, 117));
+        listCommunity.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCommunity.setForeground(new java.awt.Color(255, 255, 255));
+        districtScrollPane.setViewportView(listCommunity);
 
         submitDistrictButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitDistrictButton.setBorder(null);
@@ -406,10 +456,10 @@ public class Catalogue extends javax.swing.JFrame {
         tabCantonPanel.setBackground(new java.awt.Color(45, 49, 66));
         tabCantonPanel.setForeground(new java.awt.Color(255, 255, 255));
 
-        listCountry4.setBackground(new java.awt.Color(79, 93, 117));
-        listCountry4.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
-        listCountry4.setForeground(new java.awt.Color(255, 255, 255));
-        cantonScrollPane.setViewportView(listCountry4);
+        listCanton.setBackground(new java.awt.Color(79, 93, 117));
+        listCanton.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        listCanton.setForeground(new java.awt.Color(255, 255, 255));
+        cantonScrollPane.setViewportView(listCanton);
 
         submitCantonButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_40px.png"))); // NOI18N
         submitCantonButton.setBorder(null);
@@ -507,11 +557,23 @@ public class Catalogue extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonCantonActionPerformed
 
     private void exitButtonCountryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonCountryActionPerformed
-        maqueta newWindow = new maqueta();
+        maqueta newWindow;
+        try {
+            newWindow = new maqueta();
+            newWindow.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(Catalogue.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        newWindow.setVisible(true);
+        
         //this.setVisible(false);
     }//GEN-LAST:event_exitButtonCountryActionPerformed
+
+    private void deleteCountryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCountryButtonActionPerformed
+        int select=listCountry.getSelectedIndex();
+        country.remove(select);
+    }//GEN-LAST:event_deleteCountryButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -543,7 +605,11 @@ public class Catalogue extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Catalogue().setVisible(true);
+                try {
+                    new Catalogue().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Catalogue.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -574,11 +640,11 @@ public class Catalogue extends javax.swing.JFrame {
     private javax.swing.JButton exitButtonCountry;
     private javax.swing.JButton exitButtonDistrict;
     private javax.swing.JButton exitButtonProvince;
+    private javax.swing.JList<String> listCanton;
+    private javax.swing.JList<String> listCategory;
+    private javax.swing.JList<String> listCommunity;
     private javax.swing.JList<String> listCountry;
-    private javax.swing.JList<String> listCountry1;
-    private javax.swing.JList<String> listCountry2;
-    private javax.swing.JList<String> listCountry3;
-    private javax.swing.JList<String> listCountry4;
+    private javax.swing.JList<String> listProvince;
     private javax.swing.JScrollPane provinceScrollPane;
     private javax.swing.JButton submitCantonButton;
     private javax.swing.JButton submitCategoryButton;

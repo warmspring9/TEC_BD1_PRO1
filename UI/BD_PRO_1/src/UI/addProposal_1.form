@@ -138,7 +138,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="selectCategoryBox" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel2" alignment="3" pref="25" max="32767" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
                               <Component id="proposalTitleField" alignment="3" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -286,6 +286,9 @@
               <Color id="Cursor de Mano"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cancelButton">
           <Properties>

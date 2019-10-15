@@ -22,9 +22,9 @@ public class ConnectDB {
     
     private static ConnectDB instance;
     private static Connection connectionDB;
-    private String host="jdbc:oracle:thin:@localhost:1521:josebd";
-    private String uName="pro1";
-    private String uPass="pro1";
+    private String host="jdbc:oracle:thin:@localhost:1521:BDMAU";
+    private String uName="pro";
+    private String uPass="pro";
     
     private ConnectDB() throws SQLException{
         try {

@@ -7,10 +7,13 @@ package UI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -318,7 +321,12 @@ public class statistics extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPropChartActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        maqueta newWindow = new maqueta();
+        maqueta newWindow = null;
+        try {
+            newWindow = new maqueta();
+        } catch (SQLException ex) {
+            Logger.getLogger(statistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         newWindow.setVisible(true);
         this.setVisible(false);

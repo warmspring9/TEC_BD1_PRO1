@@ -5,6 +5,10 @@
  */
 package UI;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jalej
@@ -120,7 +124,12 @@ public class consultas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        maqueta newWindow = new maqueta();
+        maqueta newWindow = null;
+        try {
+            newWindow = new maqueta();
+        } catch (SQLException ex) {
+            Logger.getLogger(consultas.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         newWindow.setVisible(true);
         this.setVisible(false);
