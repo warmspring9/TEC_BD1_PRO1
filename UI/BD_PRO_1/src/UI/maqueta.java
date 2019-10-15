@@ -62,7 +62,8 @@ public class maqueta extends javax.swing.JFrame {
         
         idField.setText(Integer.toString(idUser));
         nameField.setText(control.getPersonName(idUser));
-        lastNameField.setText(control.getPersonFirstLastName(idUser)+" "+control.getPersonSecondLastName(idUser));
+        lastNameField.setText(control.getPersonFirstLastName(idUser));
+        lastNameField2.setText(control.getPersonSecondLastName(idUser));
         emailField.setText(control.getPersonEmail(idUser));
         phoneField.setText(control.getPersonPhone(idUser));
    
@@ -136,6 +137,7 @@ public class maqueta extends javax.swing.JFrame {
         editFavsButton = new javax.swing.JButton();
         enterInfoButton = new javax.swing.JButton();
         submitNewPassButton = new javax.swing.JButton();
+        lastNameField2 = new javax.swing.JTextField();
         leftPanelSeparator = new javax.swing.JSeparator();
         rightPanel = new javax.swing.JPanel();
         rightPanelUpperSeparator = new javax.swing.JSeparator();
@@ -366,6 +368,11 @@ public class maqueta extends javax.swing.JFrame {
         nameField.setCaretColor(new java.awt.Color(255, 255, 255));
         nameField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         nameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        nameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFieldActionPerformed(evt);
+            }
+        });
         nameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nameFieldKeyTyped(evt);
@@ -400,6 +407,11 @@ public class maqueta extends javax.swing.JFrame {
         emailField.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         emailField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         emailField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        emailField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailFieldActionPerformed(evt);
+            }
+        });
         emailField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 emailFieldKeyTyped(evt);
@@ -434,6 +446,11 @@ public class maqueta extends javax.swing.JFrame {
         phoneField.setCaretColor(new java.awt.Color(255, 255, 255));
         phoneField.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         phoneField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        phoneField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneFieldActionPerformed(evt);
+            }
+        });
         phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 phoneFieldKeyTyped(evt);
@@ -491,6 +508,27 @@ public class maqueta extends javax.swing.JFrame {
             }
         });
 
+        lastNameField2.setEditable(false);
+        lastNameField2.setBackground(new java.awt.Color(79, 93, 117));
+        lastNameField2.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        lastNameField2.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastNameField2.setText("Last Name");
+        lastNameField2.setToolTipText("");
+        lastNameField2.setBorder(null);
+        lastNameField2.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        lastNameField2.setSelectionColor(new java.awt.Color(239, 131, 84));
+        lastNameField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameField2ActionPerformed(evt);
+            }
+        });
+        lastNameField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastNameField2KeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout profileCardPanelLayout = new javax.swing.GroupLayout(profileCardPanel);
         profileCardPanel.setLayout(profileCardPanelLayout);
         profileCardPanelLayout.setHorizontalGroup(
@@ -526,7 +564,8 @@ public class maqueta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(profileCardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(advanceSettingsButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(editFavsButton, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(editFavsButton, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(lastNameField2))
                 .addContainerGap())
         );
         profileCardPanelLayout.setVerticalGroup(
@@ -534,17 +573,19 @@ public class maqueta extends javax.swing.JFrame {
             .addGroup(profileCardPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(editProfileButton)
-                .addGap(81, 81, 81)
+                .addGap(63, 63, 63)
                 .addComponent(idField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lastNameField2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
                 .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(25, 25, 25)
                 .addComponent(enterInfoButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(InfoSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -836,6 +877,7 @@ public class maqueta extends javax.swing.JFrame {
         idField.setEditable(true);
         nameField.setEditable(true);
         lastNameField.setEditable(true);
+        lastNameField2.setEditable(true);
         emailField.setEditable(true);
         phoneField.setEditable(true);
         
@@ -846,8 +888,16 @@ public class maqueta extends javax.swing.JFrame {
         idField.setEditable(false);
         nameField.setEditable(false);
         lastNameField.setEditable(false);
+        lastNameField2.setEditable(false);
         emailField.setEditable(false);
         phoneField.setEditable(false);
+        try {
+            control.updatePerson(nameField.getText(), lastNameField.getText(), lastNameField2.getText(),emailField.getText(), phoneField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(maqueta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_enterInfoButtonActionPerformed
 
     private void idFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldKeyTyped
@@ -999,6 +1049,26 @@ public class maqueta extends javax.swing.JFrame {
         //mainPanel.updateUI();
     }//GEN-LAST:event_logoLableMouseClicked
 
+    private void lastNameField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameField2KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameField2KeyTyped
+
+    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameFieldActionPerformed
+
+    private void lastNameField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameField2ActionPerformed
+
+    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailFieldActionPerformed
+
+    private void phoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneFieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1068,6 +1138,7 @@ public class maqueta extends javax.swing.JFrame {
     private javax.swing.JTextField idField;
     private javax.swing.JButton jobButton;
     private javax.swing.JTextField lastNameField;
+    private javax.swing.JTextField lastNameField2;
     private javax.swing.JPanel leftPanel;
     private javax.swing.JPanel leftPanelContain;
     private javax.swing.JSeparator leftPanelSeparator;

@@ -470,14 +470,15 @@ public class DataHandler {
         
         }
     
-    public static void createLogIn(String pName, int pUserType) throws SQLException{
+    public static void createLogIn(int id, String pass, int pUserType) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
                 
-        CallableStatement stmt=conn.prepareCall("{ call packageLogIn.createLogIn(?, ?)}");
-        stmt.setString(1, pName);
-        stmt.setInt(2, pUserType);
+        CallableStatement stmt=conn.prepareCall("{ call packageLogIn.createLogIn(?, ?, ?)}");
+        stmt.setInt(1, id);
+        stmt.setString(2, pass);
+        stmt.getInt(pUserType);
         
         stmt.execute();
         

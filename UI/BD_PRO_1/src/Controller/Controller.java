@@ -149,5 +149,24 @@ public class Controller {
     public String getPersonPhone(int id) throws SQLException{
         return DataHandler.getTelephone(id);
     }
+    
+    public int getIdCommunity(String commu) throws SQLException{
+        return DataHandler.getIdCommunity(commu);
+    }
+    public void updatePerson(String name, String lastName, String lastName2,String email, String phone) throws SQLException{
+        DataHandler.updatePersonName(idPerson, name);
+        DataHandler.updatePersonFirstLastName(idPerson, lastName);
+        DataHandler.updatePersonSecondLastName(idPerson, lastName2);
+        DataHandler.updateEmailAddress(idPerson, email);
+        DataHandler.updatePhone(getPersonPhone(idPerson), phone);
+        
+    }
+    
+    public void createPerson(int id, String name,String lastName, String lastName2, String community, String pass, String phone, String email) throws SQLException{
+        DataHandler.createPerson(id, name, lastName, lastName2, "1/1/97", getIdCommunity(community));
+        DataHandler.createLogIn(id, pass, 3);
+        DataHandler.createPhone(phone, id);
+        DataHandler.createEmail(email, id);
+    }
 }
 
