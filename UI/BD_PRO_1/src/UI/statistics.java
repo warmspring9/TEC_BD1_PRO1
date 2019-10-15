@@ -5,6 +5,7 @@
  */
 package UI;
 
+import DA.DataHandler;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.sql.SQLException;
@@ -256,7 +257,11 @@ public class statistics extends javax.swing.JFrame {
         // create dataset for pie chart
         Map<String,Integer> result = new HashMap<String, Integer>();
         DefaultPieDataset dataset = new DefaultPieDataset();
-        result = getCategoryValues();
+        try {
+            result = getCategoryValues();
+        } catch (SQLException ex) {
+            Logger.getLogger(statistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println(result.toString());
         for(Map.Entry<String,Integer> entry : result.entrySet()){
             dataset.setValue(entry.getKey(), entry.getValue());
@@ -382,14 +387,14 @@ public class statistics extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnChart;
     // End of variables declaration//GEN-END:variables
-    private Map<String, Integer> getCategoryValues() {
+    private Map<String, Integer> getCategoryValues() throws SQLException {
         //Llama a la base y trae los valores como sea 
         Map<String,Integer> result = new HashMap<String, Integer>();
-        //result = DataHandler.Como sea que se llame; que retorne Map<string,Integer>
-        result.put("Ambiental", 450);
+        result = DataHandler.statsPropCat();
+        /*result.put("Ambiental", 450);
         result.put("Seguridad",200);
         result.put("Recreacion",100);
-        result.put("Otros", 10);
+        result.put("Otros", 10);*/
         return result;
     }
 

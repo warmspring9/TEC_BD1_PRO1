@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import oracle.jdbc.OracleTypes;
 
 /**
@@ -1485,6 +1487,59 @@ public class DataHandler {
         int result = stmt.getInt(1);
         return result;
         
+        }
+        
+        /*public static Map<String,Integer> statsProp() throws SQLException{
+            ConnectDB dataConnection= ConnectDB.getInstance();
+            Connection conn=dataConnection.getConnection();
+        
+            CallableStatement stmt=conn.prepareCall("{?= call getStatsProp()}");
+            stmt.registerOutParameter(1, OracleTypes.CURSOR);
+            Map<String,Integer> res = new HashMap<String, Integer>();
+            stmt.executeQuery();
+            ResultSet r = (ResultSet) stmt.getObject(1);
+        
+            while(r.next()){
+                res.put(r.getString("NAME"), r.getInt("COUNT(P.ID_PROPOSAL)"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+            return res;
+        }*/
+        
+        public static Map<String,Integer> statsPropCat() throws SQLException{
+            ConnectDB dataConnection= ConnectDB.getInstance();
+            Connection conn=dataConnection.getConnection();
+        
+            CallableStatement stmt=conn.prepareCall("{call REP_ESTATISTICPROPOSALS_PR(?)}");
+            stmt.registerOutParameter(1, OracleTypes.CURSOR);
+            Map<String,Integer> res = new HashMap<String, Integer>();
+            stmt.executeQuery();
+            ResultSet r = (ResultSet) stmt.getObject(1);
+        
+            while(r.next()){
+                res.put(r.getString("NAME"), r.getInt("COUNT(P.ID_PROPOSAL)"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+            return res;
+        }
+        
+        public static Map<String,Integer> statsPropCommu(int pIdCan) throws SQLException{
+            ConnectDB dataConnection= ConnectDB.getInstance();
+            Connection conn=dataConnection.getConnection();
+        
+            CallableStatement stmt=conn.prepareCall("{call REP_ESTATISTICCOMMUNITY_PR(?, ?)}");
+            stmt.setInt(1, pIdCan);
+            stmt.registerOutParameter(2, OracleTypes.CURSOR);
+            stmt.execute();
+            Map<String,Integer> res = new HashMap<String, Integer>();
+            
+            ResultSet r = (ResultSet) stmt.getObject(2);
+        
+            while(r.next()){
+                res.put(r.getString("NAME"), r.getInt("COUNT(P.ID_PROPOSAL)"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+            return res;
         }
     
     }
