@@ -7,16 +7,10 @@
     <Property name="maximizedBounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
       <Rectangle value="[0, 0, 1181, 654]"/>
     </Property>
-    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1181, 654]"/>
-    </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1181, 654]"/>
     </Property>
     <Property name="undecorated" type="boolean" value="true"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[1181, 654]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -280,6 +274,9 @@
                           <Color id="Cursor de Mano"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addProposalButtonActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="addPropsalSeparator">
                     </Component>
@@ -351,6 +348,9 @@
                           <Color blue="54" green="83" red="ef" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cantVotesFieldKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="submitFilterButton">
                       <Properties>
@@ -381,6 +381,9 @@
                           <Color id="Cursor de Mano"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jobButtonActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="topNButton">
                       <Properties>
@@ -432,7 +435,7 @@
                                           <Component id="nameField" alignment="0" max="32767" attributes="0"/>
                                           <Component id="idField" alignment="0" pref="233" max="32767" attributes="0"/>
                                           <Component id="InfoSeparator" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="submitNewPassButton" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -497,7 +500,7 @@
                               <EmptySpace min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="newPassField" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="submitNewPassButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="27" max="32767" attributes="0"/>
                           </Group>
@@ -520,6 +523,9 @@
                         </Property>
                         <Property name="horizontalAlignment" type="int" value="4"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editProfileButtonActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="nameField">
                       <Properties>
@@ -549,6 +555,9 @@
                           <Color blue="54" green="83" red="ef" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nameFieldKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="lastNameField">
                       <Properties>
@@ -575,6 +584,9 @@
                           <Color blue="54" green="83" red="ef" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lastNameFieldKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="emailField">
                       <Properties>
@@ -607,6 +619,9 @@
                           <Color blue="54" green="83" red="ef" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="emailFieldKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="idField">
                       <Properties>
@@ -636,6 +651,9 @@
                           <Color blue="54" green="83" red="ef" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="idFieldKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="phoneField">
                       <Properties>
@@ -665,6 +683,9 @@
                           <Color blue="54" green="83" red="ef" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneFieldKeyTyped"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JSeparator" name="InfoSeparator">
                     </Component>
@@ -682,6 +703,9 @@
                           <Color id="Cursor de Mano"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advanceSettingsButtonActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JPasswordField" name="oldPassField">
                       <Properties>
@@ -744,8 +768,11 @@
                           <Color id="Cursor de Mano"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterInfoButtonActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButton1">
+                    <Component class="javax.swing.JButton" name="submitNewPassButton">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                           <Image iconType="3" name="/Icons/enter_2_23px.png"/>
@@ -759,6 +786,9 @@
                           <Color id="Cursor de Mano"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitNewPassButtonActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -895,6 +925,9 @@
                   <Color id="Cursor de Mano"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="statsButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="190" width="120" height="80"/>
@@ -922,6 +955,9 @@
                   <Color id="Cursor de Mano"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cataButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="280" width="120" height="80"/>
@@ -949,6 +985,9 @@
                   <Color id="Cursor de Mano"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultButtonActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="0" y="370" width="120" height="80"/>

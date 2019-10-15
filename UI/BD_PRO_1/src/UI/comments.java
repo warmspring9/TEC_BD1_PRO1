@@ -137,12 +137,8 @@ public class comments extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        //System.exit(0);
-        
-        CommentPanel comment= new CommentPanel();
-        commentsPanel.add(comment);// TODO add your handling code here:
-        System.out.println("hola");
-        commentsPanel.updateUI();
+
+        this.setVisible(false);
 
     }//GEN-LAST:event_exitButtonActionPerformed
 

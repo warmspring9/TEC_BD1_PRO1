@@ -136,6 +136,9 @@
                   <Color blue="54" green="83" red="ef" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="userNameFieldKeyTyped"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -168,6 +171,9 @@
               <Color id="Cursor de Mano"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -16,6 +16,7 @@ public class consultas extends javax.swing.JFrame {
      */
     public consultas() {
         initComponents();
+        this.setLocationRelativeTo(null);        
     }
 
     /**
@@ -47,6 +48,11 @@ public class consultas extends javax.swing.JFrame {
         exitButton.setBorderPainted(false);
         exitButton.setContentAreaFilled(false);
         exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         consultTab.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         consultTab.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
@@ -112,6 +118,13 @@ public class consultas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        maqueta newWindow = new maqueta();
+        
+        newWindow.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
      * @param args the command line arguments

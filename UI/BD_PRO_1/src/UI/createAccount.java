@@ -50,6 +50,8 @@ public class createAccount extends javax.swing.JFrame {
         firstLasNameField = new javax.swing.JTextField();
         secondLastNameField = new javax.swing.JTextField();
         addPhotoButton = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -95,7 +97,7 @@ public class createAccount extends javax.swing.JFrame {
         jLabel5.setText("Birthdate :");
 
         jLabel6.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
-        jLabel6.setText("ID :");
+        jLabel6.setText("User (ID) :");
 
         countryBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
         countryBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Country" }));
@@ -125,20 +127,45 @@ public class createAccount extends javax.swing.JFrame {
         });
 
         idField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
-        idField.setText("0-0000-0000");
+        idField.setText("000000000");
         idField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        idField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idFieldActionPerformed(evt);
+            }
+        });
+        idField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                idFieldKeyTyped(evt);
+            }
+        });
 
         NameField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         NameField.setText("Your Name");
         NameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        NameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                NameFieldKeyTyped(evt);
+            }
+        });
 
         firstLasNameField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         firstLasNameField.setText("First Last Name");
         firstLasNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        firstLasNameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                firstLasNameFieldKeyTyped(evt);
+            }
+        });
 
         secondLastNameField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         secondLastNameField.setText("Second Last Name");
         secondLastNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        secondLastNameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                secondLastNameFieldKeyTyped(evt);
+            }
+        });
 
         addPhotoButton.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
         addPhotoButton.setForeground(new java.awt.Color(51, 51, 255));
@@ -147,6 +174,18 @@ public class createAccount extends javax.swing.JFrame {
         addPhotoButton.setBorderPainted(false);
         addPhotoButton.setContentAreaFilled(false);
         addPhotoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel8.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        jLabel8.setText("Phone :");
+
+        jTextField1.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
+        jTextField1.setText("00000000");
+        jTextField1.setSelectionColor(new java.awt.Color(239, 131, 84));
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -164,25 +203,27 @@ public class createAccount extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(addPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PhotoLable, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ProvinceBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(countryBox, 0, 136, Short.MAX_VALUE)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(countryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(idField)
                                     .addComponent(NameField)
                                     .addComponent(firstLasNameField)
-                                    .addComponent(secondLastNameField)))
-                            .addComponent(ProvinceBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                                    .addComponent(secondLastNameField)
+                                    .addComponent(jTextField1))))))
+                .addGap(62, 62, 62)
                 .addComponent(submitButton)
                 .addContainerGap())
         );
@@ -229,7 +270,14 @@ public class createAccount extends javax.swing.JFrame {
                         .addComponent(CantonBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(districtBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jTextField1)
+                                .addGap(3, 3, 3)))))
                 .addContainerGap())
         );
 
@@ -273,14 +321,19 @@ public class createAccount extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        System.exit(0);
+        logIn newWindow = new logIn();
+        
+        newWindow.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -291,6 +344,85 @@ public class createAccount extends javax.swing.JFrame {
     private void districtBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_districtBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_districtBoxActionPerformed
+
+    private void idFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldKeyTyped
+      
+     char caracter = evt.getKeyChar();
+    
+        if (idField.getText().length()== 9) 
+         evt.consume(); 
+
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }    
+        
+        
+
+    }//GEN-LAST:event_idFieldKeyTyped
+
+    private void NameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NameFieldKeyTyped
+        
+        if (NameField.getText().length()== 20) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+
+    }//GEN-LAST:event_NameFieldKeyTyped
+
+    private void firstLasNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstLasNameFieldKeyTyped
+        
+        if (firstLasNameField.getText().length()== 20) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+    }//GEN-LAST:event_firstLasNameFieldKeyTyped
+
+    private void secondLastNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_secondLastNameFieldKeyTyped
+        
+        if (secondLastNameField.getText().length()== 20) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+    }//GEN-LAST:event_secondLastNameFieldKeyTyped
+
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
+
+    }//GEN-LAST:event_idFieldActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+       char caracter = evt.getKeyChar();
+    
+        if (jTextField1.getText().length()== 8) 
+         evt.consume(); 
+
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }  
+    }//GEN-LAST:event_jTextField1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -345,9 +477,11 @@ public class createAccount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField secondLastNameField;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables

@@ -17,6 +17,7 @@ public class logIn extends javax.swing.JFrame {
     public logIn() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -31,7 +32,7 @@ public class logIn extends javax.swing.JFrame {
         mainPanel = new javax.swing.JPanel();
         LogIn = new javax.swing.JPanel();
         userNameLabel = new javax.swing.JLabel();
-        userNameButton = new javax.swing.JTextField();
+        userNameField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         createAccount = new javax.swing.JButton();
@@ -52,8 +53,18 @@ public class logIn extends javax.swing.JFrame {
         userNameLabel.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         userNameLabel.setText("PASSWORD :");
 
-        userNameButton.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
-        userNameButton.setSelectionColor(new java.awt.Color(239, 131, 84));
+        userNameField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        userNameField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        userNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameFieldActionPerformed(evt);
+            }
+        });
+        userNameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                userNameFieldKeyTyped(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         jLabel1.setText("USERNAME : ");
@@ -72,7 +83,7 @@ public class logIn extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(userNameButton)
+                    .addComponent(userNameField)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE))
                 .addGap(103, 103, 103))
         );
@@ -81,7 +92,7 @@ public class logIn extends javax.swing.JFrame {
             .addGroup(LogInLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(33, 33, 33)
                 .addGroup(LogInLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -97,6 +108,11 @@ public class logIn extends javax.swing.JFrame {
         createAccount.setBorderPainted(false);
         createAccount.setContentAreaFilled(false);
         createAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                createAccountActionPerformed(evt);
+            }
+        });
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logo.png"))); // NOI18N
 
@@ -178,11 +194,43 @@ public class logIn extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
+       
+        maqueta newWindow = new maqueta();
         
-
+        newWindow.setVisible(true);
+        this.setVisible(false);       
         
-      
     }//GEN-LAST:event_LogInButtonActionPerformed
+
+    private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
+  
+        createAccount newWindow = new createAccount();
+        
+        newWindow.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_createAccountActionPerformed
+
+    private void userNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameFieldActionPerformed
+            
+
+    }//GEN-LAST:event_userNameFieldActionPerformed
+
+    private void userNameFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameFieldKeyTyped
+        char caracter = evt.getKeyChar();
+      
+        if (userNameField.getText().length()== 9) 
+
+         evt.consume(); 
+
+        if(((caracter < '0') ||
+           (caracter > '9')) &&
+           (caracter != '\b'))
+        {
+           evt.consume(); 
+        }
+    }//GEN-LAST:event_userNameFieldKeyTyped
 
     /**
      * @param args the command line arguments
@@ -228,7 +276,7 @@ public class logIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JTextField userNameButton;
+    private javax.swing.JTextField userNameField;
     private javax.swing.JLabel userNameLabel;
     // End of variables declaration//GEN-END:variables
 }

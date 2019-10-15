@@ -5,14 +5,14 @@
  */
 package DA;
 
-import java.sql.CallableStatement;
+//import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
+//import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import oracle.jdbc.OracleTypes;
+//import oracle.jdbc.OracleTypes;
 
 /**
  *
@@ -22,9 +22,9 @@ public class ConnectDB {
     
     private static ConnectDB instance;
     private static Connection connectionDB;
-    private String host="jdbc:oracle:thin:@localhost:1521:BDMAU";
-    private String uName="pro";
-    private String uPass="pro";
+    private String host="jdbc:oracle:thin:@localhost:1521:josebd";
+    private String uName="pro1";
+    private String uPass="pro1";
     
     private ConnectDB() throws SQLException{
         try {

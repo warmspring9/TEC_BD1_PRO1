@@ -58,6 +58,11 @@ public class addProposal_1 extends javax.swing.JFrame {
 
         proposalTitleField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         proposalTitleField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        proposalTitleField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                proposalTitleFieldKeyTyped(evt);
+            }
+        });
 
         selectCategoryBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
         selectCategoryBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select category" }));
@@ -72,8 +77,12 @@ public class addProposal_1 extends javax.swing.JFrame {
         jLabel3.setText("BUDGET :");
 
         budgetField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
-        budgetField.setForeground(new java.awt.Color(255, 255, 255));
         budgetField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        budgetField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                budgetFieldKeyTyped(evt);
+            }
+        });
 
         proposalDescriptionField.setColumns(20);
         proposalDescriptionField.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
@@ -147,6 +156,11 @@ public class addProposal_1 extends javax.swing.JFrame {
         cancelButton.setBorderPainted(false);
         cancelButton.setContentAreaFilled(false);
         cancelButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -204,6 +218,37 @@ public class addProposal_1 extends javax.swing.JFrame {
     private void selectCategoryBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectCategoryBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_selectCategoryBoxActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        maqueta newWindow = new maqueta();
+        
+        newWindow.setVisible(true);
+        //this.setVisible(false);
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void budgetFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_budgetFieldKeyTyped
+       char caracter = evt.getKeyChar();
+    
+      if(((caracter < '0') ||
+         (caracter > '9')) &&
+         (caracter != '\b'))
+      {
+         evt.consume(); 
+      }   
+    }//GEN-LAST:event_budgetFieldKeyTyped
+
+    private void proposalTitleFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_proposalTitleFieldKeyTyped
+        if (proposalTitleField.getText().length()== 20) 
+            evt.consume();   
+        
+        char car = evt.getKeyChar();
+        if(Character.isLetter(car)){
+
+        }else{
+        evt.consume();
+        getToolkit().beep();
+        }
+    }//GEN-LAST:event_proposalTitleFieldKeyTyped
 
     /**
      * @param args the command line arguments
