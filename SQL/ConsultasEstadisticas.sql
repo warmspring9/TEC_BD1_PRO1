@@ -1,3 +1,5 @@
+/*Todas estan probadas las estadisticas retornan el total de cada una de ahi se divide entre la suma del total para sacar el porcentaje*/
+
 CREATE OR REPLACE PROCEDURE REP_ESTATISTICPROPOSALS_PR
 (
     PROPOSAL_CURSOR out sys_refcursor
