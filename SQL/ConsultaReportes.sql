@@ -10,6 +10,11 @@ CREATE OR REPLACE PROCEDURE REP_PassChange_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna todos los usuarios que no han cambiado sus contraseñas en 10 dias
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     OPEN PassChange_CURSOR FOR
     SELECT A.ID_LOG_IN,p.name,p.first_lastname,p.second_lastname,p.id_person from
     (select id_log_in from password_changes pl
@@ -35,6 +40,11 @@ CREATE OR REPLACE PROCEDURE REP_TotPassChange_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de usuarios que no han cambiado sus contraseñas en 10 dias
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     SELECT COUNT(a.id_log_in) into total from
     (select id_log_in from password_changes pl
     where (sysdate-pl.change_date) > 10 ) a
@@ -56,6 +66,11 @@ CREATE OR REPLACE PROCEDURE REP_TopNComm_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el top n communidades que mas propuestas tienen
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     OPEN TopNComm_CURSOR FOR
     SELECT a, b from 
     (select c.id_community a, count(c.id_community) b from proposal p 
@@ -79,6 +94,11 @@ CREATE OR REPLACE PROCEDURE REP_PROPXCATEGORY_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna las propuestas por categoria 
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     OPEN PROPCATEG_CURSOR FOR
     SELECT PROPO.TITLE, C.NAME, B FROM (SELECT P.ID_PROPOSAL A, COUNT(V.ID_PROPOSAL) B FROM PROPOSAL P
         LEFT JOIN VOTE V ON P.ID_PROPOSAL = V.ID_PROPOSAL
@@ -105,6 +125,11 @@ BEGIN
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de propuestas de cada categoria 
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     SELECT COUNT(PROP.A) INTO total FROM (SELECT P.ID_PROPOSAL A, COUNT(V.ID_PROPOSAL) B FROM PROPOSAL P
         LEFT JOIN VOTE V ON P.ID_PROPOSAL = V.ID_PROPOSAL
         JOIN PERSON PER ON P.ID_PERSON = PER.ID_PERSON 
@@ -120,17 +145,23 @@ BEGIN
  /
 
  /*Reporte de usuarios dos*/
+insert into parameter values (2,'reportUsers',5);
+
 CREATE OR REPLACE PROCEDURE REP_TOPNPROP_PR
 (
-    NProp in Number default 1,
     TopNComm_CURSOR out sys_refcursor
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna las n propuestas con mas votos 
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     OPEN TopNComm_CURSOR FOR
     SELECT P.ID_PROPOSAL A, COUNT(V.ID_PROPOSAL) B FROM PROPOSAL P
     FULL JOIN VOTE V ON P.ID_PROPOSAL = V.ID_PROPOSAL
-    WHERE ROWNUM <= NProp
+    WHERE ROWNUM <= (select value from parameter where id_parameter = 2)
     GROUP BY P.ID_PROPOSAL
     ORDER BY B DESC;
 END;
@@ -142,6 +173,11 @@ CREATE OR REPLACE PROCEDURE REP_OwnProp_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna todas las propuestas del usuario 
+    Por: Nicolas Reyes
+    09/10/2019    
+    */
     OPEN PersonalProp_CURSOR FOR
     SELECT * FROM PROPOSAL
     WHERE ID_PERSON = NPer;

@@ -1,9 +1,16 @@
+/*Todas estan probadas las estadisticas retornan el total de cada una de ahi se divide entre la suma del total para sacar el porcentaje*/
+
 CREATE OR REPLACE PROCEDURE REP_ESTATISTICPROPOSALS_PR
 (
     PROPOSAL_CURSOR out sys_refcursor
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de propuestas por categoria
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN PROPOSAL_CURSOR FOR
     SELECT C.NAME, COUNT(P.ID_PROPOSAL) FROM PROPOSAL P
     JOIN PROPOSALXCATEGORY PC ON P.ID_PROPOSAL = PC.ID_PROPOSAL
@@ -12,14 +19,19 @@ BEGIN
     ORDER BY C.NAME;
 END;
 /
-/*ESTADISTICAS DOS :V*/
-/*RETORNA TODAS LAS PROPUESTAS POR PAIS*/
+/*ESTADISTICAS DOS */
+
 CREATE OR REPLACE PROCEDURE REP_ESTATISTICCOUNTRY_PR
 (
     COUNTRY_CURSOR out sys_refcursor
 )
 AS
 BEGIN
+    /*
+    Descripcion: RETORNA TODAS LAS PROPUESTAS POR PAIS
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN COUNTRY_CURSOR FOR
     SELECT COU.name, COUNT(P.ID_PROPOSAL) FROM PROPOSAL P
     JOIN PERSON PER ON P.ID_PERSON = PER.ID_PERSON
@@ -31,7 +43,7 @@ BEGIN
     ORDER BY COU.name;
 END;
 /
-/*RETORNA TODAS LAS PROPUESTAS POR CANTON ESCOGIENDO PAIS*/
+
 CREATE OR REPLACE PROCEDURE REP_ESTATISTICprovince_PR
 (
     countryId IN NUMBER default 0,
@@ -39,6 +51,11 @@ CREATE OR REPLACE PROCEDURE REP_ESTATISTICprovince_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: RETORNA TODAS LAS PROPUESTAS POR CANTON ESCOGIENDO PAIS
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN COUNTRY_CURSOR FOR
     SELECT pro.name, COUNT(P.ID_PROPOSAL) FROM PROPOSAL P
     JOIN PERSON PER ON P.ID_PERSON = PER.ID_PERSON
@@ -76,6 +93,11 @@ CREATE OR REPLACE PROCEDURE REP_ESTATISTICCOMMUNITY_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: RETORNA TODAS LAS PROPUESTAS POR communidad ESCOGIENDO la communidad
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN district_CURSOR FOR
     SELECT C.name, COUNT(P.ID_PROPOSAL) FROM PROPOSAL P
     JOIN PERSON PER ON P.ID_PERSON = PER.ID_PERSON
@@ -99,6 +121,11 @@ CREATE OR REPLACE PROCEDURE REP_ESTATISTICAGES_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de usuarios en cada clasificacion de usuario
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     SELECT COUNT(P.ID_PERSON) INTO MENORES FROM PERSON P
     WHERE MONTHS_BETWEEN(SYSDATE,BIRTHDATE)/12<=18;
     SELECT COUNT(P.ID_PERSON) INTO VEINTE FROM PERSON P
@@ -116,13 +143,18 @@ BEGIN
     SELECT COUNT(P.ID_PERSON) INTO DORADOS FROM PERSON P
     WHERE MONTHS_BETWEEN(SYSDATE,BIRTHDATE)/12>75;
 END;
-/*FALTA LA CUATRO */
+/*CUATRO */
 CREATE OR REPLACE PROCEDURE REP_ESTATISTICCOUNTRY_PR
 (
     COUNTRY_CURSOR out sys_refcursor
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de personas por pais
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN COUNTRY_CURSOR FOR
     SELECT COU.name, COUNT(P.ID_PERSON) FROM PERSON P
     JOIN COMMUNITY C ON P.ID_COMMUNITY = C.ID_COMMUNITY
@@ -140,6 +172,11 @@ CREATE OR REPLACE PROCEDURE REP_ESTATISTICprovince_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de personas por provincia filtrando por pais
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN COUNTRY_CURSOR FOR
     SELECT pro.name, COUNT(P.ID_PERSON) FROM PERSON P
     JOIN COMMUNITY C ON P.ID_COMMUNITY = C.ID_COMMUNITY
@@ -175,6 +212,11 @@ CREATE OR REPLACE PROCEDURE REP_ESTATISTICCommunity_PR
 )
 AS
 BEGIN
+    /*
+    Descripcion: Retorna el total de personas por communidad filtrando por canton
+    Por: Nicolas Reyes
+    10/10/2019    
+    */
     OPEN district_CURSOR FOR
     SELECT C.name, COUNT(P.ID_PERSON) FROM PERSON P
     JOIN COMMUNITY C ON P.ID_COMMUNITY = C.ID_COMMUNITY
