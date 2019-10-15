@@ -958,7 +958,7 @@ create or replace package packagePerson is
 
     procedure createPerson(pnIdPerson number, pvName varchar2, pvFirstLastName varchar2, 
      pvSecondLastName varchar2, pdDate date, 
-     pnIdDistrict number);
+     pnIdCommunity number);
     procedure deletePerson(pnIdPerson number);
 
     procedure updatePersonName(pnIdPerson number, pvNewName varchar2);
@@ -970,7 +970,7 @@ create or replace package packagePerson is
     function getPersonFirstLastName(pnIdPerson number) return varchar2; 
     function getPersonSecondLastName(pnIdPerson number) return varchar2; 
     function getPersonBirthdate(pnIdPerson number) return date;
-    function getPersonIdDistrict(pnIdPerson number) return number;    
+    function getPersonIdCommunity(pnIdPerson number) return number;    
     function getPersonIdLogIn(pnIdPerson number) return number;
 
 
@@ -981,11 +981,11 @@ create or replace package body packagePerson is
     procedure createPerson
     (pnIdPerson number, pvName varchar2, pvFirstLastName varchar2, 
      pvSecondLastName varchar2, pdDate date, 
-     pnIdDistrict number) as
+     pnIdCommunity number) as
 
     begin
-        insert into person (id_person, name, first_lastName, second_lastName, birthdate, id_district, id_log_in)
-        values(pnIdPerson, pvName, pvFirstLastName, pvSecondLastName, pdDate, pnIdDistrict, pnIdPerson);
+        insert into person (id_person, name, first_lastName, second_lastName, birthdate, id_community, id_log_in)
+        values(pnIdPerson, pvName, pvFirstLastName, pvSecondLastName, pdDate, pnIdCommunity, pnIdPerson);
 
     end createPerson;
 
@@ -1085,19 +1085,19 @@ create or replace package body packagePerson is
 
         end getPersonBirthdate;
 
-    function getPersonIdDistrict(pnIdPerson number) return number is
+    function getPersonIdCommunity(pnIdPerson number) return number is
 
         vdIdCommunity number;
 
         begin 
-            select id_district
+            select id_community
             into vdIdCommunity
             from person
             where id_person = pnIdPerson;
 
             return(vdIdCommunity);
 
-        end getPersonIdDistrict;
+        end getPersonIdCommunity;
 
     function getPersonIdLogIn(pnIdPerson number) return number is
 
@@ -1382,13 +1382,13 @@ create or replace package packageCommunity is
     procedure deleteCommunity(pnId_Community NUMBER);
     procedure updateCommunityName(pnId_Community number, pvName varchar2);
     function getName(pnId_Community number) return varchar2;
-    function getIdDistrict(pnId_Community number) return number;
+    function getIdCanton(pnId_Community number) return number;
     end packageCommunity;
     
 create or replace package body packageCommunity as
     procedure createCommunity(pvName varchar2, pnId_District number) is
         begin
-            insert into community(id_community, name, id_District)
+            insert into community(id_community, name, id_Canton)
             values(community_seq.nextval, pvName, pnId_District);
             commit;
         end createCommunity;
@@ -1404,7 +1404,7 @@ create or replace package body packageCommunity as
             update Community set name=pvName where Id_Community=pnId_Community;
             commit;
         end updateCommunityName;
-        
+
     function getName(pnId_Community number) return varchar2 is
         nName varchar2(30);
         begin
@@ -1412,20 +1412,20 @@ create or replace package body packageCommunity as
             into nName
             from Community
             where id_Community=pnId_Community;
-            
+
             return(nName);
         end getName;
-        
-    function getIdDistrict(pnId_Community number) return number is
+
+    function getIdCanton(pnId_Community number) return number is
         nIdDistrict number;
         begin
-            select id_district
+            select id_Canton
             into nIdDistrict
             from Community
             where id_Community=pnId_Community;
-            
+
             return(nIdDistrict);
-        end getIdDistrict;
+        end getIdCanton;
 
     end packageCommunity;
 
@@ -1452,7 +1452,7 @@ create or replace package body packagePersonXCountry as
     end packagePersonXCountry;
 
 create or replace package packageProposal is
-    procedure createProposal(pvTitle varchar2, pnBudget number, pvSummary varchar2, post_time Date, pnId_person number);
+    procedure createProposal(pvTitle varchar2, pnBudget number, pvSummary varchar2, pnId_person number);
     procedure deleteProposal(pnId_Proposal number);
     procedure updateTitle(pnId_Proposal number, pvTitle varchar2);
     procedure updateBudget(pnId_Proposal number, pnBudget varchar2);
@@ -1465,10 +1465,10 @@ create or replace package packageProposal is
     end packageProposal;
 
 create or replace package body packageProposal as
-    procedure createProposal(pvTitle varchar2, pnBudget number, pvSummary varchar2, post_time Date, pnId_person number) is
+    procedure createProposal(pvTitle varchar2, pnBudget number, pvSummary varchar2, pnId_person number) is
         begin
             insert into proposal(id_proposal, title, budget, summary, post_time, id_person)
-            values(proposal_seq.nextval, pvTitle, pnBudget, pvSummary, post_time, pnId_person);
+            values(proposal_seq.nextval, pvTitle, pnBudget, pvSummary, sysdate, pnId_person);
             commit;
         end createProposal;
 
@@ -1483,19 +1483,19 @@ create or replace package body packageProposal as
             update Proposal set title=pvTitle where Id_Proposal=pnId_Proposal;
             commit;
         end updateTitle;
-        
+
     procedure updateBudget(pnId_Proposal number, pnBudget varchar2) is
         begin
             update Proposal set budget=pnBudget where Id_Proposal=pnId_Proposal;
             commit;
         end updateBudget;
-        
+
     procedure updateSummary(pnId_Proposal number, pvSummary varchar2) is
         begin
             update Proposal set summary=pvSummary where Id_Proposal=pnId_Proposal;
             commit;
         end updateSummary;
-        
+
     function getTitle(pnId_Proposal number) return varchar2 is
         nTitle varchar2(30);
         begin
@@ -1503,10 +1503,10 @@ create or replace package body packageProposal as
             into nTitle
             from Proposal
             where id_Proposal=pnId_Proposal;
-            
+
             return(nTitle);
         end getTitle;
-        
+
     function getBudget(pnId_Proposal number) return number is
         nBudget NUMBER;
         begin
@@ -1514,10 +1514,10 @@ create or replace package body packageProposal as
             into nbudget
             from Proposal
             where id_Proposal=pnId_Proposal;
-            
+
             return(nBudget);
         end getBudget;
-        
+
     function getSummary(pnId_Proposal number) return varchar2 is
         nSummary varchar2(200);
         begin
@@ -1525,10 +1525,10 @@ create or replace package body packageProposal as
             into nSummary
             from Proposal
             where id_Proposal=pnId_Proposal;
-            
+
             return(nSummary);
         end getSummary;
-        
+
     function getPostTime(pnId_Proposal number) return DATE is
         nPostTime date;
         begin
@@ -1536,10 +1536,10 @@ create or replace package body packageProposal as
             into nPostTime
             from Proposal
             where id_Proposal=pnId_Proposal;
-            
+
             return(nPostTime);
         end getPostTime;
-        
+
         function getIdPerson(pnId_Proposal number) return NUMBER is
         nIdPerson number;
         begin
@@ -1547,9 +1547,10 @@ create or replace package body packageProposal as
             into nIdPerson
             from Proposal
             where id_Proposal=pnId_Proposal;
-            
+
             return(nIdPerson);
         end getIdPerson;
+        
 
     end packageProposal;
 
