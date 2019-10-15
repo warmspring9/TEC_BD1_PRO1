@@ -917,7 +917,7 @@ public class maqueta extends javax.swing.JFrame {
     }//GEN-LAST:event_phoneFieldKeyTyped
 
     private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
-        stats newWindow = new stats();
+        statistics newWindow = new statistics();
         
         newWindow.setVisible(true);
         //this.setVisible(false);

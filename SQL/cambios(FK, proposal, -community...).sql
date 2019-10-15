@@ -16,5 +16,12 @@ alter table proposal drop constraint district_proposal_fk;
 alter table person add constraint person_community_fk foreign key (ID_Community) REFERENCES Community(ID_Community);
 
 
+----se cambia tamaño de id Person en phone, vote y email----
+alter table phone modify id_person number(9,0);
+alter table email modify id_person number(9,0);
+alter table vote modify id_person number(9,0);
+
+
+
 
 
