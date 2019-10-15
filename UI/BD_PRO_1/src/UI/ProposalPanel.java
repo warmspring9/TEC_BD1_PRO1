@@ -5,22 +5,37 @@
  */
 package UI;
 
+import Controller.Controller;
+import java.sql.SQLException;
+
+
 /**
  *
  * @author Mau
  */
 public class ProposalPanel extends javax.swing.JPanel {
     
-   
-
-    /**
-     * Creates new form ProposalPanel
-     */
-    public ProposalPanel(){
+    Controller control=Controller.getInstance();
+    int idPerson=control.getIdPerson();
+    public ProposalPanel(int idProp) throws SQLException{
         initComponents();
-
+        if(!control.isAdmin(idPerson)){
+            editProposal.setVisible(false);
+    
+        }
+        
+        
+        titleText.setText(control.getProposalTitle(idProp));
+        budgetText.setText(Integer.toString(control.getProposalBudget(idProp))) ;
+        contentText.setText(control.getProposalContent(idProp));
+        for(int i=0; i<control.getCategorysNames().size(); i++ ){
+            categoryComboBox.addItem(control.getCategorysNames().get(i));
+        }
+        categoryComboBox.setSelectedItem(control.getCategoryName(control.getProposalIdCategory(idProp)));
         trashButton.setVisible(false);
         enterButton.setVisible(false);
+        contentText.setLineWrap(true);
+        
         
     }
 
@@ -134,6 +149,10 @@ public class ProposalPanel extends javax.swing.JPanel {
             }
         });
 
+        categoryComboBox.setToolTipText("");
+        categoryComboBox.setEnabled(false);
+        categoryComboBox.setName(""); // NOI18N
+
         enterButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/enter_2_23px.png"))); // NOI18N
         enterButton.setBorder(null);
         enterButton.setBorderPainted(false);
@@ -185,11 +204,12 @@ public class ProposalPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(editProposal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(titleText))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(titleText)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(categoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(trashButton, javax.swing.GroupLayout.Alignment.LEADING)

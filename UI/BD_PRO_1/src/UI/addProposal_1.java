@@ -5,18 +5,27 @@
  */
 package UI;
 
+import Controller.Controller;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jalej
  */
 public class addProposal_1 extends javax.swing.JFrame {
-
+    Controller control=Controller.getInstance();
     /**
      * Creates new form addProposal
      */
-    public addProposal_1() {
+    public addProposal_1() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+        for(int i=0; i<control.getCategorysNames().size(); i++ ){
+            selectCategoryBox.addItem(control.getCategorysNames().get(i));
+        }
     }
 
     /**
@@ -118,7 +127,7 @@ public class addProposal_1 extends javax.swing.JFrame {
                 .addGroup(proposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(selectCategoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(proposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(proposalTitleField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(proposalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -150,6 +159,11 @@ public class addProposal_1 extends javax.swing.JFrame {
         submitButton.setBorderPainted(false);
         submitButton.setContentAreaFilled(false);
         submitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/cancelNaranja40.png"))); // NOI18N
         cancelButton.setBorder(null);
@@ -169,7 +183,7 @@ public class addProposal_1 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addProposalPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                    .addComponent(addProposalPhotoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 169, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,9 +234,17 @@ public class addProposal_1 extends javax.swing.JFrame {
     }//GEN-LAST:event_selectCategoryBoxActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        maqueta newWindow = new maqueta();
+        maqueta newWindow;
+        try {
+            newWindow = new maqueta();
+            newWindow.setVisible(true);
+            
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(addProposal_1.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        newWindow.setVisible(true);
+        
         //this.setVisible(false);
     }//GEN-LAST:event_cancelButtonActionPerformed
 
@@ -249,6 +271,17 @@ public class addProposal_1 extends javax.swing.JFrame {
         getToolkit().beep();
         }
     }//GEN-LAST:event_proposalTitleFieldKeyTyped
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        try {
+            control.createProposal(proposalTitleField.getText(),Integer.valueOf(budgetField.getText()), proposalDescriptionField.getText(), String.valueOf(selectCategoryBox.getSelectedItem()));
+            
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(addProposal_1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,7 +328,11 @@ public class addProposal_1 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new addProposal_1().setVisible(true);
+                try {
+                    new addProposal_1().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(addProposal_1.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

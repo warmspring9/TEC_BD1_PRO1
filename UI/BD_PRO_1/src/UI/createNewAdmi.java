@@ -5,6 +5,10 @@
  */
 package UI;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jalej
@@ -136,7 +140,12 @@ public class createNewAdmi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        maqueta newWindow = new maqueta();
+        maqueta newWindow = null;
+        try {
+            newWindow = new maqueta();
+        } catch (SQLException ex) {
+            Logger.getLogger(createNewAdmi.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         newWindow.setVisible(true);
         this.setVisible(false);

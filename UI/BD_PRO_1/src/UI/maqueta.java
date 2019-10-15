@@ -5,6 +5,11 @@
  */
 package UI;
 
+import Controller.Controller;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -14,10 +19,12 @@ public class maqueta extends javax.swing.JFrame {
    
     //CardLayout cardLayout;
     
+    Controller control=Controller.getInstance();
     
-    public maqueta() {
+    public maqueta() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
+        int idUser=control.getIdPerson();
         
         oldPassLable.setVisible(false);
         newPassLable.setVisible(false);
@@ -25,10 +32,64 @@ public class maqueta extends javax.swing.JFrame {
         newPassField.setVisible(false);
         submitNewPassButton.setVisible(false);
         editFavsButton.setVisible(false);
+        communityNameLable.setText(control.getCommunityName(idUser));
+        if(!control.isAdmin(idUser)){
+            statsButton.setVisible(false);
+            statsSeparator.setVisible(false);
+            consultButton.setVisible(false);
+            consultSeparator.setVisible(false);
+            newAdmiButton.setVisible(false);
+            cataButton.setVisible(false);
+            cataSeparator.setVisible(false);
+            logAsAdminLabel.setText("Welcome!!");
+        }
         
+        for(int i=0; i<control.getProposalFeed().size(); i++){
+            ProposalPanel prop=new ProposalPanel(control.getProposalFeed().get(i));
+            feedGridPanel.add(prop);
+            feedGridPanel.updateUI();
+        }
         
+        for(int i=0; i<control.getProposalProfile().size(); i++){
+            ProposalPanel prop=new ProposalPanel(control.getProposalProfile().get(i));
+            profileGridPanel.add(prop);
+            profileGridPanel.updateUI();
+        }
         
+        for(int i=0; i<control.getCategorysNames().size(); i++ ){
+                categoryFilterBox.addItem(control.getCategorysNames().get(i));
+            }
+        
+        idField.setText(Integer.toString(idUser));
+        nameField.setText(control.getPersonName(idUser));
+        lastNameField.setText(control.getPersonFirstLastName(idUser)+" "+control.getPersonSecondLastName(idUser));
+   
     }
+    
+    /*public maqueta(int id) throws SQLException{
+        initComponents();
+        this.setLocationRelativeTo(null);
+        idUser=id;
+        
+        oldPassLable.setVisible(false);
+        newPassLable.setVisible(false);
+        oldPassField.setVisible(false);
+        newPassField.setVisible(false);
+        submitNewPassButton.setVisible(false);
+        editFavsButton.setVisible(false);
+        communityNameLable.setText(control.getCommunityName(idUser));
+        if(!control.isAdmin(idUser)){
+            statsButton.setVisible(false);
+            statsSeparator.setVisible(false);
+            consultButton.setVisible(false);
+            consultSeparator.setVisible(false);
+            newAdmiButton.setVisible(false);
+            cataButton.setVisible(false);
+            cataSeparator.setVisible(false);
+            logAsAdminLabel.setText("Welcome!!");
+        }
+    
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,6 +175,11 @@ public class maqueta extends javax.swing.JFrame {
 
         logoLable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoLable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/logo.png"))); // NOI18N
+        logoLable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoLableMouseClicked(evt);
+            }
+        });
         leftPanel.add(logoLable);
         logoLable.setBounds(10, 0, 230, 100);
 
@@ -623,12 +689,22 @@ public class maqueta extends javax.swing.JFrame {
 
         proposalContainer.setBackground(new java.awt.Color(79, 93, 117));
         proposalContainer.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        proposalContainer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                proposalContainerMouseClicked(evt);
+            }
+        });
         proposalContainer.setLayout(new java.awt.CardLayout());
 
         feedScrollPanel.setBackground(new java.awt.Color(79, 93, 117));
         feedScrollPanel.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
         feedGridPanel.setBackground(new java.awt.Color(79, 93, 117));
+        feedGridPanel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                feedGridPanelMouseMoved(evt);
+            }
+        });
         feedGridPanel.setLayout(new java.awt.GridLayout(0, 1, 3, 0));
         feedScrollPanel.setViewportView(feedGridPanel);
 
@@ -712,6 +788,8 @@ public class maqueta extends javax.swing.JFrame {
         leftPanelContain.add(feedCardPanel);
         leftPanelContain.repaint();
         leftPanelContain.revalidate();
+        
+      
     }//GEN-LAST:event_feedButtonActionPerformed
 
     private void cantVotesFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cantVotesFieldKeyTyped
@@ -839,16 +917,22 @@ public class maqueta extends javax.swing.JFrame {
     }//GEN-LAST:event_phoneFieldKeyTyped
 
     private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
-        statistics newWindow = new statistics();
+        stats newWindow = new stats();
         
         newWindow.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_statsButtonActionPerformed
 
     private void cataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cataButtonActionPerformed
-        Catalogue newWindow = new Catalogue();
+        Catalogue newWindow;
+        try {
+            newWindow = new Catalogue();
+            newWindow.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(maqueta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        newWindow.setVisible(true);
+        
         //this.setVisible(false);
     }//GEN-LAST:event_cataButtonActionPerformed
 
@@ -860,10 +944,19 @@ public class maqueta extends javax.swing.JFrame {
     }//GEN-LAST:event_consultButtonActionPerformed
 
     private void addProposalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProposalButtonActionPerformed
-        addProposal_1 newWindow = new addProposal_1();
+        addProposal_1 newWindow;
+        try {
+            newWindow = new addProposal_1();
+            newWindow.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(maqueta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        newWindow.setVisible(true);
-        //this.setVisible(false);    
+        
+            
+            
+            //this.setVisible(false);    
+        
     }//GEN-LAST:event_addProposalButtonActionPerformed
 
     private void jobButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobButtonActionPerformed
@@ -872,6 +965,37 @@ public class maqueta extends javax.swing.JFrame {
         newWindow.setVisible(true);
         //this.setVisible(false);
     }//GEN-LAST:event_jobButtonActionPerformed
+
+    private void proposalContainerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proposalContainerMouseClicked
+        
+    }//GEN-LAST:event_proposalContainerMouseClicked
+
+    private void feedGridPanelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_feedGridPanelMouseMoved
+        
+    }//GEN-LAST:event_feedGridPanelMouseMoved
+
+    private void logoLableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoLableMouseClicked
+        feedGridPanel.removeAll();
+        profileGridPanel.removeAll();
+        try {
+            for(int i=0; i<control.getProposalFeed().size(); i++){
+                ProposalPanel prop=new ProposalPanel(control.getProposalFeed().get(i));
+                feedGridPanel.add(prop);
+                feedGridPanel.updateUI();
+                
+            }
+            
+            for(int i=0; i<control.getProposalProfile().size(); i++){
+            ProposalPanel prop=new ProposalPanel(control.getProposalProfile().get(i));
+            profileGridPanel.add(prop);
+            profileGridPanel.updateUI();
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(maqueta.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        //mainPanel.updateUI();
+    }//GEN-LAST:event_logoLableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -903,7 +1027,12 @@ public class maqueta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new maqueta().setVisible(true);
+                try {
+                    new maqueta().setVisible(true);
+                    
+                } catch (SQLException ex) {
+                    Logger.getLogger(maqueta.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
