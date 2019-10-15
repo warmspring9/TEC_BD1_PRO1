@@ -287,12 +287,12 @@ public class DataHandler {
         
         }
     
-    public static int getCommunityIdDistrict(int pValue) throws SQLException{
+    public static int getCommunityIdCanton(int pValue) throws SQLException{
         
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
                 
-        CallableStatement stmt=conn.prepareCall("{?= call packageCommunity.getIdDistrict(?)}");
+        CallableStatement stmt=conn.prepareCall("{?= call packageCommunity.getIdCanton(?)}");
         stmt.registerOutParameter(1, java.sql.Types.INTEGER);
         stmt.setInt(2, pValue);
         stmt.execute();
@@ -356,53 +356,7 @@ public class DataHandler {
     //---------------------------------------------
     //*****procedimientos y funciones District*****
     //--------------------------------------------
-    public static String getDistrictName(int pValue) throws SQLException{
-        
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{?= call packageDistrict.getDistrictName(?)}");
-        stmt.registerOutParameter(1, java.sql.Types.VARCHAR);
-        stmt.setInt(2, pValue);
-        stmt.execute();
-        String result = stmt.getString(1);
-        return result;
-        
-        }
-    
-    public static void createDistrict(String pName) throws SQLException{
-       
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{ call packageDistrict.createDistrict(?)}");
-        
-        stmt.setString(1, pName);
-        stmt.execute();
-        }
-    
-    public static void updateDistrictName(int pValue, String pName) throws SQLException{
-       
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{ call packageDistrict.updateDistrictName(?, ?)}");
-        stmt.setInt(1, pValue);
-        stmt.setString(2, pName);
-        
-        stmt.execute();
-        
-        }
-    
-    public static void deleteDistrict(int pValue) throws SQLException{
-       
-        ConnectDB dataConnection= ConnectDB.getInstance();
-        Connection conn=dataConnection.getConnection();
-                
-        CallableStatement stmt=conn.prepareCall("{ call packageDistrict.deleteDistrict(?)}");
-        stmt.setInt(1, pValue); 
-        stmt.execute();
-    }
+   
     
     //---------------------------------------------
     //*****procedimientos y funciones Email*****
@@ -613,7 +567,7 @@ public class DataHandler {
     //*****procedimientos y funciones Person*****
     //---------------------------------------------
     
-    public static void createPerson(int pIdPerson, String pName, String pLastName, String pLastName2, String pDate, int pIdDistrict) throws SQLException{
+    public static void createPerson(int pIdPerson, String pName, String pLastName, String pLastName2, String pDate, int pIdCommunity) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -627,7 +581,7 @@ public class DataHandler {
         stmt.setString(3, pLastName);
         stmt.setString(4, pLastName2);
         stmt.setDate(5, sqlDate);
-        stmt.setInt(6, pIdDistrict);
+        stmt.setInt(6, pIdCommunity);
         
         
         stmt.execute();
@@ -926,7 +880,7 @@ public class DataHandler {
         return result;
         
         }
-    public static int getProposalIdDistrict(int pIdProposal) throws SQLException{
+    public static int getProposalIdCommunity(int pIdProposal) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -970,7 +924,7 @@ public class DataHandler {
     
     
     
-    public static void createProposal(String pTitle, int pBudget, String pSummary,int pIdPerson, int pIdDistrict) throws SQLException{
+    public static void createProposal(String pTitle, int pBudget, String pSummary,int pIdPerson) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -980,7 +934,7 @@ public class DataHandler {
         stmt.setInt(2, pBudget);
         stmt.setString(3, pSummary);
         stmt.setInt(4, pIdPerson);
-        stmt.setInt(5, pIdDistrict);
+        stmt.set
         
         stmt.execute();
         
@@ -1261,13 +1215,13 @@ public class DataHandler {
         }
     }
     
-    public static ArrayList<Integer> getProposalFeed(int pIdDistrict)throws SQLException{
+    public static ArrayList<Integer> getProposalFeed(int pIdCommunity)throws SQLException{
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
         
         CallableStatement stmt=conn.prepareCall("{?= call getProposalFeed(?)}");
         stmt.registerOutParameter(1, OracleTypes.CURSOR);
-        stmt.setInt(2, pIdDistrict);
+        stmt.setInt(2, pIdCommuity);
         ArrayList<Integer> res=new ArrayList<Integer>();
         stmt.executeQuery();
         ResultSet r = (ResultSet) stmt.getObject(1);
