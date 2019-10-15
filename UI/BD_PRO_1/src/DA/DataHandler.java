@@ -376,6 +376,20 @@ public class DataHandler {
         
         }
     
+    public static String getEmail(int pid) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packageEmail.getEmailAddress(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.VARCHAR);
+        stmt.setInt(2, pid);
+        stmt.execute();
+        String result = stmt.getString(1);
+        return result;
+        
+        }
+    
     public static void createEmail( String pAddress, int pValue) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
@@ -865,6 +879,20 @@ public class DataHandler {
         stmt.setString(2, pPhone);
         stmt.execute();
         int result = stmt.getInt(1);
+        return result;
+        
+        }
+    
+    public static String getTelephone(int pid) throws SQLException{
+       
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+                
+        CallableStatement stmt=conn.prepareCall("{?= call packagePhone.getTelephone(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.VARCHAR);
+        stmt.setInt(2, pid);
+        stmt.execute();
+        String result = stmt.getString(1);
         return result;
         
         }

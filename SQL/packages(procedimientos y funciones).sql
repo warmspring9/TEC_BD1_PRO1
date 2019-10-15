@@ -654,6 +654,7 @@ create or replace package packagePhone is
     procedure deletePhone(pvTelephone varchar2);
     procedure updatePhone(pvTelephone varchar2, pvNTelephone varchar2);
     function getIdPerson(pvTelephone varchar2) return number;
+    function getTelephone(pnId number) return varchar2;
 
     end packagePhone;
 
@@ -677,7 +678,7 @@ create or replace package body packagePhone as
             update Phone set Telephone=pvNTelephone where Telephone=pvTelephone;
             commit;
         end updatePhone;
-        
+
     function getIdPerson(pvTelephone varchar2) return number is
         nIdPerson number;
        begin
@@ -687,6 +688,16 @@ create or replace package body packagePhone as
               where Telephone=pvTelephone;
               return(nIdPerson);
         end getIdPerson;
+        
+        function getTelephone(pnId number) return varchar2 is
+        nTelephone varchar2(40);
+       begin
+              select telephone
+              into nTelephone
+              from Phone
+              where pnId=id_person;
+              return(nTelephone);
+        end getTelephone;
 
     end packagePhone;
 

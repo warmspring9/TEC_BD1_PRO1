@@ -63,6 +63,8 @@ public class maqueta extends javax.swing.JFrame {
         idField.setText(Integer.toString(idUser));
         nameField.setText(control.getPersonName(idUser));
         lastNameField.setText(control.getPersonFirstLastName(idUser)+" "+control.getPersonSecondLastName(idUser));
+        emailField.setText(control.getPersonEmail(idUser));
+        phoneField.setText(control.getPersonPhone(idUser));
    
     }
     

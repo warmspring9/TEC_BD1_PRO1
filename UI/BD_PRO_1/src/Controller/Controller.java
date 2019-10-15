@@ -141,5 +141,13 @@ public class Controller {
     public String getPersonSecondLastName(int id) throws SQLException{
         return DataHandler.getPersonSecondLastName(id);
     }
+    
+    public String getPersonEmail(int id) throws SQLException{
+        return DataHandler.getEmailAddress(id);
+    }
+    
+    public String getPersonPhone(int id) throws SQLException{
+        return DataHandler.getTelephone(id);
+    }
 }
 
