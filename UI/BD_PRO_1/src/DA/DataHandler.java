@@ -1688,6 +1688,26 @@ public class DataHandler {
         int result = stmt.getInt(1);
         return result;
         }
+        
+        
+        public static ArrayList<Integer> getTopN( )throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{call REP_TOPNPROP_PR(?)}");
+        stmt.registerOutParameter(1, OracleTypes.CURSOR);
+        stmt.execute();
+        
+        ArrayList<Integer> res=new ArrayList<Integer>();
+        stmt.executeQuery();
+        ResultSet r = (ResultSet) stmt.getObject(1);
+        
+        while(r.next()){
+            res.add(r.getInt("ID_PROPOSAL"));
+           
+        }
+        return res;
+        }
     
     }
     
