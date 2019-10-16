@@ -417,11 +417,14 @@ public class statistics extends javax.swing.JFrame {
         Map<String,Integer> result = new HashMap<String, Integer>();
         switch(option){
             case "countries":
-                //llama a event handler y consigue los datos
+                result=DataHandler.statsPropCountry( );
+                return result;
             case "states":
-                //result=DataHandler.statsPropCant(DataHandler.getIdProvince(filter));
+                result=DataHandler.statsPropCant(DataHandler.getIdProvince(filter));
+                return result;
             case "provinces":
-                //lo mismo
+                result=DataHandler.statsPropProv(DataHandler.getIdCountry(filter));
+                return result;
             case "communities":
                 result=DataHandler.statsPropCommu(DataHandler.getIdCanton(filter));
                 return result;

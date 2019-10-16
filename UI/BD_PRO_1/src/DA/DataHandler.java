@@ -1448,7 +1448,7 @@ public class DataHandler {
         
         }
     
-    public static String getIdCountry(String name) throws SQLException{
+    public static int getIdCountry(String name) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -1457,12 +1457,12 @@ public class DataHandler {
         stmt.registerOutParameter(1, java.sql.Types.INTEGER);
         stmt.setString(2, name);
         stmt.execute();
-        String result = stmt.getString(1);
+        int result = stmt.getInt(1);
         return result;
         
         }
     
-    public static String getIdProvince(String name) throws SQLException{
+    public static int getIdProvince(String name) throws SQLException{
        
         ConnectDB dataConnection= ConnectDB.getInstance();
         Connection conn=dataConnection.getConnection();
@@ -1471,7 +1471,7 @@ public class DataHandler {
         stmt.registerOutParameter(1, java.sql.Types.INTEGER);
         stmt.setString(2, name);
         stmt.execute();
-        String result = stmt.getString(1);
+        int result = stmt.getInt(1);
         return result;
         
         }
@@ -1549,6 +1549,44 @@ public class DataHandler {
         
             CallableStatement stmt=conn.prepareCall("{call REP_ESTATISTICCanton_PR(?, ?)}");
             stmt.setInt(1, pIdProv);
+            stmt.registerOutParameter(2, OracleTypes.CURSOR);
+            stmt.execute();
+            Map<String,Integer> res = new HashMap<String, Integer>();
+            
+            ResultSet r = (ResultSet) stmt.getObject(2);
+        
+            while(r.next()){
+                res.put(r.getString("NAME"), r.getInt("COUNT(P.ID_PROPOSAL)"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+            return res;
+        }
+        
+        public static Map<String,Integer> statsPropCountry( ) throws SQLException{
+            ConnectDB dataConnection= ConnectDB.getInstance();
+            Connection conn=dataConnection.getConnection();
+        
+            CallableStatement stmt=conn.prepareCall("{call REP_ESTATISTICCOUNTRY_PR(?)}");
+            
+            stmt.registerOutParameter(1, OracleTypes.CURSOR);
+            stmt.execute();
+            Map<String,Integer> res = new HashMap<String, Integer>();
+            
+            ResultSet r = (ResultSet) stmt.getObject(1);
+        
+            while(r.next()){
+                res.put(r.getString("NAME"), r.getInt("COUNT(P.ID_PROPOSAL)"));
+            //System.out.println(r.getString("id_proposal"));
+        }
+            return res;
+        }
+        
+        public static Map<String,Integer> statsPropProv(int pIdCount) throws SQLException{
+            ConnectDB dataConnection= ConnectDB.getInstance();
+            Connection conn=dataConnection.getConnection();
+        
+            CallableStatement stmt=conn.prepareCall("{call REP_ESTATISTICprovince_PR(?, ?)}");
+            stmt.setInt(1, pIdCount);
             stmt.registerOutParameter(2, OracleTypes.CURSOR);
             stmt.execute();
             Map<String,Integer> res = new HashMap<String, Integer>();
