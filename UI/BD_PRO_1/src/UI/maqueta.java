@@ -1012,7 +1012,12 @@ public class maqueta extends javax.swing.JFrame {
     }//GEN-LAST:event_addProposalButtonActionPerformed
 
     private void jobButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jobButtonActionPerformed
-        job newWindow = new job();
+        job newWindow = null;
+        try {
+            newWindow = new job();
+        } catch (SQLException ex) {
+            Logger.getLogger(maqueta.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         newWindow.setVisible(true);
         //this.setVisible(false);

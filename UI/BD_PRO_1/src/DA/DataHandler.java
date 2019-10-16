@@ -1676,6 +1676,18 @@ public class DataHandler {
         }
             return res;
         }
+        
+        public static int getPropDaily(int pIdComu)throws SQLException{
+        ConnectDB dataConnection= ConnectDB.getInstance();
+        Connection conn=dataConnection.getConnection();
+        
+        CallableStatement stmt=conn.prepareCall("{?= call getDailyProp(?)}");
+        stmt.registerOutParameter(1, java.sql.Types.INTEGER);
+        stmt.setInt(2, pIdComu);
+        stmt.execute();
+        int result = stmt.getInt(1);
+        return result;
+        }
     
     }
     

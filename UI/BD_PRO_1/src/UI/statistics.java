@@ -478,10 +478,7 @@ public class statistics extends javax.swing.JFrame {
                 result=DataHandler.statsPersCommu(DataHandler.getIdCanton(filter));
                 return result;
         }
-        result.put("Alforja Dorada",122);
-        result.put("San Jose", 1000);
-        result.put("Africa mia", 22);
-        result.put("china", 12311);
+ 
         return result;
     }
 }

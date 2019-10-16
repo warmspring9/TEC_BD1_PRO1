@@ -215,7 +215,12 @@ public class logIn extends javax.swing.JFrame {
 
     private void createAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAccountActionPerformed
   
-        createAccount newWindow = new createAccount();
+        createAccount newWindow = null;
+        try {
+            newWindow = new createAccount();
+        } catch (SQLException ex) {
+            Logger.getLogger(logIn.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         newWindow.setVisible(true);
         this.setVisible(false);

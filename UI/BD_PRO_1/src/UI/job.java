@@ -5,6 +5,8 @@
  */
 package UI;
 
+import Controller.Controller;
+import DA.DataHandler;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,16 +16,21 @@ import java.util.logging.Logger;
  * @author jalej
  */
 public class job extends javax.swing.JFrame {
-
+    Controller control=Controller.getInstance();
+    int idUser=control.getIdPerson();
     /**
      * Creates new form job
      */
-    public job() {
+    public job( ) throws SQLException {
         initComponents();
         //ProposalPanel prop=new ProposalPanel();
         this.setLocationRelativeTo(null);
         //jobPanel.add(prop);
+        ProposalPanel prop=new ProposalPanel(DataHandler.getPropDaily(control.getIdCommunity(control.getCommunityName(idUser))));
+        jobPanel.add(prop);
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -143,7 +150,11 @@ public class job extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new job().setVisible(true);
+                try {
+                    new job().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(job.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
