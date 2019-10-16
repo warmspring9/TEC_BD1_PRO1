@@ -202,7 +202,11 @@ public class statistics extends javax.swing.JFrame {
        // create dataset for pie chart
         Map<String,Integer> result = new HashMap<String, Integer>();
         DefaultPieDataset dataset = new DefaultPieDataset();
-        result = getUsersValues(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),filterField.getText());
+        try {
+            result = getUsersValues(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),filterField.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(statistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
         for(Map.Entry<String,Integer> entry : result.entrySet()){
             dataset.setValue(entry.getKey(), entry.getValue());
         }
@@ -457,17 +461,22 @@ public class statistics extends javax.swing.JFrame {
         return result;
     }
 
-    private Map<String, Integer> getUsersValues(String option, String filter) {
+    private Map<String, Integer> getUsersValues(String option, String filter) throws SQLException {
         System.out.println(option+" "+filter); //para probar era
         Map<String,Integer> result = new HashMap<String, Integer>();
         switch(option){
             case "countries":
-                //llama a event handler y consigue los datos
+                result=DataHandler.statsPersCountry();
+                return result;
             case "states":
-                //lo mismo pero ahora si con filtro
+                result=DataHandler.statsPersCant(DataHandler.getIdProvince(filter));
+                return result;
             case "provinces":
-                //lo mismo
+                result=DataHandler.statsPersProv(DataHandler.getIdCountry(filter));
+                return result;
             case "communities":
+                result=DataHandler.statsPersCommu(DataHandler.getIdCanton(filter));
+                return result;
         }
         result.put("Alforja Dorada",122);
         result.put("San Jose", 1000);
