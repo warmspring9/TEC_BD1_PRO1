@@ -5,18 +5,28 @@
  */
 package UI;
 
+import Controller.Controller;
+import DA.DataHandler;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+    
 /**
  *
  * @author jalej
  */
 public class createAccount extends javax.swing.JFrame {
-
+    Controller control=Controller.getInstance();
     /**
      * Creates new form createAccount
      */
-    public createAccount() {
+    public createAccount() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(null);
+        for(int i=0; i<control.getCommunitysNames().size(); i++ ){
+            commuBox.addItem(control.getCommunitysNames().get(i));
+        }
     }
 
     /**
@@ -39,19 +49,19 @@ public class createAccount extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        countryBox = new javax.swing.JComboBox();
-        ProvinceBox = new javax.swing.JComboBox();
         jLabel7 = new javax.swing.JLabel();
-        CantonBox = new javax.swing.JComboBox();
         PhotoLable = new javax.swing.JLabel();
-        districtBox = new javax.swing.JComboBox();
+        commuBox = new javax.swing.JComboBox();
         idField = new javax.swing.JTextField();
         NameField = new javax.swing.JTextField();
         firstLasNameField = new javax.swing.JTextField();
         secondLastNameField = new javax.swing.JTextField();
         addPhotoButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        phoneField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
+        emailField = new javax.swing.JTextField();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -83,6 +93,11 @@ public class createAccount extends javax.swing.JFrame {
         submitButton.setBorderPainted(false);
         submitButton.setContentAreaFilled(false);
         submitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        submitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         jLabel2.setText("Name :");
@@ -94,35 +109,21 @@ public class createAccount extends javax.swing.JFrame {
         jLabel4.setText("Second Last Name :");
 
         jLabel5.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
-        jLabel5.setText("Birthdate :");
+        jLabel5.setText("Password :");
 
         jLabel6.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         jLabel6.setText("User (ID) :");
 
-        countryBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
-        countryBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Country" }));
-
-        ProvinceBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
-        ProvinceBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Province" }));
-
         jLabel7.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
         jLabel7.setText("Residence :");
 
-        CantonBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
-        CantonBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Canton" }));
-        CantonBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CantonBoxActionPerformed(evt);
-            }
-        });
-
         PhotoLable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/add_image_png.png"))); // NOI18N
 
-        districtBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
-        districtBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "District" }));
-        districtBox.addActionListener(new java.awt.event.ActionListener() {
+        commuBox.setFont(new java.awt.Font("Corbel Light", 0, 14)); // NOI18N
+        commuBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "District" }));
+        commuBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                districtBoxActionPerformed(evt);
+                commuBoxActionPerformed(evt);
             }
         });
 
@@ -176,14 +177,32 @@ public class createAccount extends javax.swing.JFrame {
         addPhotoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel8.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
-        jLabel8.setText("Phone :");
+        jLabel8.setText("Email:");
 
-        jTextField1.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
-        jTextField1.setText("00000000");
-        jTextField1.setSelectionColor(new java.awt.Color(239, 131, 84));
-        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+        phoneField.setFont(new java.awt.Font("Corbel Light", 2, 14)); // NOI18N
+        phoneField.setText("00000000");
+        phoneField.setSelectionColor(new java.awt.Color(239, 131, 84));
+        phoneField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneFieldActionPerformed(evt);
+            }
+        });
+        phoneField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextField1KeyTyped(evt);
+                phoneFieldKeyTyped(evt);
+            }
+        });
+
+        passwordField.setText("jPasswordField1");
+
+        jLabel9.setFont(new java.awt.Font("Corbel Light", 0, 18)); // NOI18N
+        jLabel9.setText("Phone :");
+
+        emailField.setFont(new java.awt.Font("Corbel", 0, 14)); // NOI18N
+        emailField.setText("Email");
+        emailField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailFieldActionPerformed(evt);
             }
         });
 
@@ -192,46 +211,49 @@ public class createAccount extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(48, 48, 48)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(addPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PhotoLable, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(388, 388, 388)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CantonBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(districtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(addPhotoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PhotoLable, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(emailField)
+                        .addGap(105, 105, 105))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ProvinceBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(countryBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(idField)
                                     .addComponent(NameField)
                                     .addComponent(firstLasNameField)
-                                    .addComponent(secondLastNameField)
-                                    .addComponent(jTextField1))))))
-                .addGap(62, 62, 62)
-                .addComponent(submitButton)
+                                    .addComponent(secondLastNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                    .addComponent(phoneField)
+                                    .addComponent(passwordField))
+                                .addGap(62, 62, 62)
+                                .addComponent(submitButton))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(commuBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,35 +271,33 @@ public class createAccount extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(secondLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(countryBox))))
-                    .addComponent(PhotoLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProvinceBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addPhotoButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(3, 3, 3)
+                                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(commuBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(PhotoLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addPhotoButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(submitButton))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(CantonBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(districtBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jTextField1)
-                                .addGap(3, 3, 3)))))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(99, 99, 99)))
                 .addContainerGap())
         );
 
@@ -307,8 +327,8 @@ public class createAccount extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(backButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -337,13 +357,9 @@ public class createAccount extends javax.swing.JFrame {
 
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void CantonBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantonBoxActionPerformed
+    private void commuBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commuBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CantonBoxActionPerformed
-
-    private void districtBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_districtBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_districtBoxActionPerformed
+    }//GEN-LAST:event_commuBoxActionPerformed
 
     private void idFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idFieldKeyTyped
       
@@ -410,10 +426,10 @@ public class createAccount extends javax.swing.JFrame {
 
     }//GEN-LAST:event_idFieldActionPerformed
 
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+    private void phoneFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneFieldKeyTyped
        char caracter = evt.getKeyChar();
     
-        if (jTextField1.getText().length()== 8) 
+        if (phoneField.getText().length()== 8) 
          evt.consume(); 
 
       if(((caracter < '0') ||
@@ -422,7 +438,57 @@ public class createAccount extends javax.swing.JFrame {
       {
          evt.consume(); 
       }  
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }//GEN-LAST:event_phoneFieldKeyTyped
+
+    private void phoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneFieldActionPerformed
+
+    private void emailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailFieldActionPerformed
+
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        int idPerson=Integer.parseInt(idField.getText());
+        String name=NameField.getText();
+        String firstLast=firstLasNameField.getText();
+        String secondLast=secondLastNameField.getText();
+        String date="01/01/97";
+        int idCommu=commuBox.getSelectedIndex();
+        String phone=phoneField.getText();
+        String email=emailField.getText();
+        String pass=passwordField.getText();
+        
+       
+       
+        try {
+            DataHandler.createPerson(idPerson, name, firstLast, secondLast, date, idCommu);
+        } catch (SQLException ex) {
+            Logger.getLogger(createAccount.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error person");
+        }
+        try {
+            DataHandler.createPhone(phone, idPerson);
+        } catch (SQLException ex) {
+            Logger.getLogger(createAccount.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error Phone");
+        }
+        try {
+            DataHandler.createEmail(email, idPerson);
+        } catch (SQLException ex) {
+            Logger.getLogger(createAccount.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error email");
+        }
+        try {
+            DataHandler.createLogIn(idPerson, pass, 3);
+        } catch (SQLException ex) {
+            Logger.getLogger(createAccount.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erro log");
+        }
+        System.out.println("correcto");
+        
+        
+    }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -454,20 +520,22 @@ public class createAccount extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new createAccount().setVisible(true);
+                try {
+                    new createAccount().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(createAccount.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox CantonBox;
     private javax.swing.JTextField NameField;
     private javax.swing.JLabel PhotoLable;
-    private javax.swing.JComboBox ProvinceBox;
     private javax.swing.JButton addPhotoButton;
     private javax.swing.JButton backButton;
-    private javax.swing.JComboBox countryBox;
-    private javax.swing.JComboBox districtBox;
+    private javax.swing.JComboBox commuBox;
+    private javax.swing.JTextField emailField;
     private javax.swing.JTextField firstLasNameField;
     private javax.swing.JTextField idField;
     private javax.swing.JLabel jLabel1;
@@ -478,10 +546,12 @@ public class createAccount extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JTextField phoneField;
     private javax.swing.JTextField secondLastNameField;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables

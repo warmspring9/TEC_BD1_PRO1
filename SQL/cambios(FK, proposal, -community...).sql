@@ -22,6 +22,6 @@ alter table email modify id_person number(9,0);
 alter table vote modify id_person number(9,0);
 
 
-
+alter table commentary modify id_person number(9,0);
 
 

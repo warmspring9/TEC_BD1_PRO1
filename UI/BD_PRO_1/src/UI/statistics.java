@@ -57,7 +57,7 @@ public class statistics extends javax.swing.JFrame {
         btnCatChart = new javax.swing.JButton();
         btnPropChart = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        filterField = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -109,8 +109,13 @@ public class statistics extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(13, 49, 66));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
+        filterField.setBackground(new java.awt.Color(13, 49, 66));
+        filterField.setForeground(new java.awt.Color(255, 255, 255));
+        filterField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filterFieldActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(13, 49, 66));
 
@@ -161,7 +166,7 @@ public class statistics extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                        .addComponent(filterField, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPropChart)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -186,7 +191,7 @@ public class statistics extends javax.swing.JFrame {
                     .addComponent(btnCatChart)
                     .addComponent(btnPropChart)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(filterField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -197,7 +202,7 @@ public class statistics extends javax.swing.JFrame {
        // create dataset for pie chart
         Map<String,Integer> result = new HashMap<String, Integer>();
         DefaultPieDataset dataset = new DefaultPieDataset();
-        result = getUsersValues(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),jTextField1.getText());
+        result = getUsersValues(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),filterField.getText());
         for(Map.Entry<String,Integer> entry : result.entrySet()){
             dataset.setValue(entry.getKey(), entry.getValue());
         }
@@ -296,10 +301,15 @@ public class statistics extends javax.swing.JFrame {
         // create dataset for pie chart
         Map<String,Integer> result = new HashMap<String, Integer>();
         DefaultPieDataset dataset = new DefaultPieDataset();
-        result = getProposalValues(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),jTextField1.getText());
-        for(Map.Entry<String,Integer> entry : result.entrySet()){
+        try {
+            result = getProposalValues(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()),filterField.getText());
+            for(Map.Entry<String,Integer> entry : result.entrySet()){
             dataset.setValue(entry.getKey(), entry.getValue());
         }
+        } catch (SQLException ex) {
+            Logger.getLogger(statistics.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         /*
         dataset.setValue("TV", new Double(20));
         dataset.setValue("DVD", new Double(20));
@@ -336,6 +346,10 @@ public class statistics extends javax.swing.JFrame {
         newWindow.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void filterFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filterFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -380,11 +394,11 @@ public class statistics extends javax.swing.JFrame {
     private javax.swing.JButton btnCatChart;
     private javax.swing.JButton btnLineChart;
     private javax.swing.JButton btnPropChart;
+    private javax.swing.JTextField filterField;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pnChart;
     // End of variables declaration//GEN-END:variables
     private Map<String, Integer> getCategoryValues() throws SQLException {
@@ -398,21 +412,25 @@ public class statistics extends javax.swing.JFrame {
         return result;
     }
 
-    private Map<String,Integer> getProposalValues(String option, String filter){
-        System.out.println(option+" "+filter); //para probar era
+    private Map<String,Integer> getProposalValues(String option, String filter) throws SQLException{
+        ///System.out.println(option+" "+filter); //para probar era
         Map<String,Integer> result = new HashMap<String, Integer>();
         switch(option){
             case "countries":
-                //llama a event handler y consigue los datos
+                result=DataHandler.statsPropCountry( );
+                return result;
             case "states":
-                //lo mismo pero ahora si con filtro
+                result=DataHandler.statsPropCant(DataHandler.getIdProvince(filter));
+                return result;
             case "provinces":
-                //lo mismo
+                result=DataHandler.statsPropProv(DataHandler.getIdCountry(filter));
+                return result;
             case "communities":
+                result=DataHandler.statsPropCommu(DataHandler.getIdCanton(filter));
+                return result;
+                
+                
         }
-        result.put("Alforja Dorada",1231);
-        result.put("San Jose", 10);
-        result.put("Africa mia", 2);
         return result;
     }
     

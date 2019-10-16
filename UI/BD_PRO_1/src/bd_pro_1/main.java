@@ -11,13 +11,13 @@ public class main {
        
         //DataHandler.createProposal("Camaras cc", 2000, "Camaras en el parque", 117070816, 1);
         Map<String, Integer> pr;
-        pr = DataHandler.statsPropCommu(4);
+        pr = DataHandler.statsPropCountry();
         pr.forEach((k,v) -> System.out.println("Key: " + k + ": Value: " + v));
-        //for(int i=0; i<pr.size(); i++){
-            //System.out.println(pr.get(i));
+        for(int i=0; i<pr.size(); i++){
+            System.out.println(pr.get(i));
           
-        //}
-        //DataHandler.getProposalFeed(1);
+        }
+        
     }
     
 }

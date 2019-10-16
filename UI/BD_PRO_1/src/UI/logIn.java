@@ -195,6 +195,7 @@ public class logIn extends javax.swing.JFrame {
     private void LogInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogInButtonActionPerformed
         int idUser=Integer.parseInt(userNameField.getText());
         String pass=jPasswordField1.getText();
+        System.out.println("asd");
         try {
             if(Controller.correctLog(idUser, pass)){
                 control.setIdPerson(idUser);
